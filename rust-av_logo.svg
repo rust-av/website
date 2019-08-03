@@ -1,0 +1,2061 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="rust-av_512x512.svg">
+  <metadata
+     id="metadata879">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>icon_512x512</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="640"
+     inkscape:window-height="480"
+     id="namedview877"
+     showgrid="false"
+     inkscape:zoom="0.4609375"
+     inkscape:cx="256"
+     inkscape:cy="256"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <title
+     id="title4">icon_512x512</title>
+  <desc
+     id="desc6">Created using Figma</desc>
+  <g
+     id="Canvas"
+     transform="translate(-419 641)">
+    <clipPath
+       id="clip-0"
+       clip-rule="evenodd">
+      <path
+         d="M 419 -641L 931 -641L 931 -129L 419 -129L 419 -641Z"
+         fill="#FFFFFF"
+         id="path10" />
+    </clipPath>
+    <g
+       id="icon_512x512"
+       clip-path="url(#clip-0)">
+      <g
+         id="Group">
+        <g
+           id="Rectangle 2">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(503 -641)"
+             fill="#1F5C1B"
+             id="use15" />
+          <mask
+             id="mask0_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(503 -641)"
+               id="use18" />
+          </mask>
+          <g
+             mask="url(#mask0_outline_ins)"
+             id="g20">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(503 -641)"
+               fill="#979797"
+               id="use22" />
+          </g>
+        </g>
+        <g
+           id="Rectangle 2 Copy 3">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(419 -557)"
+             fill="#1F5C1B"
+             id="use25" />
+          <mask
+             id="mask1_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(419 -557)"
+               id="use28" />
+          </mask>
+          <g
+             mask="url(#mask1_outline_ins)"
+             id="g30">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(419 -557)"
+               fill="#979797"
+               id="use32" />
+          </g>
+        </g>
+        <g
+           id="Rectangle 2 Copy">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(419 -641)"
+             fill="#32A32B"
+             id="use35" />
+          <mask
+             id="mask2_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(419 -641)"
+               id="use38" />
+          </mask>
+          <g
+             mask="url(#mask2_outline_ins)"
+             id="g40">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(419 -641)"
+               fill="#979797"
+               id="use42" />
+          </g>
+        </g>
+        <g
+           id="Rectangle 2 Copy 2">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(503 -557)"
+             fill="#32A32B"
+             id="use45" />
+          <mask
+             id="mask3_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(503 -557)"
+               id="use48" />
+          </mask>
+          <g
+             mask="url(#mask3_outline_ins)"
+             id="g50">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(503 -557)"
+               fill="#979797"
+               id="use52" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g54">
+        <g
+           id="Rectangle 2 Copy 7">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(671 -641)"
+             fill="#1F5C1B"
+             id="use57" />
+          <mask
+             id="mask4_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(671 -641)"
+               id="use60" />
+          </mask>
+          <g
+             mask="url(#mask4_outline_ins)"
+             id="g62">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(671 -641)"
+               fill="#979797"
+               id="use64" />
+          </g>
+        </g>
+        <g
+           id="Rectangle 2 Copy 4">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(587 -557)"
+             fill="#1F5C1B"
+             id="use67" />
+          <mask
+             id="mask5_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(587 -557)"
+               id="use70" />
+          </mask>
+          <g
+             mask="url(#mask5_outline_ins)"
+             id="g72">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(587 -557)"
+               fill="#979797"
+               id="use74" />
+          </g>
+        </g>
+        <g
+           id="Rectangle 2 Copy 5">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(587 -641)"
+             fill="#32A32B"
+             id="use77" />
+          <mask
+             id="mask6_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(587 -641)"
+               id="use80" />
+          </mask>
+          <g
+             mask="url(#mask6_outline_ins)"
+             id="g82">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(587 -641)"
+               fill="#979797"
+               id="use84" />
+          </g>
+        </g>
+        <g
+           id="Rectangle 2 Copy 6">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(671 -557)"
+             fill="#32A32B"
+             id="use87" />
+          <mask
+             id="mask7_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(671 -557)"
+               id="use90" />
+          </mask>
+          <g
+             mask="url(#mask7_outline_ins)"
+             id="g92">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(671 -557)"
+               fill="#979797"
+               id="use94" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy">
+        <g
+           id="g97">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(629 -473)"
+             fill="#1F5C1B"
+             id="use99" />
+          <mask
+             id="mask8_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(629 -473)"
+               id="use102" />
+          </mask>
+          <g
+             mask="url(#mask8_outline_ins)"
+             id="g104">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(629 -473)"
+               fill="#979797"
+               id="use106" />
+          </g>
+        </g>
+        <g
+           id="g108">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(587 -431)"
+             fill="#1F5C1B"
+             id="use110" />
+          <mask
+             id="mask9_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(587 -431)"
+               id="use113" />
+          </mask>
+          <g
+             mask="url(#mask9_outline_ins)"
+             id="g115">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(587 -431)"
+               fill="#979797"
+               id="use117" />
+          </g>
+        </g>
+        <g
+           id="g119">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(587 -473)"
+             fill="#32A32B"
+             id="use121" />
+          <mask
+             id="mask10_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(587 -473)"
+               id="use124" />
+          </mask>
+          <g
+             mask="url(#mask10_outline_ins)"
+             id="g126">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(587 -473)"
+               fill="#979797"
+               id="use128" />
+          </g>
+        </g>
+        <g
+           id="g130">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(629 -431)"
+             fill="#32A32B"
+             id="use132" />
+          <mask
+             id="mask11_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(629 -431)"
+               id="use135" />
+          </mask>
+          <g
+             mask="url(#mask11_outline_ins)"
+             id="g137">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(629 -431)"
+               fill="#979797"
+               id="use139" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy 4">
+        <g
+           id="g142">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(503 -473)"
+             fill="#1F5C1B"
+             id="use144" />
+          <mask
+             id="mask12_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(503 -473)"
+               id="use147" />
+          </mask>
+          <g
+             mask="url(#mask12_outline_ins)"
+             id="g149">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(503 -473)"
+               fill="#979797"
+               id="use151" />
+          </g>
+        </g>
+        <g
+           id="g153">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(419 -389)"
+             fill="#1F5C1B"
+             id="use155" />
+          <mask
+             id="mask13_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(419 -389)"
+               id="use158" />
+          </mask>
+          <g
+             mask="url(#mask13_outline_ins)"
+             id="g160">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(419 -389)"
+               fill="#979797"
+               id="use162" />
+          </g>
+        </g>
+        <g
+           id="g164">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(419 -473)"
+             fill="#32A32B"
+             id="use166" />
+          <mask
+             id="mask14_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(419 -473)"
+               id="use169" />
+          </mask>
+          <g
+             mask="url(#mask14_outline_ins)"
+             id="g171">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(419 -473)"
+               fill="#979797"
+               id="use173" />
+          </g>
+        </g>
+        <g
+           id="g175">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(503 -389)"
+             fill="#32A32B"
+             id="use177" />
+          <mask
+             id="mask15_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(503 -389)"
+               id="use180" />
+          </mask>
+          <g
+             mask="url(#mask15_outline_ins)"
+             id="g182">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(503 -389)"
+               fill="#979797"
+               id="use184" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy 2">
+        <g
+           id="g187">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(671 -473)"
+             fill="#1F5C1B"
+             id="use189" />
+          <mask
+             id="mask16_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(671 -473)"
+               id="use192" />
+          </mask>
+          <g
+             mask="url(#mask16_outline_ins)"
+             id="g194">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(671 -473)"
+               fill="#979797"
+               id="use196" />
+          </g>
+        </g>
+        <g
+           id="g198">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(587 -389)"
+             fill="#1F5C1B"
+             id="use200" />
+          <mask
+             id="mask17_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(587 -389)"
+               id="use203" />
+          </mask>
+          <g
+             mask="url(#mask17_outline_ins)"
+             id="g205">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(587 -389)"
+               fill="#979797"
+               id="use207" />
+          </g>
+        </g>
+        <g
+           id="g209">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(587 -473)"
+             fill="#32A32B"
+             id="use211" />
+          <mask
+             id="mask18_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(587 -473)"
+               id="use214" />
+          </mask>
+          <g
+             mask="url(#mask18_outline_ins)"
+             id="g216">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(587 -473)"
+               fill="#979797"
+               id="use218" />
+          </g>
+        </g>
+        <g
+           id="g220">
+          <use
+             xlink:href="#path0_fill"
+             transform="translate(671 -389)"
+             fill="#32A32B"
+             id="use222" />
+          <mask
+             id="mask19_outline_ins">
+            <use
+               xlink:href="#path0_fill"
+               fill="white"
+               transform="translate(671 -389)"
+               id="use225" />
+          </mask>
+          <g
+             mask="url(#mask19_outline_ins)"
+             id="g227">
+            <use
+               xlink:href="#path1_stroke_2x"
+               transform="translate(671 -389)"
+               fill="#979797"
+               id="use229" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy 3">
+        <g
+           id="g232">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(629 -389)"
+             fill="#1F5C1B"
+             id="use234" />
+          <mask
+             id="mask20_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(629 -389)"
+               id="use237" />
+          </mask>
+          <g
+             mask="url(#mask20_outline_ins)"
+             id="g239">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(629 -389)"
+               fill="#979797"
+               id="use241" />
+          </g>
+        </g>
+        <g
+           id="g243">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(587 -347)"
+             fill="#1F5C1B"
+             id="use245" />
+          <mask
+             id="mask21_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(587 -347)"
+               id="use248" />
+          </mask>
+          <g
+             mask="url(#mask21_outline_ins)"
+             id="g250">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(587 -347)"
+               fill="#979797"
+               id="use252" />
+          </g>
+        </g>
+        <g
+           id="g254">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(587 -389)"
+             fill="#32A32B"
+             id="use256" />
+          <mask
+             id="mask22_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(587 -389)"
+               id="use259" />
+          </mask>
+          <g
+             mask="url(#mask22_outline_ins)"
+             id="g261">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(587 -389)"
+               fill="#979797"
+               id="use263" />
+          </g>
+        </g>
+        <g
+           id="g265">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(629 -347)"
+             fill="#32A32B"
+             id="use267" />
+          <mask
+             id="mask23_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(629 -347)"
+               id="use270" />
+          </mask>
+          <g
+             mask="url(#mask23_outline_ins)"
+             id="g272">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(629 -347)"
+               fill="#979797"
+               id="use274" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy 6">
+        <g
+           id="g277">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(713 -473)"
+             fill="#1F5C1B"
+             id="use279" />
+          <mask
+             id="mask24_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(713 -473)"
+               id="use282" />
+          </mask>
+          <g
+             mask="url(#mask24_outline_ins)"
+             id="g284">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(713 -473)"
+               fill="#979797"
+               id="use286" />
+          </g>
+        </g>
+        <g
+           id="g288">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(671 -431)"
+             fill="#1F5C1B"
+             id="use290" />
+          <mask
+             id="mask25_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(671 -431)"
+               id="use293" />
+          </mask>
+          <g
+             mask="url(#mask25_outline_ins)"
+             id="g295">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(671 -431)"
+               fill="#979797"
+               id="use297" />
+          </g>
+        </g>
+        <g
+           id="g299">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(671 -473)"
+             fill="#32A32B"
+             id="use301" />
+          <mask
+             id="mask26_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(671 -473)"
+               id="use304" />
+          </mask>
+          <g
+             mask="url(#mask26_outline_ins)"
+             id="g306">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(671 -473)"
+               fill="#979797"
+               id="use308" />
+          </g>
+        </g>
+        <g
+           id="g310">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(713 -431)"
+             fill="#32A32B"
+             id="use312" />
+          <mask
+             id="mask27_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(713 -431)"
+               id="use315" />
+          </mask>
+          <g
+             mask="url(#mask27_outline_ins)"
+             id="g317">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(713 -431)"
+               fill="#979797"
+               id="use319" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy 7">
+        <g
+           id="g322">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(713 -557)"
+             fill="#1F5C1B"
+             id="use324" />
+          <mask
+             id="mask28_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(713 -557)"
+               id="use327" />
+          </mask>
+          <g
+             mask="url(#mask28_outline_ins)"
+             id="g329">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(713 -557)"
+               fill="#979797"
+               id="use331" />
+          </g>
+        </g>
+        <g
+           id="g333">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(671 -515)"
+             fill="#1F5C1B"
+             id="use335" />
+          <mask
+             id="mask29_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(671 -515)"
+               id="use338" />
+          </mask>
+          <g
+             mask="url(#mask29_outline_ins)"
+             id="g340">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(671 -515)"
+               fill="#979797"
+               id="use342" />
+          </g>
+        </g>
+        <g
+           id="g344">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(671 -557)"
+             fill="#32A32B"
+             id="use346" />
+          <mask
+             id="mask30_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(671 -557)"
+               id="use349" />
+          </mask>
+          <g
+             mask="url(#mask30_outline_ins)"
+             id="g351">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(671 -557)"
+               fill="#979797"
+               id="use353" />
+          </g>
+        </g>
+        <g
+           id="g355">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(713 -515)"
+             fill="#32A32B"
+             id="use357" />
+          <mask
+             id="mask31_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(713 -515)"
+               id="use360" />
+          </mask>
+          <g
+             mask="url(#mask31_outline_ins)"
+             id="g362">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(713 -515)"
+               fill="#979797"
+               id="use364" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy 8">
+        <g
+           id="g367">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(629 -473)"
+             fill="#1F5C1B"
+             id="use369" />
+          <mask
+             id="mask32_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(629 -473)"
+               id="use372" />
+          </mask>
+          <g
+             mask="url(#mask32_outline_ins)"
+             id="g374">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(629 -473)"
+               fill="#979797"
+               id="use376" />
+          </g>
+        </g>
+        <g
+           id="g378">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(587 -431)"
+             fill="#1F5C1B"
+             id="use380" />
+          <mask
+             id="mask33_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(587 -431)"
+               id="use383" />
+          </mask>
+          <g
+             mask="url(#mask33_outline_ins)"
+             id="g385">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(587 -431)"
+               fill="#979797"
+               id="use387" />
+          </g>
+        </g>
+        <g
+           id="g389">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(587 -473)"
+             fill="#32A32B"
+             id="use391" />
+          <mask
+             id="mask34_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(587 -473)"
+               id="use394" />
+          </mask>
+          <g
+             mask="url(#mask34_outline_ins)"
+             id="g396">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(587 -473)"
+               fill="#979797"
+               id="use398" />
+          </g>
+        </g>
+        <g
+           id="g400">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(629 -431)"
+             fill="#32A32B"
+             id="use402" />
+          <mask
+             id="mask35_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(629 -431)"
+               id="use405" />
+          </mask>
+          <g
+             mask="url(#mask35_outline_ins)"
+             id="g407">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(629 -431)"
+               fill="#979797"
+               id="use409" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy 9">
+        <g
+           id="g412">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(545 -389)"
+             fill="#1F5C1B"
+             id="use414" />
+          <mask
+             id="mask36_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(545 -389)"
+               id="use417" />
+          </mask>
+          <g
+             mask="url(#mask36_outline_ins)"
+             id="g419">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(545 -389)"
+               fill="#979797"
+               id="use421" />
+          </g>
+        </g>
+        <g
+           id="g423">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(503 -347)"
+             fill="#1F5C1B"
+             id="use425" />
+          <mask
+             id="mask37_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(503 -347)"
+               id="use428" />
+          </mask>
+          <g
+             mask="url(#mask37_outline_ins)"
+             id="g430">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(503 -347)"
+               fill="#979797"
+               id="use432" />
+          </g>
+        </g>
+        <g
+           id="g434">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(503 -389)"
+             fill="#32A32B"
+             id="use436" />
+          <mask
+             id="mask38_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(503 -389)"
+               id="use439" />
+          </mask>
+          <g
+             mask="url(#mask38_outline_ins)"
+             id="g441">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(503 -389)"
+               fill="#979797"
+               id="use443" />
+          </g>
+        </g>
+        <g
+           id="g445">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(545 -347)"
+             fill="#32A32B"
+             id="use447" />
+          <mask
+             id="mask39_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(545 -347)"
+               id="use450" />
+          </mask>
+          <g
+             mask="url(#mask39_outline_ins)"
+             id="g452">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(545 -347)"
+               fill="#979797"
+               id="use454" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="Group Copy 5">
+        <g
+           id="g457">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(713 -389)"
+             fill="#1F5C1B"
+             id="use459" />
+          <mask
+             id="mask40_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(713 -389)"
+               id="use462" />
+          </mask>
+          <g
+             mask="url(#mask40_outline_ins)"
+             id="g464">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(713 -389)"
+               fill="#979797"
+               id="use466" />
+          </g>
+        </g>
+        <g
+           id="g468">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(671 -347)"
+             fill="#1F5C1B"
+             id="use470" />
+          <mask
+             id="mask41_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(671 -347)"
+               id="use473" />
+          </mask>
+          <g
+             mask="url(#mask41_outline_ins)"
+             id="g475">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(671 -347)"
+               fill="#979797"
+               id="use477" />
+          </g>
+        </g>
+        <g
+           id="g479">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(671 -389)"
+             fill="#32A32B"
+             id="use481" />
+          <mask
+             id="mask42_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(671 -389)"
+               id="use484" />
+          </mask>
+          <g
+             mask="url(#mask42_outline_ins)"
+             id="g486">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(671 -389)"
+               fill="#979797"
+               id="use488" />
+          </g>
+        </g>
+        <g
+           id="g490">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(713 -347)"
+             fill="#32A32B"
+             id="use492" />
+          <mask
+             id="mask43_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(713 -347)"
+               id="use495" />
+          </mask>
+          <g
+             mask="url(#mask43_outline_ins)"
+             id="g497">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(713 -347)"
+               fill="#979797"
+               id="use499" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="g501">
+        <g
+           id="g503">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(713 -389)"
+             fill="#1F5C1B"
+             id="use505" />
+          <mask
+             id="mask44_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(713 -389)"
+               id="use508" />
+          </mask>
+          <g
+             mask="url(#mask44_outline_ins)"
+             id="g510">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(713 -389)"
+               fill="#979797"
+               id="use512" />
+          </g>
+        </g>
+        <g
+           id="g514">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(671 -347)"
+             fill="#1F5C1B"
+             id="use516" />
+          <mask
+             id="mask45_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(671 -347)"
+               id="use519" />
+          </mask>
+          <g
+             mask="url(#mask45_outline_ins)"
+             id="g521">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(671 -347)"
+               fill="#979797"
+               id="use523" />
+          </g>
+        </g>
+        <g
+           id="g525">
+          <use
+             xlink:href="#path2_fill"
+             transform="translate(713 -347)"
+             fill="#32A32B"
+             id="use527" />
+          <mask
+             id="mask46_outline_ins">
+            <use
+               xlink:href="#path2_fill"
+               fill="white"
+               transform="translate(713 -347)"
+               id="use530" />
+          </mask>
+          <g
+             mask="url(#mask46_outline_ins)"
+             id="g532">
+            <use
+               xlink:href="#path3_stroke_2x"
+               transform="translate(713 -347)"
+               fill="#979797"
+               id="use534" />
+          </g>
+        </g>
+        <g
+           id="g536">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(692 -347)"
+             fill="#1F5C1B"
+             id="use538" />
+          <mask
+             id="mask47_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(692 -347)"
+               id="use541" />
+          </mask>
+          <g
+             mask="url(#mask47_outline_ins)"
+             id="g543">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(692 -347)"
+               fill="#979797"
+               id="use545" />
+          </g>
+        </g>
+        <g
+           id="g547">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(671 -326)"
+             fill="#1F5C1B"
+             id="use549" />
+          <mask
+             id="mask48_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(671 -326)"
+               id="use552" />
+          </mask>
+          <g
+             mask="url(#mask48_outline_ins)"
+             id="g554">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(671 -326)"
+               fill="#979797"
+               id="use556" />
+          </g>
+        </g>
+        <g
+           id="g558">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(671 -347)"
+             fill="#32A32B"
+             id="use560" />
+          <mask
+             id="mask49_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(671 -347)"
+               id="use563" />
+          </mask>
+          <g
+             mask="url(#mask49_outline_ins)"
+             id="g565">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(671 -347)"
+               fill="#979797"
+               id="use567" />
+          </g>
+        </g>
+        <g
+           id="g569">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(692 -326)"
+             fill="#32A32B"
+             id="use571" />
+          <mask
+             id="mask50_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(692 -326)"
+               id="use574" />
+          </mask>
+          <g
+             mask="url(#mask50_outline_ins)"
+             id="g576">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(692 -326)"
+               fill="#979797"
+               id="use578" />
+          </g>
+        </g>
+        <g
+           id="g580">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(734 -389)"
+             fill="#1F5C1B"
+             id="use582" />
+          <mask
+             id="mask51_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(734 -389)"
+               id="use585" />
+          </mask>
+          <g
+             mask="url(#mask51_outline_ins)"
+             id="g587">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(734 -389)"
+               fill="#979797"
+               id="use589" />
+          </g>
+        </g>
+        <g
+           id="g591">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(713 -368)"
+             fill="#1F5C1B"
+             id="use593" />
+          <mask
+             id="mask52_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(713 -368)"
+               id="use596" />
+          </mask>
+          <g
+             mask="url(#mask52_outline_ins)"
+             id="g598">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(713 -368)"
+               fill="#979797"
+               id="use600" />
+          </g>
+        </g>
+        <g
+           id="g602">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(713 -389)"
+             fill="#32A32B"
+             id="use604" />
+          <mask
+             id="mask53_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(713 -389)"
+               id="use607" />
+          </mask>
+          <g
+             mask="url(#mask53_outline_ins)"
+             id="g609">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(713 -389)"
+               fill="#979797"
+               id="use611" />
+          </g>
+        </g>
+        <g
+           id="g613">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(734 -368)"
+             fill="#32A32B"
+             id="use615" />
+          <mask
+             id="mask54_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(734 -368)"
+               id="use618" />
+          </mask>
+          <g
+             mask="url(#mask54_outline_ins)"
+             id="g620">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(734 -368)"
+               fill="#979797"
+               id="use622" />
+          </g>
+        </g>
+        <g
+           id="g624">
+          <g
+             id="g626">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(692 -389)"
+               fill="#1F5C1B"
+               id="use628" />
+            <mask
+               id="mask55_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(692 -389)"
+                 id="use631" />
+            </mask>
+            <g
+               mask="url(#mask55_outline_ins)"
+               id="g633">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(692 -389)"
+                 fill="#979797"
+                 id="use635" />
+            </g>
+          </g>
+          <g
+             id="g637">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(671 -368)"
+               fill="#1F5C1B"
+               id="use639" />
+            <mask
+               id="mask56_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(671 -368)"
+                 id="use642" />
+            </mask>
+            <g
+               mask="url(#mask56_outline_ins)"
+               id="g644">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(671 -368)"
+                 fill="#979797"
+                 id="use646" />
+            </g>
+          </g>
+          <g
+             id="g648">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(671 -389)"
+               fill="#32A32B"
+               id="use650" />
+            <mask
+               id="mask57_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(671 -389)"
+                 id="use653" />
+            </mask>
+            <g
+               mask="url(#mask57_outline_ins)"
+               id="g655">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(671 -389)"
+                 fill="#979797"
+                 id="use657" />
+            </g>
+          </g>
+          <g
+             id="g659">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(692 -368)"
+               fill="#32A32B"
+               id="use661" />
+            <mask
+               id="mask58_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(692 -368)"
+                 id="use664" />
+            </mask>
+            <g
+               mask="url(#mask58_outline_ins)"
+               id="g666">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(692 -368)"
+                 fill="#979797"
+                 id="use668" />
+            </g>
+          </g>
+          <g
+             id="g670">
+            <use
+               xlink:href="#path2_fill"
+               transform="translate(671 -389)"
+               fill="#32A32B"
+               id="use672" />
+            <mask
+               id="mask59_outline_ins">
+              <use
+                 xlink:href="#path2_fill"
+                 fill="white"
+                 transform="translate(671 -389)"
+                 id="use675" />
+            </mask>
+            <g
+               mask="url(#mask59_outline_ins)"
+               id="g677">
+              <use
+                 xlink:href="#path3_stroke_2x"
+                 transform="translate(671 -389)"
+                 fill="#979797"
+                 id="use679" />
+            </g>
+          </g>
+          <g
+             id="g681">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(692 -389)"
+               fill="#1F5C1B"
+               id="use683" />
+            <mask
+               id="mask60_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(692 -389)"
+                 id="use686" />
+            </mask>
+            <g
+               mask="url(#mask60_outline_ins)"
+               id="g688">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(692 -389)"
+                 fill="#979797"
+                 id="use690" />
+            </g>
+          </g>
+          <g
+             id="g692">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(671 -368)"
+               fill="#1F5C1B"
+               id="use694" />
+            <mask
+               id="mask61_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(671 -368)"
+                 id="use697" />
+            </mask>
+            <g
+               mask="url(#mask61_outline_ins)"
+               id="g699">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(671 -368)"
+                 fill="#979797"
+                 id="use701" />
+            </g>
+          </g>
+          <g
+             id="g703">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(671 -389)"
+               fill="#32A32B"
+               id="use705" />
+            <mask
+               id="mask62_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(671 -389)"
+                 id="use708" />
+            </mask>
+            <g
+               mask="url(#mask62_outline_ins)"
+               id="g710">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(671 -389)"
+                 fill="#979797"
+                 id="use712" />
+            </g>
+          </g>
+          <g
+             id="g714">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(692 -368)"
+               fill="#32A32B"
+               id="use716" />
+            <mask
+               id="mask63_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(692 -368)"
+                 id="use719" />
+            </mask>
+            <g
+               mask="url(#mask63_outline_ins)"
+               id="g721">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(692 -368)"
+                 fill="#979797"
+                 id="use723" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="Group Copy 10">
+          <g
+             id="g726">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(692 -389)"
+               fill="#1F5C1B"
+               id="use728" />
+            <mask
+               id="mask64_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(692 -389)"
+                 id="use731" />
+            </mask>
+            <g
+               mask="url(#mask64_outline_ins)"
+               id="g733">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(692 -389)"
+                 fill="#979797"
+                 id="use735" />
+            </g>
+          </g>
+          <g
+             id="g737">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(671 -368)"
+               fill="#1F5C1B"
+               id="use739" />
+            <mask
+               id="mask65_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(671 -368)"
+                 id="use742" />
+            </mask>
+            <g
+               mask="url(#mask65_outline_ins)"
+               id="g744">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(671 -368)"
+                 fill="#979797"
+                 id="use746" />
+            </g>
+          </g>
+          <g
+             id="g748">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(671 -389)"
+               fill="#32A32B"
+               id="use750" />
+            <mask
+               id="mask66_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(671 -389)"
+                 id="use753" />
+            </mask>
+            <g
+               mask="url(#mask66_outline_ins)"
+               id="g755">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(671 -389)"
+                 fill="#979797"
+                 id="use757" />
+            </g>
+          </g>
+          <g
+             id="g759">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(692 -368)"
+               fill="#32A32B"
+               id="use761" />
+            <mask
+               id="mask67_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(692 -368)"
+                 id="use764" />
+            </mask>
+            <g
+               mask="url(#mask67_outline_ins)"
+               id="g766">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(692 -368)"
+                 fill="#979797"
+                 id="use768" />
+            </g>
+          </g>
+          <g
+             id="g770">
+            <use
+               xlink:href="#path2_fill"
+               transform="translate(671 -389)"
+               fill="#32A32B"
+               id="use772" />
+            <mask
+               id="mask68_outline_ins">
+              <use
+                 xlink:href="#path2_fill"
+                 fill="white"
+                 transform="translate(671 -389)"
+                 id="use775" />
+            </mask>
+            <g
+               mask="url(#mask68_outline_ins)"
+               id="g777">
+              <use
+                 xlink:href="#path3_stroke_2x"
+                 transform="translate(671 -389)"
+                 fill="#979797"
+                 id="use779" />
+            </g>
+          </g>
+          <g
+             id="g781">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(692 -389)"
+               fill="#1F5C1B"
+               id="use783" />
+            <mask
+               id="mask69_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(692 -389)"
+                 id="use786" />
+            </mask>
+            <g
+               mask="url(#mask69_outline_ins)"
+               id="g788">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(692 -389)"
+                 fill="#979797"
+                 id="use790" />
+            </g>
+          </g>
+          <g
+             id="g792">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(671 -368)"
+               fill="#1F5C1B"
+               id="use794" />
+            <mask
+               id="mask70_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(671 -368)"
+                 id="use797" />
+            </mask>
+            <g
+               mask="url(#mask70_outline_ins)"
+               id="g799">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(671 -368)"
+                 fill="#979797"
+                 id="use801" />
+            </g>
+          </g>
+          <g
+             id="g803">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(671 -389)"
+               fill="#32A32B"
+               id="use805" />
+            <mask
+               id="mask71_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(671 -389)"
+                 id="use808" />
+            </mask>
+            <g
+               mask="url(#mask71_outline_ins)"
+               id="g810">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(671 -389)"
+                 fill="#979797"
+                 id="use812" />
+            </g>
+          </g>
+          <g
+             id="g814">
+            <use
+               xlink:href="#path4_fill"
+               transform="translate(692 -368)"
+               fill="#32A32B"
+               id="use816" />
+            <mask
+               id="mask72_outline_ins">
+              <use
+                 xlink:href="#path4_fill"
+                 fill="white"
+                 transform="translate(692 -368)"
+                 id="use819" />
+            </mask>
+            <g
+               mask="url(#mask72_outline_ins)"
+               id="g821">
+              <use
+                 xlink:href="#path5_stroke_2x"
+                 transform="translate(692 -368)"
+                 fill="#979797"
+                 id="use823" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="g825">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(734 -347)"
+             fill="#1F5C1B"
+             id="use827" />
+          <mask
+             id="mask73_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(734 -347)"
+               id="use830" />
+          </mask>
+          <g
+             mask="url(#mask73_outline_ins)"
+             id="g832">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(734 -347)"
+               fill="#979797"
+               id="use834" />
+          </g>
+        </g>
+        <g
+           id="g836">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(713 -326)"
+             fill="#1F5C1B"
+             id="use838" />
+          <mask
+             id="mask74_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(713 -326)"
+               id="use841" />
+          </mask>
+          <g
+             mask="url(#mask74_outline_ins)"
+             id="g843">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(713 -326)"
+               fill="#979797"
+               id="use845" />
+          </g>
+        </g>
+        <g
+           id="g847">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(713 -347)"
+             fill="#32A32B"
+             id="use849" />
+          <mask
+             id="mask75_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(713 -347)"
+               id="use852" />
+          </mask>
+          <g
+             mask="url(#mask75_outline_ins)"
+             id="g854">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(713 -347)"
+               fill="#979797"
+               id="use856" />
+          </g>
+        </g>
+        <g
+           id="g858">
+          <use
+             xlink:href="#path4_fill"
+             transform="translate(734 -326)"
+             fill="#32A32B"
+             id="use860" />
+          <mask
+             id="mask76_outline_ins">
+            <use
+               xlink:href="#path4_fill"
+               fill="white"
+               transform="translate(734 -326)"
+               id="use863" />
+          </mask>
+          <g
+             mask="url(#mask76_outline_ins)"
+             id="g865">
+            <use
+               xlink:href="#path5_stroke_2x"
+               transform="translate(734 -326)"
+               fill="#979797"
+               id="use867" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <defs
+     id="defs869">
+    <path
+       id="path0_fill"
+       fill-rule="evenodd"
+       d="M 0 0L 84 0L 84 84L 0 84L 0 0Z" />
+    <path
+       id="path1_stroke_2x"
+       d="M 0 0L 0 -1L -1 -1L -1 0L 0 0ZM 84 0L 85 0L 85 -1L 84 -1L 84 0ZM 84 84L 84 85L 85 85L 85 84L 84 84ZM 0 84L -1 84L -1 85L 0 85L 0 84ZM 0 1L 84 1L 84 -1L 0 -1L 0 1ZM 83 0L 83 84L 85 84L 85 0L 83 0ZM 84 83L 0 83L 0 85L 84 85L 84 83ZM 1 84L 1 0L -1 0L -1 84L 1 84Z" />
+    <path
+       id="path2_fill"
+       fill-rule="evenodd"
+       d="M 0 0L 42 0L 42 42L 0 42L 0 0Z" />
+    <path
+       id="path3_stroke_2x"
+       d="M 0 0L 0 -0.5L -0.5 -0.5L -0.5 0L 0 0ZM 42 0L 42.5 0L 42.5 -0.5L 42 -0.5L 42 0ZM 42 42L 42 42.5L 42.5 42.5L 42.5 42L 42 42ZM 0 42L -0.5 42L -0.5 42.5L 0 42.5L 0 42ZM 0 0.5L 42 0.5L 42 -0.5L 0 -0.5L 0 0.5ZM 41.5 0L 41.5 42L 42.5 42L 42.5 0L 41.5 0ZM 42 41.5L 0 41.5L 0 42.5L 42 42.5L 42 41.5ZM 0.5 42L 0.5 0L -0.5 0L -0.5 42L 0.5 42Z" />
+    <path
+       id="path4_fill"
+       fill-rule="evenodd"
+       d="M 0 0L 21 0L 21 21L 0 21L 0 0Z" />
+    <path
+       id="path5_stroke_2x"
+       d="M 0 0L 0 -0.5L -0.5 -0.5L -0.5 0L 0 0ZM 21 0L 21.5 0L 21.5 -0.5L 21 -0.5L 21 0ZM 21 21L 21 21.5L 21.5 21.5L 21.5 21L 21 21ZM 0 21L -0.5 21L -0.5 21.5L 0 21.5L 0 21ZM 0 0.5L 21 0.5L 21 -0.5L 0 -0.5L 0 0.5ZM 20.5 0L 20.5 21L 21.5 21L 21.5 0L 20.5 0ZM 21 20.5L 0 20.5L 0 21.5L 21 21.5L 21 20.5ZM 0.5 21L 0.5 0L -0.5 0L -0.5 21L 0.5 21Z" />
+  </defs>
+</svg>
