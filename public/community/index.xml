@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Communities on rav1e</title>
-    <link>https://rav1e.rs/community/</link>
+    <link>https://mindfreeze.videolan.me/rav1e/community/</link>
     <description>Recent content in Communities on rav1e</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://rav1e.rs/community/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mindfreeze.videolan.me/rav1e/community/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Third-party crates</title>
-      <link>https://rav1e.rs/community/third-party/</link>
+      <link>https://mindfreeze.videolan.me/rav1e/community/third-party/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://rav1e.rs/community/third-party/</guid>
+      <guid>https://mindfreeze.videolan.me/rav1e/community/third-party/</guid>
       <description>Currently the futures, tokio-core, tokio-service, and tokio-proto crates provide the foundation for the Tokio ecosystem. There&amp;rsquo;s a growing set of crates outside of Tokio itself, however, filling in more functionality!
  tokio-curl is an HTTP client library backed by the libcurl C library. tokio-timer is a timer library providing finer-grained control over timers and helpful timeout facilities over the types in tokio-core. tokio-tls is a library for TLS streams backed by native-tls.</description>
     </item>
