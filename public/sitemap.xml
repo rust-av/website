@@ -3,177 +3,177 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/overview/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/overview/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</loc>
     <lastmod>2019-04-25T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/blog/2019-04-09-using-rav1e-from-your-code/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/</loc>
     <lastmod>2019-04-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</loc>
     <lastmod>2019-02-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/getting-started/hello-world/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/getting-started/hello-world/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/getting-started/futures/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/getting-started/futures/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/getting-started/runtime/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/getting-started/runtime/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/getting-started/echo/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/getting-started/echo/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/futures/overview/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/futures/overview/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/futures/basic/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/futures/basic/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/futures/getting_asynchronous/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/futures/getting_asynchronous/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/futures/combinators/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/futures/combinators/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/futures/streams/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/futures/streams/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/futures/spawning/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/futures/spawning/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/futures/leaf-futures/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/futures/leaf-futures/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/futures/runtime-model/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/futures/runtime-model/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/io/overview/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/io/overview/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/io/reading_writing_data/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/io/reading_writing_data/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/io/async_read_write/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/io/async_read_write/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/io/impl_async_read_write/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/io/impl_async_read_write/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/io/filesystem/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/io/filesystem/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/io/datagrams/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/io/datagrams/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/futures/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/futures/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/tasks/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/tasks/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/runtime-model/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/runtime-model/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/io/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/io/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/chat/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/chat/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/timers/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/timers/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/futures-mechanics/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/futures-mechanics/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/returning/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/returning/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/frames/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/frames/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/going-deeper/building-runtime/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/building-runtime/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/internals/intro/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/internals/intro/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/internals/runtime-model/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/internals/runtime-model/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/internals/net/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/internals/net/</loc>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/blog/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/blog/</loc>
     <lastmod>2019-04-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/</loc>
     <lastmod>2019-04-25T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/categories/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/docs/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/docs/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/tags/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://mindfreeze.videolan.me/community/</loc>
+    <loc>https://mindfreeze.videolan.me/rav1e/community/</loc>
   </url>
   
 </urlset>
