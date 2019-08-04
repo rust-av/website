@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="https://mindfreeze.videolan.me/rav1e/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://mindfreeze.videolan.me/rav1e/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://mindfreeze.videolan.me/rav1e/favicon-16x16.png">
+    <link rel="manifest" href="https://mindfreeze.videolan.me/rav1e/manifest.json">
+    <link rel="mask-icon" href="https://mindfreeze.videolan.me/rav1e/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <link rel="stylesheet" href="https://mindfreeze.videolan.me/rav1e/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="https://mindfreeze.videolan.me/rav1e/css/bootstrap.css">
+    <link rel="stylesheet" href="https://mindfreeze.videolan.me/rav1e/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://mindfreeze.videolan.me/rav1e/css/rav1e.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+
+    
+    <link rel="alternate" type="application/rss+xml" href="https://tokio.rs/blog/index.xml" />
+
+    <title>
+      
+        Using rav1e - from your own code - rav1e
+      
+    </title>
+  </head>
+  <body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row tk-navbar">
+      <a class="navbar-brand" href="https://mindfreeze.videolan.me/rav1e/">
+        <img src="https://mindfreeze.videolan.me/rav1e/img/logo.png" class="align-middle" alt="">
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="https://mindfreeze.videolan.me/rav1e/">Home</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            
+            <a class="nav-link " href="https://mindfreeze.videolan.me/rav1e/docs/getting-started/hello-world/">Documentation</a>
+          </li>
+          <li class="nav-item">
+            
+            <a class="nav-link " href="https://mindfreeze.videolan.me/rav1e/community/">Community</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            <a class="nav-link  active " href="https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/xiph/rav1e" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"/></svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://gitter.im/tokio-rs/tokio" target="_blank" rel="noopener" aria-label="Gitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" focusable="false"><title>Gitter</title><path fill="currentColor" d="M8.501 4.001H10.5V24H8.501V4.001zm6.999 0V24h-2V4.001h2zM3.5 0h2.001v15H3.5V0zm15 4.001h2V15h-2V4.001z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </header>
+
+
+
+<div class="container-fluid tk-blog">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 tk-sidebar">
+      
+      <div class="tk-docs-toggle d-md-none p-0 d-flex ml-3 collapsed align-item-center">
+        <h1 class="tk-title">Using rav1e - from your own code</h1>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#tk-docs-nav" aria-controls="tk-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+        </button>
+      </div>
+      <nav class="tk-links collapse" id="tk-docs-nav">
+          <div class="tk-toc-item active">
+            <p class="tk-toc-link">
+              Blog Posts
+            </p>
+            <ul class="nav tk-sidenav">
+              
+              
+                  <li><a href="https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./" class="">Implementing Tile Encoding in rav1e</a></li>
+              
+                  <li><a href="https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/" class="active">Using rav1e - from your own code</a></li>
+              
+                  <li><a href="https://mindfreeze.videolan.me/rav1e/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/" class="">Why you should care about AOM Analyzer</a></li>
+              
+            </ul>
+          </div>
+      </nav>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 tk-toc">
+      <div class="section-nav">
+        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#rav1e-api">Rav1e API</a></li>
+</ul></li>
+<li><a href="#struct-frame-the-raw-pixel-data">struct Frame: The raw pixel data</a></li>
+<li><a href="#struct-packet-the-encoded-bitstream">struct Packet: The encoded bitstream</a></li>
+<li><a href="#struct-config-the-encoder-configuration">struct Config: The encoder configuration</a>
+<ul>
+<li>
+<ul>
+<li><a href="#config">Config</a>
+<ul>
+<li><a href="#methods">Methods</a>
+<ul>
+<li><a href="#new-context">NEW_CONTEXT</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#context">Context</a>
+<ul>
+<li><a href="#methods-1">Methods</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#new-frame-produces-a-frame-according-to-the-dimension-and-pixel-format-information-in-the-context">new_frame() produces a frame according to the dimension and pixel format information in the Context.</a></li>
+<li><a href="#send-frame-none">send_frame(None).</a>
+<ul>
+<li>
+<ul>
+<li><a href="#workflow">Workflow</a></li>
+</ul></li>
+<li><a href="#crav1e-api">Crav1e API</a>
+<ul>
+<li><a href="#raconfig">RaConfig</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#rav1e-config-default-allocates-a-default-configuration">rav1e_config_default allocates a default configuration.</a></li>
+<li><a href="#key-string">key string.</a>
+<ul>
+<li>
+<ul>
+<li><a href="#racontext">RaContext</a></li>
+<li><a href="#raframe">RaFrame</a></li>
+<li><a href="#raencoderstatus">RaEncoderStatus</a></li>
+<li><a href="#workflow-1">Workflow</a></li>
+</ul></li>
+<li><a href="#in-closing">In closing</a>
+<ul>
+<li><a href="#coming-next">Coming next</a></li>
+<li><a href="#thanks">Thanks</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+
+    </div>
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 tk-content tk-docs">
+      <h1 class="tk-title">Using rav1e - from your own code</h1>
+      <p class="tk-date">Luca Barbato</p>
+      
+      
+
+<blockquote>
+<p><a href="https://aomedia.org/av1-features/">AV1</a> is a modern video codec brought to you by an alliance of <a href="https://aomedia.org/membership/members/">many</a> different bigger and smaller players in the multimedia field.<br />
+I’m part of the <a href="https://videolan.org/">VideoLan</a> organization and I spent quite a bit of time on this codec lately.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<p><a href="https://github.com/xiph/rav1e/">rav1e</a>: The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers.<br />
+It is written in <a href="https://rustlang.org/">rust</a> and strives to provide good speed, quality and stay maintainable.</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<p><a href="https://github.com/lu-zero/crav1e">crav1e</a>: A companion <a href="https://doc.rust-lang.org/book/crates-and-modules.html">crate</a>, written by <a href="https://github.com/lu-zero">yours truly</a>, that provides a C-API, so the encoder can be used by C libraries and programs.</p>
+</blockquote>
+
+<hr />
+
+<p>This article will just give a quick overview of the API available right now and it is mainly to help people start using it and hopefully report issues and problem.</p>
+
+<h3 id="rav1e-api">Rav1e API</h3>
+
+<p>The current API is built around the following 4 structs and 1 enum:</p>
+
+<ul>
+<li></li>
+</ul>
+
+<h2 id="struct-frame-the-raw-pixel-data">struct Frame: The raw pixel data</h2>
+
+<h2 id="struct-packet-the-encoded-bitstream">struct Packet: The encoded bitstream</h2>
+
+<h2 id="struct-config-the-encoder-configuration">struct Config: The encoder configuration</h2>
+
+<p>struct Context: The encoder state</p>
+
+<hr />
+
+<ul>
+<li></li>
+</ul>
+
+<p>enum EncoderStatus: Fatal and non-fatal condition returned by the </p>
+
+<p>Contextmethods.</p>
+
+<h4 id="config">Config</h4>
+
+<p>The </p>
+
+<p>Config struct currently is simply constructed.</p>
+
+<p>structConfig{enc: EncoderConfig,threads: usize,}</p>
+
+<p>The </p>
+
+<p>EncoderConfig stores all the settings that have an impact to the actual bitstream while settings such as </p>
+
+<p>threads are kept outside.</p>
+
+<p>letmutenc=EncoderConfig::with_speed_preset(speed);enc.width=w;enc.height=h;enc.bit_depth=8;letcfg=Config{enc,threads: 0};</p>
+
+<blockquote>
+<p>NOTE: Some of the fields above may be shuffled around until the API is marked as stable.</p>
+</blockquote>
+
+<h5 id="methods">Methods</h5>
+
+<h6 id="new-context">NEW_CONTEXT</h6>
+
+<p>letcfg=Config{enc,threads: 0};letctx: Context&lt;u8&gt;=cfg.new_context();</p>
+
+<p>It produces a new encoding context. Where </p>
+
+<p>bit_depth is <em>8</em>, it is possible to use an optimized </p>
+
+<p>u8 codepath, otherwise </p>
+
+<p>u16 must be used.</p>
+
+<h4 id="context">Context</h4>
+
+<p>It is produced by </p>
+
+<p>Config::new_context, its implementation details are hidden.</p>
+
+<h5 id="methods-1">Methods</h5>
+
+<p>The </p>
+
+<p>Context can be grouped into essential, optional and convenience.</p>
+
+<p>// Essential APIpubfnsend_frame&lt;F&gt;(&amp;mutself,frame: F)-&gt; Result&lt;(),EncoderStatus&gt;whereF: Into&lt;Option&lt;Arc&lt;Frame&lt;T&gt;&gt;&gt;&gt;,T: Pixel;pubfnreceive_packet(&amp;mutself)-&gt; Result&lt;Packet&lt;T&gt;,EncoderStatus&gt;;</p>
+
+<p>The encoder works by processing each </p>
+
+<p>Frame fed through </p>
+
+<p>send_frame and producing each </p>
+
+<p>Packet that can be retrieved by </p>
+
+<p>receive_packet.</p>
+
+<p>// Optional APIpubfncontainer_sequence_header(&amp;mutself)-&gt; Vec&lt;u8&gt;;pubfnget_first_pass_data(&amp;self)-&gt; &FirstPassData;</p>
+
+<p>Depending on the container format, the </p>
+
+<p>AV1 Sequence Header could be stored in the extradata. </p>
+
+<p>container_sequence_header produces the data pre-formatted to be simply stored in </p>
+
+<p>mkv or  </p>
+
+<p>mp4.</p>
+
+<p>rav1e supports multi-pass encoding and the encoding data from the first pass can be retrieved by calling </p>
+
+<p>get_first_pass_data.</p>
+
+<p>// Convenience shortcutspubfnnew_frame(&amp;self)-&gt; Arc&lt;Frame&lt;T&gt;&gt;;pubfnset_limit(&amp;mutself,limit: u64);pubfnflush(&amp;mutself){</p>
+
+<ul>
+<li></li>
+</ul>
+
+<h2 id="new-frame-produces-a-frame-according-to-the-dimension-and-pixel-format-information-in-the-context">new_frame() produces a frame according to the dimension and pixel format information in the Context.</h2>
+
+<p>flush() is functionally equivalent to call </p>
+
+<h2 id="send-frame-none">send_frame(None).</h2>
+
+<p>set_limit()is functionally equivalent to call </p>
+
+<p>flush()once </p>
+
+<p>limitframes are sent to the encoder.</p>
+
+<h4 id="workflow">Workflow</h4>
+
+<p>The workflow is the following:</p>
+
+<ol>
+<li>Setup:
+
+<ul>
+<li>Prepare a </li>
+</ul></li>
+</ol>
+
+<p>Config
+    - Call </p>
+
+<p>new_context from the </p>
+
+<p>Config to produce a </p>
+
+<p>Context</p>
+
+<ol>
+<li>Encode loop:
+
+<ul>
+<li>Pull each </li>
+</ul></li>
+</ol>
+
+<p>Packet using </p>
+
+<p>receive_packet.
+    - If </p>
+
+<p>receive_packet returns </p>
+
+<p>EncoderStatus::NeedMoreData
+        - Feed each </p>
+
+<p>Frame to the </p>
+
+<p>Context using </p>
+
+<p>send_frame</p>
+
+<ol>
+<li>Complete the encoding
+
+<ul>
+<li>Issue a </li>
+</ul></li>
+</ol>
+
+<p>flush() to encode each pending </p>
+
+<p>Frame in a final </p>
+
+<p>Packet.
+    - Call </p>
+
+<p>receive_packet until </p>
+
+<p>EncoderStatus::LimitReached is returned.</p>
+
+<h3 id="crav1e-api">Crav1e API</h3>
+
+<p>The <a href="https://github.com/lu-zero/crav1e">crav1e</a> API provides the same structures and features beside few key differences:</p>
+
+<ul>
+<li>The </li>
+</ul>
+
+<p>Frame, </p>
+
+<p>Config, and </p>
+
+<p>Context structs are <em>opaque</em>.</p>
+
+<p>typedefstructRaConfigRaConfig;typedefstructRaContextRaContext;typedefstructRaFrameRaFrame;</p>
+
+<ul>
+<li>The </li>
+</ul>
+
+<p>Packet struct exposed is much simpler than the </p>
+
+<p>rav1e original.</p>
+
+<p>typedefstruct{constuint8_t*data;size_tlen;uint64_tnumber;RaFrameTypeframe_type;}RaPacket;</p>
+
+<ul>
+<li>The EncoderStatus includes a </li>
+</ul>
+
+<p>Success condition.</p>
+
+<p>typedefenum{RA_ENCODER_STATUS_SUCCESS=0,RA_ENCODER_STATUS_NEED_MORE_DATA,RA_ENCODER_STATUS_ENOUGH_DATA,RA_ENCODER_STATUS_LIMIT_REACHED,RA_ENCODER_STATUS_FAILURE=-1,}RaEncoderStatus;</p>
+
+<h4 id="raconfig">RaConfig</h4>
+
+<p>Since the configuration is </p>
+
+<p>opaque there are a number of functions to assemble it:</p>
+
+<ul>
+<li></li>
+</ul>
+
+<h2 id="rav1e-config-default-allocates-a-default-configuration">rav1e_config_default allocates a default configuration.</h2>
+
+<p>rav1e_config_parse and </p>
+
+<p>rav1e_config_parse_int set a specific </p>
+
+<p>valuefor a specific field selected by a </p>
+
+<h2 id="key-string">key string.</h2>
+
+<p>rav1e_config<em>set</em>${field} are specialized setters for complex information such as the color description.</p>
+
+<p>RaConfig*rav1e_config_default(void);/** * Set a configuration parameter using its key and value as string. * Available keys and values * - &ldquo;quantizer&rdquo;: 0-255, default 100 * - &ldquo;speed&rdquo;: 0-10, default 3 * - &ldquo;tune&rdquo;: &ldquo;psnr&rdquo;-&ldquo;psychovisual&rdquo;, default &ldquo;psnr&rdquo; * Return a negative value on error or 0. */intrav1e_config_parse(RaConfig*cfg,constchar*key,constchar*value);/** * Set a configuration parameter using its key and value as integer. * Available keys and values are the same as rav1e_config_parse() * Return a negative value on error or 0. */intrav1e_config_parse_int(RaConfig*cfg,constchar*key,intvalue);/** * Set color properties of the stream. * Supported values are defined by the enum types * RaMatrixCoefficients, RaColorPrimaries, and RaTransferCharacteristics * respectively. * Return a negative value on error or 0. */intrav1e_config_set_color_description(RaConfig*cfg,RaMatrixCoefficientsmatrix,RaColorPrimariesprimaries,RaTransferCharacteristicstransfer);/** * Set the content light level information for HDR10 streams. * Return a negative value on error or 0. */intrav1e_config_set_content_light(RaConfig*cfg,uint16_tmax_content_light_level,uint16_tmax_frame_average_light_level);/** * Set the mastering display information for HDR10 streams. * primaries and white_point arguments are RaPoint, containing 0.16 fixed point values. * max_luminance is a 24.8 fixed point value. * min_luminance is a 18.14 fixed point value. * Returns a negative value on error or 0. */intrav1e_config_set_mastering_display(RaConfig*cfg,RaPointprimaries[3],RaPointwhite_point,uint32_tmax_luminance,uint32_tmin_luminance);voidrav1e_config_unref(RaConfig*cfg);</p>
+
+<p>The bare minimum setup code is the following:</p>
+
+<p>intret=-1;RaConfig*rac=rav1e_config_default();if(!rac){printf(&ldquo;Unable to initialize\n&rdquo;);gotoclean;}ret=rav1e_config_parse_int(rac,&ldquo;width&rdquo;,64);if(ret&lt;0){printf(&ldquo;Unable to configure width\n&rdquo;);gotoclean;}ret=rav1e_config_parse_int(rac,&ldquo;height&rdquo;,96);if(ret&lt;0){printf(&ldquo;Unable to configure height\n&rdquo;);gotoclean;}ret=rav1e_config_parse_int(rac,&ldquo;speed&rdquo;,9);if(ret&lt;0){printf(&ldquo;Unable to configure speed\n&rdquo;);gotoclean;}</p>
+
+<h4 id="racontext">RaContext</h4>
+
+<p>As per the </p>
+
+<p>rav1e API, the context structure is produced from a configuration and the same _send-receive_ model is used.<br />
+The convenience methods aren’t exposed and the frame allocation function is actually essential.</p>
+
+<p>// Essential APIRaContext*rav1e_context_new(constRaConfig*cfg);voidrav1e_context_unref(RaContext*ctx);RaEncoderStatusrav1e_send_frame(RaContext*ctx,constRaFrame*frame);RaEncoderStatusrav1e_receive_packet(RaContext*ctx,RaPacket**pkt);</p>
+
+<p>// Optional APIuint8_t*rav1e_container_sequence_header(RaContext*ctx,size_t*buf_size);voidrav1e_container_sequence_header_unref(uint8_t*sequence);</p>
+
+<h4 id="raframe">RaFrame</h4>
+
+<p>Since the frame structure is opaque in C, we have the following functions to create, fill and dispose of the frames.</p>
+
+<p>RaFrame*rav1e_frame_new(constRaContext*ctx);voidrav1e_frame_unref(RaFrame*frame);/** * Fill a frame plane * Currently the frame contains 3 planes, the first is luminance followed by * chrominance. * The data is copied and this function has to be called for each plane. * frame: A frame provided by rav1e_frame_new() * plane: The index of the plane starting from 0 * data: The data to be copied * data_len: Lenght of the buffer * stride: Plane line in bytes, including padding * bytewidth: Number of bytes per component, either 1 or 2 */voidrav1e_frame_fill_plane(RaFrame*frame,intplane,constuint8_t*data,size_tdata_len,ptrdiff_tstride,intbytewidth);</p>
+
+<h4 id="raencoderstatus">RaEncoderStatus</h4>
+
+<p>The encoder status enum is returned by the </p>
+
+<p>rav1e_send_frame and </p>
+
+<p>rav1e_receive_packet and it is possible already to arbitrarily query the context for its status.</p>
+
+<p>RaEncoderStatusrav1e_last_status(constRaContext*ctx);</p>
+
+<p>To simulate the rust <a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html">Debug</a> functionality a </p>
+
+<p>to_str function is provided.</p>
+
+<p>char*rav1e_status_to_str(RaEncoderStatusstatus);</p>
+
+<h4 id="workflow-1">Workflow</h4>
+
+<p>The _C_ API workflow is similar to the _Rust_ one, albeit a little more verbose due to the error checking.</p>
+
+<p>RaContext*rax=rav1e_context_new(rac);if(!rax){printf(&ldquo;Unable to allocate a new context\n&rdquo;);gotoclean;}</p>
+
+<p>RaFrame*f=rav1e_frame_new(rax);if(!f){printf(&ldquo;Unable to allocate a new frame\n&rdquo;);gotoclean;}</p>
+
+<p>while(keep_going(i)){RaPacket*p;ret=rav1e_receive_packet(rax,&amp;p);if(ret&lt;0){printf(&ldquo;Unable to receive packet %d\n&rdquo;,i);gotoclean;}elseif(ret==RA_ENCODER_STATUS_SUCCESS){printf(&ldquo;Packet %&ldquo;PRIu64&rdquo;\n&rdquo;,p-&gt;number);do_something_with(p);rav1e_packet_unref(p);i++;}elseif(ret==RA_ENCODER_STATUS_NEED_MORE_DATA){RaFrame*f=get_frame_by_some_mean(rax);ret=rav1e_send_frame(rax,f);if(ret&lt;0){printf(&ldquo;Unable to send frame %d\n&rdquo;,i);gotoclean;}elseif(ret&gt;0){// Cannot happen in normal conditionsprintf(&ldquo;Unable to append frame %d to the internal queue\n&rdquo;,i);abort();}}elseif(ret==RA_ENCODER_STATUS_LIMIT_REACHED){printf(&ldquo;Limit reached\n&rdquo;);break;}}</p>
+
+<h3 id="in-closing">In closing</h3>
+
+<p>This article was mainly a good excuse to try <a href="https://dev.to/">dev.to</a> and see write down some notes and clarify my ideas on what had been done API-wise so far and what I should change and improve.</p>
+
+<p>If you managed to read till here, your feedback is really welcome, please feel free to comment, try the software and open issues for <a href="https://github.com/lu-zero/crav1e/issues/new">crav1e</a> and <a href="https://github.com/xiph/rav1e/issues/new">rav1e</a>.</p>
+
+<h4 id="coming-next">Coming next</h4>
+
+<ul>
+<li>Working crav1e got me to see what’s good and what is lacking in the <a href="https://blogs.gentoo.org/lu_zero/2018/12/30/making-and-using-c-compatible-libraries-in-rust-present-and-future/">c-interoperability story</a> of <em>rust</em>, now that <a href="https://github.com/rust-lang/cargo/pull/6298">this</a> landed I can start crafting and publishing better tools for it and maybe I’ll talk more about it here.</li>
+<li>Soon rav1e will get more threading-oriented features, some benchmarking experiments will happen soon.</li>
+</ul>
+
+<h4 id="thanks">Thanks</h4>
+
+<ul>
+<li>Special thanks to <a href="https://github.com/dwbuiten">Derek</a> and <a href="https://github.com/kodabb/">Vittorio</a> spent lots of time integrating </li>
+</ul>
+
+<p>crav1e in larger software and gave precious feedback in what was missing and broken in the initial iterations.
+- Thanks to <a href="http://github.com/barrbrain/">David</a> for the review and editorial work.
+- Also thanks to <a href="https://dev.to/naufraghi">Matteo</a> for introducing me to <a href="https://dev.to/">dev.to</a>.</p>
+
+      
+
+      
+        <div class="tk-next">
+          <b>Next up</b>: <a href ="/blog/2019-04-25-implementing-tile-encoding-in-rav1e./">Implementing Tile Encoding in rav1e</a>
+        </div>
+      
+    </main>
+  </div>
+</div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://mindfreeze.videolan.me/rav1e/js/bootstrap.min.js"></script>
+    <script src="https://mindfreeze.videolan.me/rav1e/js/highlight.js"></script>
+    <script>
+      $(function () {
+        $("pre code").each(function(i, block) {
+          
+          if (block.className.indexOf('language-rust') >= 0) {
+            var new_content = '';
+            var lines = block.textContent.split('\n');
+            for (var i = 0; i < lines.length; i++) {
+              if (lines[i].indexOf('# ') == 0 || lines[i] == '#') {
+                continue
+              }
+              new_content += lines[i].trimRight() + '\n';
+            }
+            block.textContent = new_content.replace(/\n\n\n/g, "\n\n").trimRight();
+          }
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+    apiKey: 'd7b5b785798fe748621bcaa8301a2201',
+    indexName: 'tokio',
+    inputSelector: '#search-input',
+    debug: false 
+    });
+    </script>
+    
+  </body>
+</html>
+

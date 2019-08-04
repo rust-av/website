@@ -6,7 +6,7 @@
     <description>Recent content on rav1e</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://mindfreeze.videolan.me/rav1e/index.xml" rel="self" type="application/rss+xml" />
     
@@ -22,124 +22,38 @@ More specifically, Tokio is an event-driven, non-blocking I/O platform for writi
     </item>
     
     <item>
-      <title>A great 2018, an even better 2019</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2018-12-recap-2018/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      <title>Implementing Tile Encoding in rav1e</title>
+      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</link>
+      <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2018-12-recap-2018/</guid>
-      <description>A year ago, Tokio was a very different library. It includes the (now deprecated) tokio-core which provided a future executor, I/O selector, and basic TCP/UDP types in a single library. It also included tokio-proto, but we won&amp;rsquo;t talk about that. Over the past year, Tokio has grown to become Rust&amp;rsquo;s asynchronous I/O platform. It has been adopted by a number of large companies to build apps.
-A lot was achieved in 2018.</description>
+      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</guid>
+      <description>During the last few months at Videolabs, I added support for tile encoding in rav1e.
+What is this? AV1 is an open and royalty-free video coding format, concurrent with HEVC.
+Rav1e is an encoder written in Rust, developped by Mozilla/Xiph. As such, it takes an input video and encodes it to produce a valid AV1 bitstream.
+Tile encoding Tile encoding consists in splitting video frames into tiles that can be encoded and decoded independently in parallel (to use several CPUs), at the cost of a small loss in compression efficiency.</description>
     </item>
     
     <item>
-      <title>Announcing the Tokio Doc Push (we need you!)</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2018-10-doc-blitz/</link>
-      <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
+      <title>Using rav1e - from your own code</title>
+      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/</link>
+      <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2018-10-doc-blitz/</guid>
-      <description>In the past, there has been reoccurring feedback that Tokio is hard to understand. I believe a lack of good documentation plays a significant part. It&amp;rsquo;s time to fix this problem.
-And because Tokio is open source, it is on us (the community) to make this happen! 👏
-But don&amp;rsquo;t worry, this isn&amp;rsquo;t an aimless request to contribute documentation. It does, however, require participation. There are ways to get involved at any level of prior Tokio experience.</description>
+      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/</guid>
+      <description>AV1 is a modern video codec brought to you by an alliance of many different bigger and smaller players in the multimedia field.
+I’m part of the VideoLan organization and I spent quite a bit of time on this codec lately.
+  rav1e: The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers.
+It is written in rust and strives to provide good speed, quality and stay maintainable.</description>
     </item>
     
     <item>
-      <title>Experimental async / await support for Tokio</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2018-08-async-await/</link>
-      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      <title>Why you should care about AOM Analyzer</title>
+      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</link>
+      <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2018-08-async-await/</guid>
-      <description>Happy Monday!
-In case you haven&amp;rsquo;t heard, async / await is a big new feature that is being worked on for Rust. It aims to make asynchronous programming easy (well, at least a little bit easier than it is today). The work has been on going for a while and is already usable today on the Rust nightly channel.
-I&amp;rsquo;m happy to announce that Tokio now has experimental async / await support!</description>
-    </item>
-    
-    <item>
-      <title>Tokio 0.1.8 with many incremental improvements</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2018-08-incremental-improvements/</link>
-      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2018-08-incremental-improvements/</guid>
-      <description>It took a bit longer than I had initially hoped (as it always does), but a new Tokio version has been released. This release includes, among other features, a new set of APIs that allow performing filesystem operations from an asynchronous context, concurrency improvements, timer improvements, and more (including bug fixes, so be sure to update!).
-It has been a little bit since the last post. There haven&amp;rsquo;t been any big feature releases, but that doesn&amp;rsquo;t mean that we have been idle.</description>
-    </item>
-    
-    <item>
-      <title>New Tokio release, now with filesystem support</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2018-05-tokio-fs/</link>
-      <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2018-05-tokio-fs/</guid>
-      <description>It took a bit longer than I had initially hoped (as it always does), but a new Tokio version has been released. This release includes, among other features, a new set of APIs that allow performing filesystem operations from an asynchronous context.
-Filesystem APIs Interacting with files (and other filesystem types) requires* blocking system calls and we all know that blocking and asynchronous do not mix. So, historically, when people ask &amp;ldquo;how do I read from and write to files?</description>
-    </item>
-    
-    <item>
-      <title>New Timer implementation</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2018-03-timers/</link>
-      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2018-03-timers/</guid>
-      <description>Happy Friday all!
-To close out a great week, there is a new release of Tokio. This release includes a brand new timer implementation.
-Timers Sometimes (often), one wants to execute code in relation to time. Maybe a function needs to run at a specific instant. Maybe a read needs to be limited to a fixed duration. For working with time, one needs access to a timer!
-Some history The tokio-timer crate has been around for a while.</description>
-    </item>
-    
-    <item>
-      <title>Announcing the Tokio runtime</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2018-03-tokio-runtime/</link>
-      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2018-03-tokio-runtime/</guid>
-      <description>I&amp;rsquo;m happy to announce a new release of Tokio. This release includes the first iteration of the Tokio Runtime.
-tl;dr This is how a multi-threaded Tokio based server is now written:
-extern crate tokio; use tokio::net::TcpListener; use tokio::prelude::*; fn process(s: TcpStream) -&amp;gt; impl Future&amp;lt;Item = (), Error = ()&amp;gt; + Send { ... } let addr = &amp;quot;127.0.0.1:8080&amp;quot;.parse().unwrap(); let listener = TcpListener::bind(&amp;amp;addr).unwrap(); let server = listener.incoming() .map_err(|e| println!(&amp;quot;error = {:?</description>
-    </item>
-    
-    <item>
-      <title>Tokio Reform is Shipped and the Road to 0.2</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2018-02-tokio-reform-shipped/</link>
-      <pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2018-02-tokio-reform-shipped/</guid>
-      <description>Hi all!
-I&amp;rsquo;m happy to announce that today, the changes proposed in the reform RFC have been released to crates.io as tokio 0.1.
-The primary changes are:
- Add a default global event loop, eliminating the need for setting up and managing your own event loop in the vast majority of cases.
- Decouple all task execution functionality from Tokio.
-  The new global event loop Up until today, creating an event loop was a manual process.</description>
-    </item>
-    
-    <item>
-      <title>An RFC for a Tokio revamp</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2017-09-tokio-reform/</link>
-      <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2017-09-tokio-reform/</guid>
-      <description>Hi there, Tokio community!
-Carl, Alex, and myself have been hard at work developing ways to simplify, streamline, and focus the Tokio project. As part of this effort, we have written the first-ever Tokio RFC!
-Here&amp;rsquo;s a quick run-down of what&amp;rsquo;s being proposed.
- Add a global event loop in tokio-core that is managed automatically by default. This change eliminates the need for setting up and managing your own event loop in the vast majority of cases.</description>
-    </item>
-    
-    <item>
-      <title>Announcing the tokio-io Crate</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2017-03-tokio-io/</link>
-      <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2017-03-tokio-io/</guid>
-      <description>Today we&amp;rsquo;re happy to announce a new crate and several new tools to work with in the Tokio stack. This represents the culmination of a number of parallel updates to various bits and pieces, they just happened to conveniently land all around the same time! In a nutshell the improvements are:
- A new tokio-io crate extracted from tokio-core, deprecating the tokio_core::io module. Introduction of the bytes crate to tokio-io allowing abstraction over buffering and leveraging underlying functionality like vectored I/O.</description>
-    </item>
-    
-    <item>
-      <title>Announcing Tokio 0.1</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2017-01-tokio-0-1/</link>
-      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2017-01-tokio-0-1/</guid>
-      <description>Today we are publishing the preliminary version of the Tokio stack, 0.1!
-Tokio is a platform for writing fast networking code in Rust. It&amp;rsquo;s built on futures, a zero-cost abstraction for asynchronous programming in Rust. It provides a suite of basic tools, tokio-core, for asynchronous I/O with futures. It also provides a higher-level layer, tokio-proto, for easily building sophisticated servers and clients; all you have to do is handle message serialization.</description>
+      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</guid>
+      <description>Hi Folks,
+It&amp;rsquo;s been a while I have written a blog, this is the right time I guess. So lately I am trying to do a kind of research with video encoding in power constrained devices as part of my undergrad thesis project. So I was going into more details about encoders in general. After that, I have also gone through the details about HEVC, AV1 and all.
+We all know about very positive development advances in AV1 when we see with HEVC.</description>
     </item>
     
     <item>
@@ -465,23 +379,14 @@ The most successful projects are often those proposed by the students themselves
     </item>
     
     <item>
-      <title>The Tokio Community</title>
+      <title>The rav1e Community</title>
       <link>https://mindfreeze.videolan.me/rav1e/community/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mindfreeze.videolan.me/rav1e/community/</guid>
-      <description>Communication You can join us at #daala on Freenode Network in IRC. If you do not have IRC Set up, you can use from web browser, where you&amp;rsquo;re welcome to ask any doubts related to Video Technology, follow our developments, report bugs related to rav1e and also av1, you also welcome to suggest any feature requests which you feel its worth.
-You are encouraged to attend the weekly progress meetings by installing and using Mumble The address is mf4.</description>
-    </item>
-    
-    <item>
-      <title>Third-party crates</title>
-      <link>https://mindfreeze.videolan.me/rav1e/community/third-party/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/community/third-party/</guid>
-      <description>Currently the futures, tokio-core, tokio-service, and tokio-proto crates provide the foundation for the Tokio ecosystem. There&amp;rsquo;s a growing set of crates outside of Tokio itself, however, filling in more functionality!
- tokio-curl is an HTTP client library backed by the libcurl C library. tokio-timer is a timer library providing finer-grained control over timers and helpful timeout facilities over the types in tokio-core. tokio-tls is a library for TLS streams backed by native-tls.</description>
+      <description>About AV1 is an open and royalty-free video coding format designed by the Alliance for Open Media, concurrent with HEVC (H.265). AV1 enables to stream video content at a reduced bitrate without loss of visual quality.
+rav1e is an encoder written in Rust, developped by Mozilla/Xiph. As such, it takes an input video and encodes it to produce a valid AV1 bitstream.
+Communication You can join us at #daala on Freenode Network in IRC.</description>
     </item>
     
   </channel>
