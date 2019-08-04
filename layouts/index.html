@@ -38,8 +38,8 @@
     </div>
   </div>
   <div class="col-12 col-sm-3 py-4">
-    <div class="stats-card card text-center">
-      <h6>50+</h6>
+    <div class="stats-card card text-center contributors">
+      <h6 id="contributor"></h6>
       <div>Contributors</div>
     </div>
   </div>
@@ -61,5 +61,10 @@
     <p><a href="https://code.videolan.org/mindfreeze/rav1e">Built </a> on top of <a href="https://github.com/tokio-rs/website">Tokio Website</a> by Team rav1e with 💚.</p>
   </div>
 </footer>
+
+<script>
+    const Contributors = localStorage.getItem('contributors');
+    document.getElementById("contributor").innerHTML = Contributors + '+';
+</script>
 
 {{ partial "footer" . }}

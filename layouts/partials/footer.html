@@ -22,6 +22,16 @@
         });
       });
     </script>
+    <script>
+      $( document ).ready(function() {
+        let data;    
+          fetch('http://api.github.com/repos/xiph/rav1e/contributors').then(
+          function(res){ return res.json();}).then(function(json){
+              data = json;
+              localStorage.setItem('contributors', data.length);
+          })
+      });
+    </script>
     <!-- at the end of the BODY -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
     <script type="text/javascript"> docsearch({
