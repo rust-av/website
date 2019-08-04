@@ -11,325 +11,59 @@
     
     
     <item>
-      <title>What is Tokio?</title>
+      <title>What is rav1e?</title>
       <link>https://mindfreeze.videolan.me/rav1e/docs/overview/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://mindfreeze.videolan.me/rav1e/docs/overview/</guid>
-      <description>Tokio allows developers to write asynchronous programs in the Rust programming language. Instead of synchronously waiting for long-running operations (like reading a file or waiting for a timer to complete) before moving on to the next thing, Tokio allows developers to write programs where execution continues while the long-running operations are in progress.
-More specifically, Tokio is an event-driven, non-blocking I/O platform for writing asynchronous applications with Rust. At a high level, it provides a few major components:</description>
+      <description>rav1e is an experimental AV1 video encoder. It is designed to eventually cover all use cases, though in its current form it is most suitable for cases where libaom (the reference encoder) is too slow.
+Features  Intra and inter frames 64x64 superblocks 4x4 to 64x64 RDO-selected square and 2:1&amp;frasl;1:2 rectangular blocks DC, H, V, Paeth, smooth, and a subset of directional prediction modes DCT, ADST and identity transforms (up to 64x64, 16x16 and 32x32 respectively) 8-, 10- and 12-bit depth color 4:2:0 (full support), 4:2:2 and 4:4:4 (limited) chroma sampling Variable speed settings Near real-time encoding at high speed levels  Releases For the foreseeable future, a weekly pre-release of rav1e will be published every Tuesday.</description>
     </item>
     
     <item>
-      <title>Hello World!</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/hello-world/</link>
+      <title>Coding Style</title>
+      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/coding-style/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/hello-world/</guid>
-      <description>To kick off our tour of Tokio, we will start with the obligatory &amp;ldquo;hello world&amp;rdquo; example. This program will create a TCP stream and write &amp;ldquo;hello, world!&amp;rdquo; to the stream. The difference between this and a Rust program that writes to a TCP stream without Tokio is that this program won&amp;rsquo;t block program execution when the stream is created or when our &amp;ldquo;hello, world!&amp;rdquo; message is written to the stream.</description>
+      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/coding-style/</guid>
+      <description>The coding style for rav1e code follows the Rust Style Guide, with the following exceptions:
+ Each indentation level is 2 spaces.  Assertions Assertions should never be reachable by any sequence of API calls.
+Assertions should never be reachable by any sequence of crav1e API calls which do not depend on C undefined behavior, or contain pointers that cause invalid behavior when accessed.
+Prefer assert()! to debug_assert()! in the following situations: - Unsafe code.</description>
     </item>
     
     <item>
-      <title>Futures</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/futures/</link>
+      <title>Profiling rav1e</title>
+      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/profiling/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/futures/</guid>
-      <description>Let&amp;rsquo;s take a closer look at futures. Tokio is built on top of the futures crate and uses its runtime model. This allows Tokio to interop with other libraries also using the futures crate.
-Note: This runtime model is very different than async libraries found in other languages. While, at a high level, APIs can look similar, the way code gets executed differs.
-We&amp;rsquo;ll be taking a closer look at the runtime in the upcoming sections, but a basic understanding of the runtime is necessary to understand futures.</description>
+      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/profiling/</guid>
+      <description>Cargo integrations There are multiple integrations with cargo that simplify your life a lot .
+Flamegraph flamegraph works in any platform that has dtrace or perf support.
+$ cargo install flamegraph $ cargo flamegraph -o flame.svg -b rav1e -- ~/sample.y4m -o /dev/null $ $browser flame.svg   NOTE Make sure the browser lets you use the built-in interactivity in the svg.
+ Instruments cargo-instruments is macOS-only and integrates neatly with the XCode UI.</description>
     </item>
     
     <item>
-      <title>Runtime</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/runtime/</link>
+      <title>Versioning</title>
+      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/versioning/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/runtime/</guid>
-      <description>In the previous section we explored Futures and Streams which allow us to represent a value (in the case of a Future) or a series of values (in the case of Stream) that will be available &amp;ldquo;at some point in the future&amp;rdquo;. We talked about poll on Future and Stream which the runtime will call to figure out if the Future or the Stream are ready to yield a value.</description>
+      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/versioning/</guid>
+      <description>rav1e follows Cargo&amp;rsquo;s versioning scheme: https://doc.rust-lang.org/cargo/reference/manifest.html#the-version-field
+Because rav1e is not yet at version 1.0.0, all changes that break the API require a minor-version bump.
+The API is defined as: - public functions in src/api.rs - command line parameters to the rav1e binary</description>
     </item>
     
     <item>
-      <title>Example: An Echo Server</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/echo/</link>
+      <title>Glossary</title>
+      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/glossary/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/echo/</guid>
-      <description>We&amp;rsquo;re going to use what has been covered so far to build an echo server. This is a Tokio application that encorporates everything we&amp;rsquo;ve learned so far. The server will simply receive messages from the connected client and send back the same message it received to the client.
-We&amp;rsquo;ll be able to test this echo server using the basic Tcp client we created in the hello world section.
-The full code can be found here.</description>
-    </item>
-    
-    <item>
-      <title>Overview</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/futures/overview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/futures/overview/</guid>
-      <description>Futures, hinted at earlier in the guide, are the building block used to manage asynchronous logic. They are the underlying asynchronous abstraction used by Tokio.
-A future is a value that represents the completion of an asynchronous computation. Usually, the future completes due to an event that happens elsewhere in the system. While we’ve been looking at things from the perspective of basic I/O, you can use a future to represent a wide range of events, e.</description>
-    </item>
-    
-    <item>
-      <title>Implementing futures</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/futures/basic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/futures/basic/</guid>
-      <description>Implementing futures is very common when using Tokio. Let&amp;rsquo;s start with a very basic future that performs no asynchronous logic and simply returns a message (the venerable &amp;ldquo;hello world&amp;rdquo;).
-The Future trait. The Future trait is as follows:
-trait Future { /// The type of the value returned when the future completes. type Item; /// The type representing errors that occurred while processing the computation. type Error; /// The function that will be repeatedly called to see if the future /// has completed or not.</description>
-    </item>
-    
-    <item>
-      <title>Getting asynchronous</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/futures/getting_asynchronous/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/futures/getting_asynchronous/</guid>
-      <description>Futures are all about managing asynchronicity. Implementing a future that completes asynchonously requires correctly handling receiving Async::NotReady from the inner future.
-Let&amp;rsquo;s start by implementing a future that establishes a TCP socket with a remote peer and extracts the peer socket address, writing it to STDOUT.
-# #![deny(deprecated)] extern crate tokio; #[macro_use] extern crate futures; use tokio::net::{TcpStream, tcp::ConnectFuture}; use futures::{Future, Async, Poll}; struct GetPeerAddr { connect: ConnectFuture, } impl Future for GetPeerAddr { type Item = (); type Error = (); fn poll(&amp;amp;mut self) -&amp;gt; Poll&amp;lt;Self::Item, Self::Error&amp;gt; { match self.</description>
-    </item>
-    
-    <item>
-      <title>Combinators</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/futures/combinators/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/futures/combinators/</guid>
-      <description>Often times, Future implementations follow similar patterns. To help reduce boilerplate, the futures crate provides a number of utilities, called &amp;ldquo;combinators&amp;rdquo;, that abstract these patterns. Many of these combinators exist as functions on the Future trait.
-Building blocks Let&amp;rsquo;s revisit the future implementations from the previous pages and see how they can be simplified by using combinators.
-map The map combinator takes a future and returns a new future that applies a function to the value yielded by the first future.</description>
-    </item>
-    
-    <item>
-      <title>Streams</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/futures/streams/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/futures/streams/</guid>
-      <description>Streams are similar to futures, but instead of yielding a single value, they asynchronously yield one or more values. They can be thought of as asynchronous iterators.
-Just like futures, streams are able to represent a wide range of things as long as those things produce discrete values at different points sometime in the future. For instance:
- UI Events caused by the user interacting with a GUI in different ways.</description>
-    </item>
-    
-    <item>
-      <title>Spawning</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/futures/spawning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/futures/spawning/</guid>
-      <description>Tokio based applications are organized in terms of Tasks. A task is a small unit of logic that executes independently from other tasks. It is similar to Go&amp;rsquo;s goroutine and Erlang&amp;rsquo;s process, but asynchronous. In other words, tasks are asynchronous green threads. Tasks are spawned for similar reasons that threads are spawned in synchronous code, but spawning a task with Tokio is extremely lightweight.
-Previous examples defined a future and passed that future to tokio::run.</description>
-    </item>
-    
-    <item>
-      <title>Leaf futures</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/futures/leaf-futures/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/futures/leaf-futures/</guid>
-      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
-    </item>
-    
-    <item>
-      <title>Runtime model</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/futures/runtime-model/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/futures/runtime-model/</guid>
-      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
-    </item>
-    
-    <item>
-      <title>I/O Overview</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/io/overview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/io/overview/</guid>
-      <description>The Rust standard library provides support for networking and I/O, such as TCP connections, UDP sockets, reading from and writing to files, etc. However, those operations are all synchronous, or blocking, meaning that when you call them, the current thread may stop executing and go to sleep until it is unblocked. For example, the read method in std::io::Read will block until there is data to read. In the world of futures, that behavior is unfortunate, since we would like to continue executing other futures we may have while waiting for the I/O to complete.</description>
-    </item>
-    
-    <item>
-      <title>Reading and Writing Data</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/io/reading_writing_data/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/io/reading_writing_data/</guid>
-      <description>Non-blocking I/O In the overview we mentioned briefly that Tokio&amp;rsquo;s I/O types implement non-blocking variants of std::io::Read and std::io::Write called AsyncRead and AsyncWrite. These are an integral part of Tokio&amp;rsquo;s I/O story, and are important to understand when working with I/O code.
- Note: in this section, we&amp;rsquo;ll primarily talk about AsyncRead, but AsyncWrite is pretty much exactly the same, just for writing data to an I/O resource (like a TCP socket) instead of reading from it.</description>
-    </item>
-    
-    <item>
-      <title>Using AsyncRead and AsyncWrite directly</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/io/async_read_write/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/io/async_read_write/</guid>
-      <description>So far, we have primarily talked about AsyncRead and AsyncWrite in the context of I/O combinators provided by Tokio. While these are often enough, sometimes you need to implement your own combinators that want to perform asynchronous reads and writes directly.
-Reading data with AsyncRead The heart of AsyncRead is the poll_read method. It maps the WouldBlock error that indicates that an I/O read operation would have blocked into NotReady, which in turn lets us interoperate with the world of futures.</description>
-    </item>
-    
-    <item>
-      <title>Implementing Async Read/Write</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/io/impl_async_read_write/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/io/impl_async_read_write/</guid>
-      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
-    </item>
-    
-    <item>
-      <title>Filesystem APIs</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/io/filesystem/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/io/filesystem/</guid>
-      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
-    </item>
-    
-    <item>
-      <title>Datagram APIs</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/io/datagrams/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/io/datagrams/</guid>
-      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
-    </item>
-    
-    <item>
-      <title>Futures: In Depth</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/futures/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/futures/</guid>
-      <description>Futures, hinted at earlier in the guide, are the building block used to manage asynchronous logic. They are the underlying asynchronous abstraction used by Tokio.
-The future implementation is provided by the futures crate. However, for convenience, Tokio re-exports a number of the types.
-What Are Futures? A future is a value that represents the completion of an asynchronous computation. Usually, the future completes due to an event that happens elsewhere in the system.</description>
-    </item>
-    
-    <item>
-      <title>Tasks</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/tasks/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/tasks/</guid>
-      <description>Tasks are the application&amp;rsquo;s &amp;ldquo;unit of logic&amp;rdquo;. They are similar to Go&amp;rsquo;s goroutine and Erlang&amp;rsquo;s process, but asynchronous. In other words, tasks are asynchronous green threads.
-Given that a task runs an asynchronous bit of logic, they are represented by the Future trait. The task&amp;rsquo;s future implementation completes with a () value once the task is done processing.
-Tasks are passed to executors, which handle scheduling the task. An executor usually is scheduling many tasks across a single or small set of threads.</description>
-    </item>
-    
-    <item>
-      <title>Runtime Model</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/runtime-model/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/runtime-model/</guid>
-      <description>Now we will go over the Tokio / futures runtime model. Tokio is built on top of the futures crate and uses its runtime model. This allows it to interop with other libraries also using the futures crate.
-Note: This runtime model is very different than async libraries found in other languages. While, at a high level, APIs can look similar, the way code gets executed differs.
-Synchronous Model First, let&amp;rsquo;s talk briefly about the synchronous (or blocking) model.</description>
-    </item>
-    
-    <item>
-      <title>I/O with Tokio</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/io/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/io/</guid>
-      <description>The tokio crate comes with TCP and UDP networking types. Unlike the types in std, Tokio&amp;rsquo;s networking types are based on the poll model and will notify the task executors when their readiness states change (data is received and write buffers are flushed). In the tokio::net module you&amp;rsquo;ll find types like TcpListener, TcpStream, and UdpSocket.
-All of these types provide both a future API as well as a poll API.</description>
-    </item>
-    
-    <item>
-      <title>Example: A Chat Server</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/chat/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/chat/</guid>
-      <description>We&amp;rsquo;re going to use what has been covered so far to build a chat server. This is a non-trivial Tokio server application.
-The server is going to use a line-based protocol. Lines are terminated by \r\n. This is compatible with telnet, so we will just use telnet for the client. When a client connects, it must identify itself by sending a line containing its &amp;ldquo;nick&amp;rdquo; (i.e., some name used to identify the client amongst its peers).</description>
-    </item>
-    
-    <item>
-      <title>Timers</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/timers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/timers/</guid>
-      <description>When writing a network based application, it is common to need to perform actions based on time.
- Run some code after a set period of time. Cancel a running operation that takes too long. Repeatedly perform an action at an interval.  These use cases are handled by using the various timer APIs that are provided in the timer module.
-Running code after a period of time In this case, we want to perform a task after a set period of time.</description>
-    </item>
-    
-    <item>
-      <title>Essential combinators</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/futures-mechanics/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/futures-mechanics/</guid>
-      <description>We saw a few of the most important combinators in the futures and streams overviews. Here we&amp;rsquo;ll take a look at a few more. It&amp;rsquo;s also worth spending some time with the trait documentation to familiarize yourself with the full range of combinators available (cheatsheet).
-Some concrete futures and streams Any value can be turned into an immediately complete future. There are a few functions in the future module for creating such a future:</description>
-    </item>
-    
-    <item>
-      <title>Returning futures</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/returning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/returning/</guid>
-      <description>When working with futures, one of the first things you&amp;rsquo;re likely to need to do is to return a Future. As with Iterators, however, doing so can be a little tricky. There are several options, listed from most to least ergonomic:
- Trait objects impl Trait Named types Custom types  Trait objects First, you always have the option of returning a boxed trait object:
-# extern crate futures; # use std::io; # use futures::Future; # fn main() {} fn foo() -&amp;gt; Box&amp;lt;Future&amp;lt;Item = u32, Error = io::Error&amp;gt; + Send&amp;gt; { // .</description>
-    </item>
-    
-    <item>
-      <title>Working with framed streams</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/frames/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/frames/</guid>
-      <description>Tokio has helpers to transform a stream of bytes into a stream of frames. Examples of byte streams include TCP connections, pipes, file objects and the standard input and output file descriptors. In Rust, streams are easily identified because they implement the Read and Write traits.
-One of the simplest forms of framed message is the line delimited message. Each message ends with a \n character. Let&amp;rsquo;s look at how one would implement a stream of line delimited messages with tokio.</description>
-    </item>
-    
-    <item>
-      <title>Building a runtime</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/building-runtime/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/going-deeper/building-runtime/</guid>
-      <description>The runtime ‒ all the pieces needed to run an event driven application ‒ is already available. You don&amp;rsquo;t need to know this if you want to just use tokio. However, it may be useful to know what happens under the hood, both to gain some more understanding of the details in case something goes wrong, and to be able to customize it beyond what the runtime Builder supports.</description>
-    </item>
-    
-    <item>
-      <title>Introduction</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/internals/intro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/internals/intro/</guid>
-      <description>The internals section provides an in-depth guide of Tokio&amp;rsquo;s internals. It expects the reader already has a good understanding of how to use Tokio. Those unfamiliar with Tokio should start with the getting started guide.
- Runtime model - An overview of Tokio&amp;rsquo;s asynchronous runtime model. Non-blocking I/O - Implementation details of Tokio&amp;rsquo;s network related types (TCP, UDP, &amp;hellip;).  </description>
-    </item>
-    
-    <item>
-      <title>Runtime model</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/internals/runtime-model/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/internals/runtime-model/</guid>
-      <description>Applications written using Tokio are organized across a large number of small, non-blocking tasks. A Tokio task is similar to a goroutine or an Erlang process, but is non-blocking. They are designed to be lightweight, can be spawned fast, and maintain low scheduling overhead. They are also non-blocking, as such operations that are not able to finish immediately must still return immediately. Instead of returning the result of the operation, they return a value indicating that the operation is in progress.</description>
-    </item>
-    
-    <item>
-      <title>Non-blocking I/O</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/internals/net/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/internals/net/</guid>
-      <description>This section describes the network resources and drivers provided by Tokio. This component provides one of Tokio&amp;rsquo;s primary functions: non-blocking, event-driven, networking provided by the appropriate operating system primitives (epoll, kqueue, IOCP, &amp;hellip;). It is modeled after the resource and driver pattern described in the previous section.
-The network driver is built using mio and network resources are backed by types that implement Evented.
-This guide will be focused on TCP types.</description>
+      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/glossary/</guid>
+      <description>Temporal Unit The same as an AV1 temporal unit. In rav1e, a Temporal Unit always starts with a temporal delimiter, followed by zero or one sequence headers, one or more frame headers and zero or more tile groups.
+Tile Group Same as an AV1 tile group. Zero or more of these, plus a Frame Header, make up a Frame.
+Frame Header Same as an AV1 frame header. These are followed by a tile group, except when the show-existing-frame feature is used, in which case there are zero tile groups.</description>
     </item>
     
   </channel>
