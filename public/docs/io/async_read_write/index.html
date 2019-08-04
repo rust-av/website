@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="https://rav1e.rs/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://rav1e.rs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://rav1e.rs/favicon-16x16.png">
+    <link rel="manifest" href="https://rav1e.rs/manifest.json">
+    <link rel="mask-icon" href="https://rav1e.rs/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <link rel="stylesheet" href="https://rav1e.rs/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/bootstrap.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/rav1e.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+
+    
+    <link rel="alternate" type="application/rss+xml" href="https://tokio.rs/blog/index.xml" />
+
+    <title>
+      
+        Using AsyncRead and AsyncWrite directly - rav1e
+      
+    </title>
+  </head>
+  <body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row tk-navbar">
+      <a class="navbar-brand" href="https://rav1e.rs/">
+        <img src="https://rav1e.rs/img/logo.png" class="align-middle" alt="">
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="https://rav1e.rs/">Home</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            
+            <a class="nav-link  active " href="https://rav1e.rs/docs/getting-started/hello-world/">Documentation</a>
+          </li>
+          <li class="nav-item">
+            
+            <a class="nav-link " href="https://rav1e.rs/community/">Community</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            <a class="nav-link " href="https://rav1e.rs/blog/2018-12-recap-2018/">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/xiph/rav1e" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"/></svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://gitter.im/tokio-rs/tokio" target="_blank" rel="noopener" aria-label="Gitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" focusable="false"><title>Gitter</title><path fill="currentColor" d="M8.501 4.001H10.5V24H8.501V4.001zm6.999 0V24h-2V4.001h2zM3.5 0h2.001v15H3.5V0zm15 4.001h2V15h-2V4.001z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </header>
+
+
+
+<div class="container-fluid tk-docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 tk-sidebar">
+      <form class="tk-search d-flex align-items-center">
+        <span class="algolia-autocomplete algolia-autocomplete-left" style="position: relative; display: inline-block; direction: ltr;">
+          <input class="form-control ds-input" id="search-input" placeholder="Search..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: top;" dir="auto" type="search">
+          <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;">w</pre>
+          <span class="ds-dropdown-menu ds-with-1" style="position: absolute; top: 100%; left: 0px; z-index: 100; right: auto; display: none;" role="listbox" id="algolia-autocomplete-listbox-0">
+            <div class="ds-dataset-1"></div>
+          </span>
+        </span>
+        <button class="btn btn-link tk-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#tk-docs-nav" aria-controls="tk-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
+            <title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+        </button>
+      </form>
+
+      <nav class="tk-links collapse" id="tk-docs-nav">
+          
+          
+            
+              <div class="tk-toc-item">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/overview/">
+                  What is Tokio?
+                </a>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/getting-started/hello-world/">
+                  Getting started
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/hello-world/" class="">Hello World!</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/futures/" class="">Futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/runtime/" class="">Runtime</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/echo/" class="">Example: An Echo Server</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/futures/overview/">
+                  Working with futures
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/futures/overview/" class="">Overview</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/basic/" class="">Implementing futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/getting_asynchronous/" class="">Getting asynchronous</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/combinators/" class="">Combinators</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/streams/" class="">Streams</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/spawning/" class="">Spawning</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/leaf-futures/" class="">Leaf futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/runtime-model/" class="">Runtime model</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item active">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/io/overview/">
+                  I/O with Tokio
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/io/overview/" class="">I/O Overview</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/reading_writing_data/" class="">Reading and Writing Data</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/async_read_write/" class="active">Using AsyncRead and AsyncWrite directly</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/impl_async_read_write/" class="">Implementing Async Read/Write</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/filesystem/" class="">Filesystem APIs</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/datagrams/" class="">Datagram APIs</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/going-deeper/futures/">
+                  Going deeper
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/futures/" class="">Futures: In Depth</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/tasks/" class="">Tasks</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/runtime-model/" class="">Runtime Model</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/io/" class="">I/O with Tokio</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/chat/" class="">Example: A Chat Server</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/timers/" class="">Timers</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/futures-mechanics/" class="">Essential combinators</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/returning/" class="">Returning futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/frames/" class="">Working with framed streams</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/building-runtime/" class="">Building a runtime</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/internals/intro/">
+                  Tokio internals
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/internals/intro/" class="">Introduction</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/internals/runtime-model/" class="">Runtime model</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/internals/net/" class="">Non-blocking I/O</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              <div class="tk-toc-item">
+                <a class="tk-toc-link" href="https://docs.rs/tokio">
+                  API documentation
+                </a>
+              </div>
+            
+          
+      </nav>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 tk-toc">
+      <div class="section-nav">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#reading-data-with-asyncread">Reading data with <code>AsyncRead</code></a></li>
+<li><a href="#writing-data-with-asyncwrite">Writing data with <code>AsyncWrite</code></a>
+<ul>
+<li><a href="#shutdown">Shutdown</a></li>
+<li><a href="#an-example-of-using-asyncwrite">An example of using <code>AsyncWrite</code></a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+    </div>
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 tk-content tk-docs">
+      <h1 class="tk-title">Using AsyncRead and AsyncWrite directly</h1>
+      <div class="github-edit">
+        <a class="fa fa-github" href="https://github.com/tokio-rs/website/tree/master/content/docs/io/async_read_write.md"> Edit on GitHub</a>
+      </div>
+      
+
+<p>So far, we have primarily talked about <code>AsyncRead</code> and <code>AsyncWrite</code> in
+the context of I/O combinators provided by Tokio. While these are <a href="https://rav1e.rs/docs/futures/combinators/#when-to-use-combinators">often
+enough</a>, sometimes you need to implement your own combinators that
+want to perform asynchronous reads and writes directly.</p>
+
+<h1 id="reading-data-with-asyncread">Reading data with <code>AsyncRead</code></h1>
+
+<p>The heart of <code>AsyncRead</code> is the <code>poll_read</code> method. It maps the
+<code>WouldBlock</code> error that indicates that an I/O <code>read</code> operation would
+have blocked into <code>NotReady</code>, which in turn lets us interoperate with
+the world of futures. When you write a <code>Future</code> (or something like it,
+such as <code>Stream</code>) that internally contains an <code>AsyncRead</code>, <code>poll_read</code>
+is likely the method you will be interacting with.</p>
+
+<p>The important thing to keep in mind with <code>poll_read</code> is that it follows
+the same contract as <code>Future::poll</code>. Specifically, it cannot return
+<code>NotReady</code> unless it has arranged for the current task to be notified
+when it can make progress again. This fact is what lets us call
+<code>poll_read</code> inside of <code>poll</code> in our own <code>Future</code>s; we know that we are
+upholding the contract of <code>poll</code> when we forward a <code>NotReady</code> from
+<code>poll_read</code>, because <code>poll_read</code> follows that same contract!</p>
+
+<p>The exact mechanism Tokio uses to ensure that <code>poll_read</code> later notifies
+the current task is out of scope for this section, but you can read more
+about it in the <a href="https://rav1e.rs/docs/internals/net/">non-blocking I/O</a> section of Tokio internals if you&rsquo;re
+interested.</p>
+
+<p>With that all said, let&rsquo;s look at how we might implement the
+<a href="https://docs.rs/tokio/0.1/tokio/io/fn.read_exact.html"><code>read_exact</code></a> method ourselves!</p>
+
+<pre><code class="language-rust,no_run"># extern crate tokio;
+#[macro_use]
+extern crate futures;
+# fn main() {}
+use std::io;
+use tokio::prelude::*;
+
+// This is going to be our Future.
+// In the common case, this is set to Some(Reading),
+// but we'll set it to None when we return Async::Ready
+// so that we can return the reader and the buffer.
+struct ReadExact&lt;R, T&gt;(Option&lt;Reading&lt;R, T&gt;&gt;);
+
+struct Reading&lt;R, T&gt; {
+    // This is the stream we're reading from.
+    reader: R,
+    // This is the buffer we're reading into.
+    buffer: T,
+    // And this is how far into the buffer we've written.
+    pos: usize,
+}
+
+// We want to be able to construct a ReadExact over anything
+// that implements AsyncRead, and any buffer that can be
+// thought of as a &amp;mut [u8].
+fn read_exact&lt;R, T&gt;(reader: R, buffer: T) -&gt; ReadExact&lt;R, T&gt;
+where
+    R: AsyncRead,
+    T: AsMut&lt;[u8]&gt;,
+{
+    ReadExact(Some(Reading {
+        reader,
+        buffer,
+        // Initially, we've read no bytes into buffer.
+        pos: 0,
+    }))
+}
+
+impl&lt;R, T&gt; Future for ReadExact&lt;R, T&gt;
+where
+    R: AsyncRead,
+    T: AsMut&lt;[u8]&gt;,
+{
+    // When we've filled up the buffer, we want to return both the buffer
+    // with the data that we read and the reader itself.
+    type Item = (R, T);
+    type Error = io::Error;
+
+    fn poll(&amp;mut self) -&gt; Poll&lt;Self::Item, Self::Error&gt; {
+        match self.0 {
+            Some(Reading {
+                ref mut reader,
+                ref mut buffer,
+                ref mut pos,
+            }) =&gt; {
+                let buffer = buffer.as_mut();
+                // Check that we haven't finished
+                while *pos &lt; buffer.len() {
+                    // Try to read data into the remainder of the buffer.
+                    // Just like read in std::io::Read, poll_read *can* read
+                    // fewer bytes than the length of the buffer it is given,
+                    // and we need to handle that by looking at its return
+                    // value, which is the number of bytes actually read.
+                    //
+                    // Notice that we are using try_ready! here, so if poll_read
+                    // returns NotReady (or an error), we will do the same!
+                    // We uphold the contract that we have arranged to be
+                    // notified later because poll_read follows that same
+                    // contract, and _it_ returned NotReady.
+                    let n = try_ready!(reader.poll_read(&amp;mut buffer[*pos..]));
+                    *pos += n;
+
+                    // If no bytes were read, but there was no error, this
+                    // generally implies that the reader will provide no more
+                    // data (for example, because the TCP connection was closed
+                    // by the other side).
+                    if n == 0 {
+                        return Err(io::Error::new(io::ErrorKind::UnexpectedEof, &quot;early eof&quot;));
+                    }
+                }
+            }
+            None =&gt; panic!(&quot;poll a ReadExact after it's done&quot;),
+        }
+
+        // We need to return the reader and the buffer, which we can only
+        // do by moving them out of self. We do this by taking our state
+        // and leaving `None`. This _should_ be fine, because poll()
+        // requires callers to not call poll() again after Ready has been
+        // returned, so we should only ever see Some(Reading) when poll()
+        // is called.
+        let reading = self.0.take().expect(&quot;must have seen Some above&quot;);
+        Ok(Async::Ready((reading.reader, reading.buffer)))
+    }
+}
+</code></pre>
+
+<h1 id="writing-data-with-asyncwrite">Writing data with <code>AsyncWrite</code></h1>
+
+<p>Just like <code>poll_read</code> is the core piece of <code>AsyncRead</code>, <code>poll_write</code> is
+the core of <code>AsyncWrite</code>. Like <code>poll_read</code>, it maps the <code>WouldBlock</code>
+error that indicates that an I/O <em><code>write</code></em> operation would have blocked into
+<code>NotReady</code>, which again lets us interoperate with the world of
+futures. <code>AsyncWrite</code> also has a <code>poll_flush</code>, which provides an
+asynchronous analogue to <a href="https://doc.rust-lang.org/std/io/trait.Write.html"><code>Write</code></a>&rsquo;s <code>flush</code> method. The role of
+<code>poll_flush</code> is to make sure that any bytes previously written by
+<code>poll_write</code> are, well, flushed onto the underlying I/O resource
+(written out in network packets for example). Similar to <code>poll_write</code>, it
+wraps around <code>Write::flush</code>, and maps a <code>WouldBlock</code> error into
+<code>NotReady</code> to indicate that the flushing is still ongoing.</p>
+
+<p><code>AsyncWrite</code>&rsquo;s <code>poll_write</code> and <code>poll_flush</code> follow the same contract as
+<code>Future::poll</code> and <code>AsyncRead::poll_read</code>, namely that if they return
+<code>NotReady</code>, they have arranged for the current task to be notified when
+they can make progress again. Like with <code>poll_read</code>, this means that we
+can safely call these methods in our own futures, and know that we are
+also following the contract.</p>
+
+<p>Tokio uses the same mechanism to manage notifications for <code>poll_write</code>
+and <code>poll_flush</code> as it does for <code>poll_read</code>, and you can read more about
+it in the <a href="https://rav1e.rs/docs/internals/net/">non-blocking I/O</a> section of Tokio internals.</p>
+
+<h2 id="shutdown">Shutdown</h2>
+
+<p><code>AsyncWrite</code> also adds one method that is <em>not</em> part of <code>Write</code>:
+<code>shutdown</code>. From <a href="https://docs.rs/tokio-io/0.1/tokio_io/trait.AsyncWrite.html#tymethod.shutdown">its documentation</a>:</p>
+
+<blockquote>
+<p>Initiates or attempts to shut down this writer, returning success when
+the I/O connection has completely shut down.</p>
+
+<p>This method is intended to be used for asynchronous shutdown of I/O
+connections. For example this is suitable for implementing shutdown of
+a TLS connection or calling <code>TcpStream::shutdown</code> on a proxied
+connection. Protocols sometimes need to flush out final pieces of data
+or otherwise perform a graceful shutdown handshake, reading/writing
+more data as appropriate. This method is the hook for such protocols
+to implement the graceful shutdown logic.</p>
+</blockquote>
+
+<p>This sums <code>shutdown</code> up pretty nicely: it is a way to tell the writer
+that no more data is coming, and that it should indicate in whatever way
+the underlying I/O protocol requires. For TCP connections, for example,
+this usually entails closing the writing side of the TCP channel so that
+the other end receives and end-of-file in the form of a read that
+returns 0 bytes. You can often think of <code>shutdown</code> as what you <em>would</em>
+have done synchronously in the implementation of <code>Drop</code>; it&rsquo;s just that
+in the asynchronous world, you can&rsquo;t easily do something in <code>Drop</code>
+because you need to have an executor that keeps polling your writer!</p>
+
+<!-- // this is a comment
+Somewhere down the line, per outline, we may want to add a paragraph on:
+
+  Socket is safely dropped after shutdown returns Ok(Ready).
+  Sometimes it isn't possible:
+    Alternative: spawn task w/ socket to do cleanup work.
+-->
+
+<p>Note that calling <code>shutdown</code> on a write &ldquo;half&rdquo; of a type that implements
+<code>AsyncWrite</code> <em>and</em> <code>AsyncRead</code> does not shut down the read &ldquo;half&rdquo;. You
+can usually still continue reading data as you please until the other
+side shuts down their corresponding write &ldquo;half&rdquo;.</p>
+
+<h2 id="an-example-of-using-asyncwrite">An example of using <code>AsyncWrite</code></h2>
+
+<p>Without further ado, let&rsquo;s take a look at how we might implement</p>
+
+<pre><code class="language-rust,no_run"># extern crate tokio;
+#[macro_use]
+extern crate futures;
+# fn main() {}
+use std::io;
+use tokio::prelude::*;
+
+// This is going to be our Future.
+// It'll seem awfully familiar to ReadExact above!
+// In the common case, this is set to Some(Writing),
+// but we'll set it to None when we return Async::Ready
+// so that we can return the writer and the buffer.
+struct WriteAll&lt;W, T&gt;(Option&lt;Writing&lt;W, T&gt;&gt;);
+
+struct Writing&lt;W, T&gt; {
+    // This is the stream we're writing into.
+    writer: W,
+    // This is the buffer we're writing from.
+    buffer: T,
+    // And this is much of the buffer we've written.
+    pos: usize,
+}
+
+// We want to be able to construct a WriteAll over anything
+// that implements AsyncWrite, and any buffer that can be
+// thought of as a &amp;[u8].
+fn write_all&lt;W, T&gt;(writer: W, buffer: T) -&gt; WriteAll&lt;W, T&gt;
+where
+    W: AsyncWrite,
+    T: AsRef&lt;[u8]&gt;,
+{
+    WriteAll(Some(Writing {
+        writer,
+        buffer,
+        // Initially, we've written none of the bytes from buffer.
+        pos: 0,
+    }))
+}
+
+impl&lt;W, T&gt; Future for WriteAll&lt;W, T&gt;
+where
+    W: AsyncWrite,
+    T: AsRef&lt;[u8]&gt;,
+{
+    // When we've written out the entire buffer, we want to return
+    // both the buffer and the writer so that the user can re-use them.
+    type Item = (W, T);
+    type Error = io::Error;
+
+    fn poll(&amp;mut self) -&gt; Poll&lt;Self::Item, Self::Error&gt; {
+        match self.0 {
+            Some(Writing {
+                ref mut writer,
+                ref buffer,
+                ref mut pos,
+            }) =&gt; {
+                let buffer = buffer.as_ref();
+                // Check that we haven't finished
+                while *pos &lt; buffer.len() {
+                    // Try to write the remainder of the buffer into the writer.
+                    // Just like write in std::io::Write, poll_write *can* write
+                    // fewer bytes than the length of the buffer it is given,
+                    // and we need to handle that by looking at its return
+                    // value, which is the number of bytes actually written.
+                    //
+                    // We are using try_ready! here, just like in poll_read in
+                    // ReadExact, so that if poll_write returns NotReady (or an
+                    // error), we will do the same! We uphold the contract that
+                    // we have arranged to be notified later because poll_write
+                    // follows that same contract, and _it_ returned NotReady.
+                    let n = try_ready!(writer.poll_write(&amp;buffer[*pos..]));
+                    *pos += n;
+
+                    // If no bytes were written, but there was no error, this
+                    // generally implies that something weird happened under us.
+                    // We make sure to turn this into an error for the caller to
+                    // deal with.
+                    if n == 0 {
+                        return Err(io::Error::new(
+                            io::ErrorKind::WriteZero,
+                            &quot;zero-length write&quot;,
+                        ));
+                    }
+                }
+            }
+            None =&gt; panic!(&quot;poll a WriteAll after it's done&quot;),
+        }
+
+        // We use the same trick as in ReadExact to ensure that we can return
+        // the buffer and the writer once the entire buffer has been written out.
+        let writing = self.0.take().expect(&quot;must have seen Some above&quot;);
+        Ok(Async::Ready((writing.writer, writing.buffer)))
+    }
+}
+</code></pre>
+
+      
+      
+        <div class="tk-next">
+          <b>Next up</b>: <a href ="/docs/io/impl_async_read_write/">Implementing Async Read/Write</a>
+        </div>
+      
+    </main>
+  </div>
+</div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://rav1e.rs/js/bootstrap.min.js"></script>
+    <script src="https://rav1e.rs/js/highlight.js"></script>
+    <script>
+      $(function () {
+        $("pre code").each(function(i, block) {
+          
+          if (block.className.indexOf('language-rust') >= 0) {
+            var new_content = '';
+            var lines = block.textContent.split('\n');
+            for (var i = 0; i < lines.length; i++) {
+              if (lines[i].indexOf('# ') == 0 || lines[i] == '#') {
+                continue
+              }
+              new_content += lines[i].trimRight() + '\n';
+            }
+            block.textContent = new_content.replace(/\n\n\n/g, "\n\n").trimRight();
+          }
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+    apiKey: 'd7b5b785798fe748621bcaa8301a2201',
+    indexName: 'tokio',
+    inputSelector: '#search-input',
+    debug: false 
+    });
+    </script>
+    
+  </body>
+</html>
+

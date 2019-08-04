@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://rav1e.rs/docs/overview/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2018-12-recap-2018/</loc>
+    <lastmod>2018-12-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2018-10-doc-blitz/</loc>
+    <lastmod>2018-10-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2018-08-async-await/</loc>
+    <lastmod>2018-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2018-08-incremental-improvements/</loc>
+    <lastmod>2018-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2018-05-tokio-fs/</loc>
+    <lastmod>2018-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2018-03-timers/</loc>
+    <lastmod>2018-03-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2018-03-tokio-runtime/</loc>
+    <lastmod>2018-03-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2018-02-tokio-reform-shipped/</loc>
+    <lastmod>2018-02-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2017-09-tokio-reform/</loc>
+    <lastmod>2017-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2017-03-tokio-io/</loc>
+    <lastmod>2017-03-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/2017-01-tokio-0-1/</loc>
+    <lastmod>2017-01-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/getting-started/hello-world/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/getting-started/futures/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/getting-started/runtime/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/getting-started/echo/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/futures/overview/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/futures/basic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/futures/getting_asynchronous/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/futures/combinators/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/futures/streams/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/futures/spawning/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/futures/leaf-futures/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/futures/runtime-model/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/io/overview/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/io/reading_writing_data/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/io/async_read_write/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/io/impl_async_read_write/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/io/filesystem/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/io/datagrams/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/futures/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/tasks/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/runtime-model/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/io/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/chat/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/timers/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/futures-mechanics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/returning/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/frames/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/going-deeper/building-runtime/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/internals/intro/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/internals/runtime-model/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/internals/net/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/blog/</loc>
+    <lastmod>2018-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/</loc>
+    <lastmod>2018-12-19T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/community/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/docs/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/gsoc/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/community/</loc>
+  </url>
+  
+  <url>
+    <loc>https://rav1e.rs/community/third-party/</loc>
+  </url>
+  
+</urlset>

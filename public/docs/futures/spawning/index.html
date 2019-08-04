@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="https://rav1e.rs/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://rav1e.rs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://rav1e.rs/favicon-16x16.png">
+    <link rel="manifest" href="https://rav1e.rs/manifest.json">
+    <link rel="mask-icon" href="https://rav1e.rs/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <link rel="stylesheet" href="https://rav1e.rs/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/bootstrap.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/rav1e.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+
+    
+    <link rel="alternate" type="application/rss+xml" href="https://tokio.rs/blog/index.xml" />
+
+    <title>
+      
+        Spawning - rav1e
+      
+    </title>
+  </head>
+  <body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row tk-navbar">
+      <a class="navbar-brand" href="https://rav1e.rs/">
+        <img src="https://rav1e.rs/img/logo.png" class="align-middle" alt="">
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="https://rav1e.rs/">Home</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            
+            <a class="nav-link  active " href="https://rav1e.rs/docs/getting-started/hello-world/">Documentation</a>
+          </li>
+          <li class="nav-item">
+            
+            <a class="nav-link " href="https://rav1e.rs/community/">Community</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            <a class="nav-link " href="https://rav1e.rs/blog/2018-12-recap-2018/">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/xiph/rav1e" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"/></svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://gitter.im/tokio-rs/tokio" target="_blank" rel="noopener" aria-label="Gitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" focusable="false"><title>Gitter</title><path fill="currentColor" d="M8.501 4.001H10.5V24H8.501V4.001zm6.999 0V24h-2V4.001h2zM3.5 0h2.001v15H3.5V0zm15 4.001h2V15h-2V4.001z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </header>
+
+
+
+<div class="container-fluid tk-docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 tk-sidebar">
+      <form class="tk-search d-flex align-items-center">
+        <span class="algolia-autocomplete algolia-autocomplete-left" style="position: relative; display: inline-block; direction: ltr;">
+          <input class="form-control ds-input" id="search-input" placeholder="Search..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: top;" dir="auto" type="search">
+          <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;">w</pre>
+          <span class="ds-dropdown-menu ds-with-1" style="position: absolute; top: 100%; left: 0px; z-index: 100; right: auto; display: none;" role="listbox" id="algolia-autocomplete-listbox-0">
+            <div class="ds-dataset-1"></div>
+          </span>
+        </span>
+        <button class="btn btn-link tk-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#tk-docs-nav" aria-controls="tk-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
+            <title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+        </button>
+      </form>
+
+      <nav class="tk-links collapse" id="tk-docs-nav">
+          
+          
+            
+              <div class="tk-toc-item">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/overview/">
+                  What is Tokio?
+                </a>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/getting-started/hello-world/">
+                  Getting started
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/hello-world/" class="">Hello World!</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/futures/" class="">Futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/runtime/" class="">Runtime</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/echo/" class="">Example: An Echo Server</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item active">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/futures/overview/">
+                  Working with futures
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/futures/overview/" class="">Overview</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/basic/" class="">Implementing futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/getting_asynchronous/" class="">Getting asynchronous</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/combinators/" class="">Combinators</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/streams/" class="">Streams</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/spawning/" class="active">Spawning</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/leaf-futures/" class="">Leaf futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/runtime-model/" class="">Runtime model</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/io/overview/">
+                  I/O with Tokio
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/io/overview/" class="">I/O Overview</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/reading_writing_data/" class="">Reading and Writing Data</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/async_read_write/" class="">Using AsyncRead and AsyncWrite directly</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/impl_async_read_write/" class="">Implementing Async Read/Write</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/filesystem/" class="">Filesystem APIs</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/datagrams/" class="">Datagram APIs</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/going-deeper/futures/">
+                  Going deeper
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/futures/" class="">Futures: In Depth</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/tasks/" class="">Tasks</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/runtime-model/" class="">Runtime Model</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/io/" class="">I/O with Tokio</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/chat/" class="">Example: A Chat Server</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/timers/" class="">Timers</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/futures-mechanics/" class="">Essential combinators</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/returning/" class="">Returning futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/frames/" class="">Working with framed streams</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/building-runtime/" class="">Building a runtime</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/internals/intro/">
+                  Tokio internals
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/internals/intro/" class="">Introduction</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/internals/runtime-model/" class="">Runtime model</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/internals/net/" class="">Non-blocking I/O</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              <div class="tk-toc-item">
+                <a class="tk-toc-link" href="https://docs.rs/tokio">
+                  API documentation
+                </a>
+              </div>
+            
+          
+      </nav>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 tk-toc">
+      <div class="section-nav">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#communicating-with-tasks">Communicating with tasks</a></li>
+<li><a href="#multi-threaded">Multi threaded</a></li>
+<li><a href="#when-to-spawn-tasks">When to spawn tasks</a>
+<ul>
+<li><a href="#processing-inbound-sockets">Processing inbound sockets</a></li>
+<li><a href="#background-processing">Background processing</a></li>
+<li><a href="#coordinating-access-to-a-resource">Coordinating access to a resource</a></li>
+</ul></li>
+<li><a href="#when-not-to-spawn-tasks">When not to spawn tasks</a></li>
+</ul>
+</nav>
+      </div>
+    </div>
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 tk-content tk-docs">
+      <h1 class="tk-title">Spawning</h1>
+      <div class="github-edit">
+        <a class="fa fa-github" href="https://github.com/tokio-rs/website/tree/master/content/docs/futures/spawning.md"> Edit on GitHub</a>
+      </div>
+      
+
+<p>Tokio based applications are organized in terms of Tasks. A task is a small unit
+of logic that executes independently from other tasks. It is similar to <a href="https://www.golang-book.com/books/intro/10">Go&rsquo;s
+goroutine</a> and <a href="http://erlang.org/doc/reference_manual/processes.html">Erlang&rsquo;s process</a>, but asynchronous. In other words, tasks are
+asynchronous green threads. Tasks are spawned for similar reasons that threads
+are spawned in synchronous code, but spawning a task with Tokio is extremely
+lightweight.</p>
+
+<p>Previous examples defined a future and passed that future to <code>tokio::run</code>. This
+resulted in a task being spawned onto Tokio&rsquo;s runtime to execute the provided
+future. Additional tasks may be spawned by calling <code>tokio::spawn</code>, but only from
+code that is already running on a Tokio task. One way to think about it is the
+future passed to <code>tokio::run</code> is the &ldquo;main function&rdquo;.</p>
+
+<p>In the following example, four tasks are spawned.</p>
+
+<pre><code class="language-rust">extern crate tokio;
+extern crate futures;
+
+use futures::future::lazy;
+
+# fn main() {
+tokio::run(lazy(|| {
+    for i in 0..4 {
+        tokio::spawn(lazy(move || {
+            println!(&quot;Hello from task {}&quot;, i);
+            Ok(())
+        }));
+    }
+
+    Ok(())
+}));
+# }
+</code></pre>
+
+<p>The <code>tokio::run</code> function will block until the the future passed to <code>run</code>
+terminates as well as <strong>all other spawned tasks</strong>. In this case, <code>tokio::run</code>
+blocks until all four tasks output to STDOUT and terminate.</p>
+
+<p>The <a href="https://docs.rs/futures/0.1/futures/future/fn.lazy.html"><code>lazy</code></a> function runs the closure the first time the future is polled. It
+is used here to ensure that <code>tokio::spawn</code> is called from a task. Without
+<a href="https://docs.rs/futures/0.1/futures/future/fn.lazy.html"><code>lazy</code></a>, <code>tokio::spawn</code> would be called from outside the context of a task,
+which results in an error.</p>
+
+<h1 id="communicating-with-tasks">Communicating with tasks</h1>
+
+<p>Just as with Go and Erlang, tasks can communicate using message passing. In
+fact, it will be very common to use message passing to coordinate multiple
+tasks. This allows independent tasks to still interact.</p>
+
+<p>The <a href="https://docs.rs/futures/0.1/futures"><code>futures</code></a> crate provides a <a href="https://docs.rs/futures/0.1/futures/sync/index.html"><code>sync</code></a> module which contains some channel
+types that are ideal for message passing across tasks.</p>
+
+<ul>
+<li><a href="https://docs.rs/futures/0.1/futures/sync/oneshot/index.html"><code>oneshot</code></a> is a channel for sending exactly one value.</li>
+<li><a href="https://docs.rs/futures/0.1/futures/sync/mpsc/index.html"><code>mpsc</code></a> is a channel for sending many (zero or more) values.</li>
+</ul>
+
+<p>A <code>oneshot</code> is ideal for getting the result from a spawned task:</p>
+
+<pre><code class="language-rust">extern crate tokio;
+extern crate futures;
+
+use futures::Future;
+use futures::future::lazy;
+use futures::sync::oneshot;
+
+# fn main() {
+tokio::run(lazy(|| {
+    let (tx, rx) = oneshot::channel();
+
+    tokio::spawn(lazy(|| {
+        tx.send(&quot;hello from spawned task&quot;);
+        Ok(())
+    }));
+
+    rx.and_then(|msg| {
+        println!(&quot;Got `{}`&quot;, msg);
+        Ok(())
+    })
+    .map_err(|e| println!(&quot;error = {:?}&quot;, e))
+}));
+# }
+</code></pre>
+
+<p>And <code>mpsc</code> is good for sending a stream of values to another task:</p>
+
+<pre><code class="language-rust">extern crate tokio;
+extern crate futures;
+
+use futures::{stream, Future, Stream, Sink};
+use futures::future::lazy;
+use futures::sync::mpsc;
+
+# fn main() {
+tokio::run(lazy(|| {
+    let (tx, rx) = mpsc::channel(1_024);
+
+    tokio::spawn({
+        stream::iter_ok(0..10).fold(tx, |tx, i| {
+            tx.send(format!(&quot;Message {} from spawned task&quot;, i))
+                .map_err(|e| println!(&quot;error = {:?}&quot;, e))
+        })
+        .map(|_| ()) // Drop tx handle
+    });
+
+    rx.for_each(|msg| {
+        println!(&quot;Got `{}`&quot;, msg);
+        Ok(())
+    })
+}));
+# }
+</code></pre>
+
+<p>These two message passing primitives will also be used in the examples below to
+coordinate and communicate between tasks.</p>
+
+<h1 id="multi-threaded">Multi threaded</h1>
+
+<p>While it is possible to introduce concurrency with futures without spawning
+tasks, this concurrency will be limited to running on a single thread. Spawning
+tasks allows the Tokio runtime to schedule these tasks on multiple threads.</p>
+
+<p>The <a href="https://docs.rs/tokio/0.1/tokio/runtime/index.html">multi-threaded Tokio runtime</a> manages multiple OS threads internally.
+It multiplexes many tasks across a few physical threads. When a Tokio
+application spawns its tasks, these tasks are submitted to the runtime and the
+runtime handles scheduling.</p>
+
+<h1 id="when-to-spawn-tasks">When to spawn tasks</h1>
+
+<p>As all things software related, the answer is that it depends. Generally, the
+answer is spawn a new task whenever you can. The more available tasks, the
+greater the ability to run the tasks in parallel. However, keep in mind that if
+multiple tasks do require communication, this will involve channel overhead.</p>
+
+<p>The following examples will help illustrate cases for spawning new tasks.</p>
+
+<h2 id="processing-inbound-sockets">Processing inbound sockets</h2>
+
+<p>The most straightforward example for spawning tasks is a network server.
+The primary task listens for inbound sockets on a TCP listener. When a
+new connection arrives, the listener task spawns a new task for
+processing the socket.</p>
+
+<pre><code class="language-rust">extern crate tokio;
+extern crate futures;
+
+use tokio::io;
+use tokio::net::TcpListener;
+use futures::{Future, Stream};
+
+# fn main() {
+let addr = &quot;127.0.0.1:0&quot;.parse().unwrap();
+let listener = TcpListener::bind(&amp;addr).unwrap();
+
+# if false {
+tokio::run({
+    listener.incoming().for_each(|socket| {
+        // An inbound socket has been received.
+        //
+        // Spawn a new task to process the socket
+        tokio::spawn({
+            // In this example, &quot;hello world&quot; will be written to the
+            // socket followed by the socket being closed.
+            io::write_all(socket, &quot;hello world&quot;)
+                // Drop the socket
+                .map(|_| ())
+                // Write any error to STDOUT
+                .map_err(|e| println!(&quot;socket error = {:?}&quot;, e))
+        });
+
+        // Receive the next inbound socket
+        Ok(())
+    })
+    .map_err(|e| println!(&quot;listener error = {:?}&quot;, e))
+});
+# }
+# }
+</code></pre>
+
+<p>The listener task and the tasks that process each socket are completely
+unrelated. They do not communicate and either can terminate without
+impacting the others. This is a perfect use case for spawning tasks.</p>
+
+<h2 id="background-processing">Background processing</h2>
+
+<p>Another case is to spawn a task that runs background computations in
+service of other tasks. The primary tasks send data to the background
+task for processing but do not care about if and when the data gets
+processed. This also allows a single background task to coalesce data
+from multiple primary tasks.</p>
+
+<p>This requires communication between the primary tasks and the background
+task. This is usually handled with an <a href="https://docs.rs/futures/0.1/futures/sync/mpsc/index.html"><code>mpsc</code></a> channel.</p>
+
+<p>The following example is a TCP server that reads data from the remote
+peer and tracks the number of received bytes. It then sends the number
+of received bytes to a background task. This background task writes the
+total number of bytes read from all socket tasks every 30 seconds.</p>
+
+<pre><code class="language-rust">extern crate tokio;
+extern crate futures;
+
+use tokio::io;
+use tokio::net::TcpListener;
+use tokio::timer::Interval;
+use futures::{future, stream, Future, Stream, Sink};
+use futures::future::lazy;
+use futures::sync::mpsc;
+use std::time::Duration;
+
+// Defines the background task. The `rx` argument is the channel receive
+// handle. The task will pull `usize` values (which represent number of
+// bytes read by a socket) off the channel and sum it internally. Every
+// 30 seconds, the current sum is written to STDOUT and the sum is reset
+// to zero.
+fn bg_task(rx: mpsc::Receiver&lt;usize&gt;)
+-&gt; impl Future&lt;Item = (), Error = ()&gt;
+{
+    // The stream of received `usize` values will be merged with a 30
+    // second interval stream. The value types of each stream must
+    // match. This enum is used to track the various values.
+    #[derive(Eq, PartialEq)]
+    enum Item {
+        Value(usize),
+        Tick,
+        Done,
+    }
+
+    // Interval at which the current sum is written to STDOUT.
+    let tick_dur = Duration::from_secs(30);
+
+    let interval = Interval::new_interval(tick_dur)
+        .map(|_| Item::Tick)
+        .map_err(|_| ());
+
+    // Turn the stream into a sequence of:
+    // Item(num), Item(num), ... Done
+    //
+    let items = rx.map(Item::Value)
+      .chain(stream::once(Ok(Item::Done)))
+      // Merge in the stream of intervals
+      .select(interval)
+      // Terminate the stream once `Done` is received. This is necessary
+      // because `Interval` is an infinite stream and `select` will keep
+      // selecting on it.
+      .take_while(|item| future::ok(*item != Item::Done));
+
+    // With the stream of `Item` values, start our logic.
+    //
+    // Using `fold` allows the state to be maintained across iterations.
+    // In this case, the state is the number of read bytes between tick.
+    items.fold(0, |num, item| {
+        match item {
+            // Sum the number of bytes with the state.
+            Item::Value(v) =&gt; future::ok(num + v),
+            Item::Tick =&gt; {
+                println!(&quot;bytes read = {}&quot;, num);
+
+                // Reset the byte counter
+                future::ok(0)
+            }
+            _ =&gt; unreachable!(),
+        }
+    })
+    .map(|_| ())
+}
+
+# fn main() {
+# if false {
+// Start the application
+tokio::run(lazy(|| {
+    let addr = &quot;127.0.0.1:0&quot;.parse().unwrap();
+    let listener = TcpListener::bind(&amp;addr).unwrap();
+
+    // Create the channel that is used to communicate with the
+    // background task.
+    let (tx, rx) = mpsc::channel(1_024);
+
+    // Spawn the background task:
+    tokio::spawn(bg_task(rx));
+
+    listener.incoming().for_each(move |socket| {
+        // An inbound socket has been received.
+        //
+        // Spawn a new task to process the socket
+        tokio::spawn({
+            // Each spawned task will have a clone of the sender handle.
+            let tx = tx.clone();
+
+            // In this example, all bytes read from the
+            // socket will be placed into a Vec.
+            io::read_to_end(socket, vec![])
+                // Drop the socket
+                .and_then(move |(_, buf)| {
+                    tx.send(buf.len())
+                        .map_err(|_| io::ErrorKind::Other.into())
+                })
+                .map(|_| ())
+                // Write any error to STDOUT
+                .map_err(|e| println!(&quot;socket error = {:?}&quot;, e))
+        });
+
+        // Receive the next inbound socket
+        Ok(())
+    })
+    .map_err(|e| println!(&quot;listener error = {:?}&quot;, e))
+}));
+# }
+# }
+</code></pre>
+
+<h2 id="coordinating-access-to-a-resource">Coordinating access to a resource</h2>
+
+<p>When working with futures, the preferred strategy for coordinating
+access to a shared resource (socket, data, etc&hellip;) is by using message
+passing. To do this, a dedicated task is spawned to manage the resource
+and other tasks interact with the resource by sending messages.</p>
+
+<p>This pattern is very similar to the previous example, but this time the
+tasks want to receive a message back once the operation is complete. To
+implement this, both <code>mpsc</code> and <code>oneshot</code> channels are used.</p>
+
+<p>The example coordinates access to a <a href="https://rav1e.rs/docs/going-deeper/frames/">transport</a> over a ping / pong
+protocol. Pings are sent into the transport and pongs are received.
+Primary tasks send a message to the coordinator task to initiate a ping,
+the coordinator task will respond to the ping request with the <a href="https://en.wikipedia.org/wiki/Round-trip_delay_time">round
+trip time</a>. The message sent to the coordinator task over the
+<code>mpsc</code> contains a <code>oneshot::Sender</code> allowing the coordinator task to
+respond.</p>
+
+<pre><code class="language-rust">extern crate tokio;
+extern crate futures;
+
+use tokio::io;
+use futures::{future, Future, Stream, Sink};
+use futures::future::lazy;
+use futures::sync::{mpsc, oneshot};
+use std::time::{Duration, Instant};
+
+type Message = oneshot::Sender&lt;Duration&gt;;
+
+struct Transport;
+
+impl Transport {
+    fn send_ping(&amp;self) {
+        // ...
+    }
+
+    fn recv_pong(&amp;self) -&gt; impl Future&lt;Item = (), Error = io::Error&gt; {
+#         future::ok(())
+        // ...
+    }
+}
+
+fn coordinator_task(rx: mpsc::Receiver&lt;Message&gt;)
+-&gt; impl Future&lt;Item = (), Error = ()&gt;
+{
+    let transport = Transport;
+
+    rx.for_each(move |pong_tx| {
+        let start = Instant::now();
+
+        transport.send_ping();
+
+        transport.recv_pong()
+            .map_err(|_| ())
+            .and_then(move |_| {
+                let rtt = start.elapsed();
+                pong_tx.send(rtt).unwrap();
+                Ok(())
+            })
+    })
+}
+
+/// Request an rtt.
+fn rtt(tx: mpsc::Sender&lt;Message&gt;)
+-&gt; impl Future&lt;Item = (Duration, mpsc::Sender&lt;Message&gt;), Error = ()&gt;
+{
+    let (resp_tx, resp_rx) = oneshot::channel();
+
+    tx.send(resp_tx)
+        .map_err(|_| ())
+        .and_then(|tx| {
+            resp_rx.map(|dur| (dur, tx))
+                .map_err(|_| ())
+        })
+}
+
+# fn main() {
+# if false {
+// Start the application
+tokio::run(lazy(|| {
+    // Create the channel that is used to communicate with the
+    // background task.
+    let (tx, rx) = mpsc::channel(1_024);
+
+    // Spawn the background task:
+    tokio::spawn(coordinator_task(rx));
+
+    // Spawn a few tasks that use the coordinator to requst RTTs.
+    for _ in 0..4 {
+        let tx = tx.clone();
+
+        tokio::spawn(lazy(|| {
+            rtt(tx).and_then(|(dur, _)| {
+                println!(&quot;duration = {:?}&quot;, dur);
+                Ok(())
+            })
+        }));
+    }
+
+    Ok(())
+}));
+# }
+# }
+</code></pre>
+
+<h1 id="when-not-to-spawn-tasks">When not to spawn tasks</h1>
+
+<p>If the amount of coordination via message passing and synchronization primitives
+outweighs the parallism benefits from spawning tasks, then maintaining a single
+task is preferred.</p>
+
+<p>For example, it is generally better to maintain reading from and writing to a
+single TCP socket on a single task instead of splitting up reading and writing
+between two tasks.</p>
+
+      
+      
+        <div class="tk-next">
+          <b>Next up</b>: <a href ="/docs/futures/leaf-futures/">Leaf futures</a>
+        </div>
+      
+    </main>
+  </div>
+</div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://rav1e.rs/js/bootstrap.min.js"></script>
+    <script src="https://rav1e.rs/js/highlight.js"></script>
+    <script>
+      $(function () {
+        $("pre code").each(function(i, block) {
+          
+          if (block.className.indexOf('language-rust') >= 0) {
+            var new_content = '';
+            var lines = block.textContent.split('\n');
+            for (var i = 0; i < lines.length; i++) {
+              if (lines[i].indexOf('# ') == 0 || lines[i] == '#') {
+                continue
+              }
+              new_content += lines[i].trimRight() + '\n';
+            }
+            block.textContent = new_content.replace(/\n\n\n/g, "\n\n").trimRight();
+          }
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+    apiKey: 'd7b5b785798fe748621bcaa8301a2201',
+    indexName: 'tokio',
+    inputSelector: '#search-input',
+    debug: false 
+    });
+    </script>
+    
+  </body>
+</html>
+

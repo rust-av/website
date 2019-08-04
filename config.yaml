@@ -1,9 +1,8 @@
 ---
-baseurl: "https://tokio.rs"
+baseurl: "https://rav1e.rs"
 title: "rav1e"
 languageCode: "en-us"
 canonifyURLs: "true"
-googleAnalytics: "UA-90234741-1"
 
 menu:
   docs:

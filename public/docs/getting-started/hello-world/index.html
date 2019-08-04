@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="https://rav1e.rs/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://rav1e.rs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://rav1e.rs/favicon-16x16.png">
+    <link rel="manifest" href="https://rav1e.rs/manifest.json">
+    <link rel="mask-icon" href="https://rav1e.rs/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <link rel="stylesheet" href="https://rav1e.rs/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/bootstrap.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/rav1e.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+
+    
+    <link rel="alternate" type="application/rss+xml" href="https://tokio.rs/blog/index.xml" />
+
+    <title>
+      
+        Hello World! - rav1e
+      
+    </title>
+  </head>
+  <body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row tk-navbar">
+      <a class="navbar-brand" href="https://rav1e.rs/">
+        <img src="https://rav1e.rs/img/logo.png" class="align-middle" alt="">
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="https://rav1e.rs/">Home</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            
+            <a class="nav-link  active " href="https://rav1e.rs/docs/getting-started/hello-world/">Documentation</a>
+          </li>
+          <li class="nav-item">
+            
+            <a class="nav-link " href="https://rav1e.rs/community/">Community</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            <a class="nav-link " href="https://rav1e.rs/blog/2018-12-recap-2018/">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/xiph/rav1e" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"/></svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://gitter.im/tokio-rs/tokio" target="_blank" rel="noopener" aria-label="Gitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" focusable="false"><title>Gitter</title><path fill="currentColor" d="M8.501 4.001H10.5V24H8.501V4.001zm6.999 0V24h-2V4.001h2zM3.5 0h2.001v15H3.5V0zm15 4.001h2V15h-2V4.001z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </header>
+
+
+
+<div class="container-fluid tk-docs">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 tk-sidebar">
+      <form class="tk-search d-flex align-items-center">
+        <span class="algolia-autocomplete algolia-autocomplete-left" style="position: relative; display: inline-block; direction: ltr;">
+          <input class="form-control ds-input" id="search-input" placeholder="Search..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" style="position: relative; vertical-align: top;" dir="auto" type="search">
+          <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, &quot;Helvetica Neue&quot;, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: optimizelegibility; text-transform: none;">w</pre>
+          <span class="ds-dropdown-menu ds-with-1" style="position: absolute; top: 100%; left: 0px; z-index: 100; right: auto; display: none;" role="listbox" id="algolia-autocomplete-listbox-0">
+            <div class="ds-dataset-1"></div>
+          </span>
+        </span>
+        <button class="btn btn-link tk-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#tk-docs-nav" aria-controls="tk-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
+            <title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+        </button>
+      </form>
+
+      <nav class="tk-links collapse" id="tk-docs-nav">
+          
+          
+            
+              <div class="tk-toc-item">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/overview/">
+                  What is Tokio?
+                </a>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item active">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/getting-started/hello-world/">
+                  Getting started
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/hello-world/" class="active">Hello World!</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/futures/" class="">Futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/runtime/" class="">Runtime</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/getting-started/echo/" class="">Example: An Echo Server</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/futures/overview/">
+                  Working with futures
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/futures/overview/" class="">Overview</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/basic/" class="">Implementing futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/getting_asynchronous/" class="">Getting asynchronous</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/combinators/" class="">Combinators</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/streams/" class="">Streams</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/spawning/" class="">Spawning</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/leaf-futures/" class="">Leaf futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/futures/runtime-model/" class="">Runtime model</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/io/overview/">
+                  I/O with Tokio
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/io/overview/" class="">I/O Overview</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/reading_writing_data/" class="">Reading and Writing Data</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/async_read_write/" class="">Using AsyncRead and AsyncWrite directly</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/impl_async_read_write/" class="">Implementing Async Read/Write</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/filesystem/" class="">Filesystem APIs</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/io/datagrams/" class="">Datagram APIs</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/going-deeper/futures/">
+                  Going deeper
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/futures/" class="">Futures: In Depth</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/tasks/" class="">Tasks</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/runtime-model/" class="">Runtime Model</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/io/" class="">I/O with Tokio</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/chat/" class="">Example: A Chat Server</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/timers/" class="">Timers</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/futures-mechanics/" class="">Essential combinators</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/returning/" class="">Returning futures</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/frames/" class="">Working with framed streams</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/going-deeper/building-runtime/" class="">Building a runtime</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              
+              <div class="tk-toc-item ">
+                <a class="tk-toc-link" href="https://rav1e.rs/docs/internals/intro/">
+                  Tokio internals
+                </a>
+                <ul class="nav tk-sidenav">
+                
+                  <li><a href="https://rav1e.rs/docs/internals/intro/" class="">Introduction</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/internals/runtime-model/" class="">Runtime model</a></li>
+                
+                  <li><a href="https://rav1e.rs/docs/internals/net/" class="">Non-blocking I/O</a></li>
+                
+                </ul>
+              </div>
+            
+          
+            
+              <div class="tk-toc-item">
+                <a class="tk-toc-link" href="https://docs.rs/tokio">
+                  API documentation
+                </a>
+              </div>
+            
+          
+      </nav>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 tk-toc">
+      <div class="section-nav">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#creating-the-stream">Creating the stream</a></li>
+<li><a href="#writing-data">Writing data</a></li>
+<li><a href="#running-the-client-task">Running the client task</a></li>
+<li><a href="#running-the-code">Running the code</a></li>
+<li><a href="#next-steps">Next steps</a></li>
+</ul>
+</nav>
+      </div>
+    </div>
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 tk-content tk-docs">
+      <h1 class="tk-title">Hello World!</h1>
+      <div class="github-edit">
+        <a class="fa fa-github" href="https://github.com/tokio-rs/website/tree/master/content/docs/getting-started/hello-world.md"> Edit on GitHub</a>
+      </div>
+      
+
+<p>To kick off our tour of Tokio, we will start with the obligatory &ldquo;hello world&rdquo;
+example. This program will create a TCP stream and write &ldquo;hello, world!&rdquo; to the stream.
+The difference between this and a Rust program that writes to a TCP stream without Tokio
+is that this program won&rsquo;t block program execution when the stream is created or when
+our &ldquo;hello, world!&rdquo; message is written to the stream.</p>
+
+<p>Before we begin you should have a very basic understanding of how TCP streams work. Having
+an understanding of Rust’s <a href="https://doc.rust-lang.org/std/net/struct.TcpStream.html">standard library implementation</a>
+is also helpful.</p>
+
+<p>Let&rsquo;s get started.</p>
+
+<p>First, generate a new crate.</p>
+
+<pre><code class="language-bash">$ cargo new hello-world
+$ cd hello-world
+</code></pre>
+
+<p>Next, add the necessary dependencies in <code>Cargo.toml</code>:</p>
+
+<pre><code class="language-toml">[dependencies]
+tokio = &quot;0.1&quot;
+</code></pre>
+
+<p>and the crates and types into scope in <code>main.rs</code>:</p>
+
+<pre><code class="language-rust"># #![deny(deprecated)]
+extern crate tokio;
+
+use tokio::io;
+use tokio::net::TcpStream;
+use tokio::prelude::*;
+# fn main() {}
+</code></pre>
+
+<p>Here we use Tokio&rsquo;s own <a href="https://docs.rs/tokio/0.1/tokio/io/index.html"><code>io</code></a> and <a href="https://docs.rs/tokio/0.1/tokio/net/index.html"><code>net</code></a> modules. These modules provide the same
+abstractions over networking and I/O-operations as the corresponding modules in <code>std</code>
+with a small difference: all actions are performed asynchronously.</p>
+
+<h1 id="creating-the-stream">Creating the stream</h1>
+
+<p>The first step is to create the <code>TcpStream</code>. We use the <code>TcpStream</code> implementation
+provided by Tokio.</p>
+
+<pre><code class="language-rust"># #![deny(deprecated)]
+# extern crate tokio;
+#
+# use tokio::net::TcpStream;
+fn main() {
+    // Parse the address of whatever server we're talking to
+    let addr = &quot;127.0.0.1:6142&quot;.parse().unwrap();
+    let client = TcpStream::connect(&amp;addr);
+
+    // Following snippets come here...
+}
+</code></pre>
+
+<p>Next, we&rsquo;ll add some to the <code>client</code> <code>TcpStream</code>. This asynchronous task now creates
+the stream and then yields it once it&rsquo;s been created for additional processing.</p>
+
+<pre><code class="language-rust"># #![deny(deprecated)]
+# extern crate tokio;
+#
+# use tokio::net::TcpStream;
+# use tokio::prelude::*;
+# fn main() {
+# let addr = &quot;127.0.0.1:6142&quot;.parse().unwrap();
+let client = TcpStream::connect(&amp;addr).and_then(|stream| {
+    println!(&quot;created stream&quot;);
+
+    // Process stream here.
+
+    Ok(())
+})
+.map_err(|err| {
+    // All tasks must have an `Error` type of `()`. This forces error
+    // handling and helps avoid silencing failures.
+    //
+    // In our example, we are only going to log the error to STDOUT.
+    println!(&quot;connection error = {:?}&quot;, err);
+});
+# }
+</code></pre>
+
+<p>The call to <code>TcpStream::connect</code> returns a <a href="https://docs.rs/futures/0.1/futures/future/trait.Future.html"><code>Future</code></a> of the created TCP stream.
+We&rsquo;ll learn more about <a href="https://rav1e.rs/docs/getting-started/futures/"><code>Futures</code></a> later in the guide, but for now you can think of
+a <a href="https://docs.rs/futures/0.1/futures/future/trait.Future.html"><code>Future</code></a> as a value that represents something that will eventually happen in the
+future (in this case the stream will be created). This means that <code>TcpStream::connect</code> does
+not wait for the stream to be created before it returns. Rather it returns immediately
+with a value representing the work of creating a TCP stream. We&rsquo;ll see down below when this work
+<em>actually</em> gets executed.</p>
+
+<p>The <code>and_then</code> method yields the stream once it has been created. <code>and_then</code> is an
+example of a combinator function that defines how asynchronous work will be processed.</p>
+
+<p>Each combinator function takes ownership of necessary state as well as the
+callback to perform and returns a new <code>Future</code> that has the additional &ldquo;step&rdquo;
+sequenced. A <code>Future</code> is a value representing some computation that will complete at
+some point in the future.</p>
+
+<p>It&rsquo;s worth reiterating that returned futures are lazy, i.e., no work is performed when
+calling the combinator. Instead, once all the asynchronous steps are sequenced, the
+final <code>Future</code> (representing the entire task) is &lsquo;spawned&rsquo; (i.e., run). This is when
+the previously defined work starts getting run. In other words, the code we&rsquo;ve written
+so far does not actually create a TCP stream.</p>
+
+<p>We will be digging more into futures (and the related concepts of streams and sinks)
+later on.</p>
+
+<p>It&rsquo;s also important to note that we&rsquo;ve called <code>map_err</code> to convert whatever error
+we may have gotten to <code>()</code> before we can actually run our future. This ensures that
+we acknowledge errors.</p>
+
+<p>Next, we will process the stream.</p>
+
+<h1 id="writing-data">Writing data</h1>
+
+<p>Our goal is to write <code>&quot;hello world\n&quot;</code> to the stream.</p>
+
+<p>Going back to the <code>TcpStream::connect(addr).and_then</code> block:</p>
+
+<pre><code class="language-rust"># #![deny(deprecated)]
+# extern crate tokio;
+#
+# use tokio::io;
+# use tokio::prelude::*;
+# use tokio::net::TcpStream;
+# fn main() {
+# let addr = &quot;127.0.0.1:6142&quot;.parse().unwrap();
+let client = TcpStream::connect(&amp;addr).and_then(|stream| {
+    println!(&quot;created stream&quot;);
+
+    io::write_all(stream, &quot;hello world\n&quot;).then(|result| {
+      println!(&quot;wrote to stream; success={:?}&quot;, result.is_ok());
+      Ok(())
+    })
+})
+# ;
+# }
+</code></pre>
+
+<p>The <a href="https://docs.rs/tokio-io/0.1/tokio_io/io/fn.write_all.html"><code>io::write_all</code></a> function takes ownership of <code>stream</code>, returning a
+<a href="https://docs.rs/futures/0.1/futures/future/trait.Future.html"><code>Future</code></a> that completes once the entire message has been written to the
+stream. <code>then</code> is used to sequence a step that gets run once the write has
+completed. In our example, we just write a message to <code>STDOUT</code> indicating that
+the write has completed.</p>
+
+<p>Note that <code>result</code> is a <code>Result</code> that contains the original stream (compare to
+<code>and_then</code>, which passes the stream without the <code>Result</code> wrapper). This allows us
+to sequence additional reads or writes to the same stream. However, we have
+nothing more to do, so we just drop the stream, which automatically closes it.</p>
+
+<h1 id="running-the-client-task">Running the client task</h1>
+
+<p>So far we have a <code>Future</code> representing the work to be done by our program, but we
+have not actually run it. We need a way to &lsquo;spawn&rsquo; that work. We need an executor.</p>
+
+<p>Executors are responsible for scheduling asynchronous tasks, driving them to
+completion. There are a number of executor implementations to choose from, each have
+different pros and cons. In this example, we will use the default executor of the
+<a href="https://docs.rs/tokio/0.1/tokio/runtime/index.html">Tokio runtime</a>.</p>
+
+<pre><code class="language-rust"># #![deny(deprecated)]
+# extern crate tokio;
+# extern crate futures;
+#
+# use tokio::prelude::*;
+# use futures::future;
+# fn main() {
+# let client = future::ok(());
+println!(&quot;About to create the stream and write to it...&quot;);
+tokio::run(client);
+println!(&quot;Stream has been created and written to.&quot;);
+# }
+</code></pre>
+
+<p><code>tokio::run</code> starts the runtime, blocking the current thread until all spawned tasks
+have completed and all resources (like files and sockets) have been dropped.</p>
+
+<p>So far, we only have a single task running on the executor, so the <code>client</code> task
+is the only one blocking <code>run</code> from returning. Once <code>run</code> has returned we can be sure
+that our Future has been run to completion.</p>
+
+<p>You can find the full example <a href="https://github.com/tokio-rs/tokio/tree/v0.1.x/tokio/examples/hello_world.rs">here</a>.</p>
+
+<h1 id="running-the-code">Running the code</h1>
+
+<p><a href="http://netcat.sourceforge.net/">Netcat</a> is a tool for quickly creating TCP sockets from the command line. The following
+command starts a listening TCP socket on the previously specified port.</p>
+
+<pre><code class="language-bash">$ nc -l -p 6142
+</code></pre>
+
+<blockquote>
+<p>The command above is used with the GNU version of netcat that comes stock on many
+unix based operating systems. The following command can be used with the
+<a href="https://nmap.org">NMap.org</a> version: <code>$ ncat -l -p 6142</code></p>
+</blockquote>
+
+<p>In a different terminal we&rsquo;ll run our project.</p>
+
+<pre><code class="language-bash">$ cargo run
+</code></pre>
+
+<p>If everything goes well, you should see <code>hello world</code> printed from Netcat.</p>
+
+<h1 id="next-steps">Next steps</h1>
+
+<p>We&rsquo;ve only dipped our toes into Tokio and its asynchronous model. The next page in
+the guide will start digging a bit deeper into Futures and the Tokio runtime model.</p>
+
+      
+      
+        <div class="tk-next">
+          <b>Next up</b>: <a href ="/docs/getting-started/futures/">Futures</a>
+        </div>
+      
+    </main>
+  </div>
+</div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://rav1e.rs/js/bootstrap.min.js"></script>
+    <script src="https://rav1e.rs/js/highlight.js"></script>
+    <script>
+      $(function () {
+        $("pre code").each(function(i, block) {
+          
+          if (block.className.indexOf('language-rust') >= 0) {
+            var new_content = '';
+            var lines = block.textContent.split('\n');
+            for (var i = 0; i < lines.length; i++) {
+              if (lines[i].indexOf('# ') == 0 || lines[i] == '#') {
+                continue
+              }
+              new_content += lines[i].trimRight() + '\n';
+            }
+            block.textContent = new_content.replace(/\n\n\n/g, "\n\n").trimRight();
+          }
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+    apiKey: 'd7b5b785798fe748621bcaa8301a2201',
+    indexName: 'tokio',
+    inputSelector: '#search-input',
+    debug: false 
+    });
+    </script>
+    
+  </body>
+</html>
+

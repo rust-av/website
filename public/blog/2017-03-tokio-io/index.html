@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="apple-touch-icon" sizes="120x120" href="https://rav1e.rs/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://rav1e.rs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://rav1e.rs/favicon-16x16.png">
+    <link rel="manifest" href="https://rav1e.rs/manifest.json">
+    <link rel="mask-icon" href="https://rav1e.rs/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    <link rel="stylesheet" href="https://rav1e.rs/css/bootstrap-reboot.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/bootstrap.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://rav1e.rs/css/rav1e.css">
+
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"/>
+
+    
+    <link rel="alternate" type="application/rss+xml" href="https://tokio.rs/blog/index.xml" />
+
+    <title>
+      
+        Announcing the tokio-io Crate - rav1e
+      
+    </title>
+  </head>
+  <body>
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row tk-navbar">
+      <a class="navbar-brand" href="https://rav1e.rs/">
+        <img src="https://rav1e.rs/img/logo.png" class="align-middle" alt="">
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="https://rav1e.rs/">Home</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            
+            <a class="nav-link " href="https://rav1e.rs/docs/getting-started/hello-world/">Documentation</a>
+          </li>
+          <li class="nav-item">
+            
+            <a class="nav-link " href="https://rav1e.rs/community/">Community</a>
+          </li>
+          <li class="nav-item">
+            
+            
+            <a class="nav-link  active " href="https://rav1e.rs/blog/2018-12-recap-2018/">Blog</a>
+          </li>
+        </ul>
+      </div>
+
+      <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://github.com/xiph/rav1e" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64 0 0 114.61 0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34 0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49 0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75 0 0 21.49-6.88 70.4 26.24a242.65 242.65 0 0 1 128.18 0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69 0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41 0 34.22-.31 61.83-.31 70.23 0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37 0 256 0z" fill="currentColor" fill-rule="evenodd"/></svg>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2" href="https://gitter.im/tokio-rs/tokio" target="_blank" rel="noopener" aria-label="Gitter">
+            <svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" focusable="false"><title>Gitter</title><path fill="currentColor" d="M8.501 4.001H10.5V24H8.501V4.001zm6.999 0V24h-2V4.001h2zM3.5 0h2.001v15H3.5V0zm15 4.001h2V15h-2V4.001z"/></svg>
+          </a>
+        </li>
+      </ul>
+    </header>
+
+
+
+<div class="container-fluid tk-blog">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-md-3 col-xl-2 tk-sidebar">
+      
+      <div class="tk-docs-toggle d-md-none p-0 d-flex ml-3 collapsed align-item-center">
+        <h1 class="tk-title">Announcing the tokio-io Crate</h1>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#tk-docs-nav" aria-controls="tk-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
+        </button>
+      </div>
+      <nav class="tk-links collapse" id="tk-docs-nav">
+          <div class="tk-toc-item active">
+            <p class="tk-toc-link">
+              Blog Posts
+            </p>
+            <ul class="nav tk-sidenav">
+              
+              
+                  <li><a href="https://rav1e.rs/blog/2018-12-recap-2018/" class="">A great 2018, an even better 2019</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2018-10-doc-blitz/" class="">Announcing the Tokio Doc Push (we need you!)</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2018-08-async-await/" class="">Experimental async / await support for Tokio</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2018-08-incremental-improvements/" class="">Tokio 0.1.8 with many incremental improvements</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2018-05-tokio-fs/" class="">New Tokio release, now with filesystem support</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2018-03-timers/" class="">New Timer implementation</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2018-03-tokio-runtime/" class="">Announcing the Tokio runtime</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2018-02-tokio-reform-shipped/" class="">Tokio Reform is Shipped and the Road to 0.2</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2017-09-tokio-reform/" class="">An RFC for a Tokio revamp</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2017-03-tokio-io/" class="active">Announcing the tokio-io Crate</a></li>
+              
+                  <li><a href="https://rav1e.rs/blog/2017-01-tokio-0-1/" class="">Announcing Tokio 0.1</a></li>
+              
+            </ul>
+          </div>
+      </nav>
+    </div>
+    <div class="d-none d-xl-block col-xl-2 tk-toc">
+      <div class="section-nav">
+        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#adding-a-tokio-io-crate">Adding a <code>tokio-io</code> crate</a></li>
+<li><a href="#integration-with-bytes">Integration with <code>bytes</code></a></li>
+<li><a href="#addition-of-sink-close">Addition of <code>Sink::close</code></a></li>
+<li><a href="#addition-of-codec-length-delimited">Addition of <code>codec::length_delimited</code></a></li>
+<li><a href="#what-s-next">What&rsquo;s next?</a></li>
+</ul></li>
+</ul>
+</nav>
+      </div>
+
+    </div>
+    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 tk-content tk-docs">
+      <h1 class="tk-title">Announcing the tokio-io Crate</h1>
+      <p class="tk-date">17 March 2017</p>
+      
+      
+
+<p>Today we&rsquo;re happy to announce a new crate and several new tools to work with
+in the Tokio stack. This represents the culmination of a number of parallel
+updates to various bits and pieces, they just happened to conveniently land all
+around the same time! In a nutshell the improvements are:</p>
+
+<ul>
+<li>A new <a href="https://crates.io/crates/tokio-io">tokio-io</a> crate extracted from <a href="https://crates.io/crates/tokio-core">tokio-core</a>, deprecating the
+<a href="https://docs.rs/tokio-core/0.1.9/tokio_core/io/"><code>tokio_core::io</code></a> module.</li>
+<li>Introduction of the <a href="https://crates.io/crates/bytes">bytes</a> crate to <a href="https://crates.io/crates/tokio-io">tokio-io</a> allowing abstraction over
+buffering and leveraging underlying functionality like vectored I/O.</li>
+<li>Addition of a new method, <code>close</code>, to the <code>Sink</code> trait to express graceful
+shutdown.</li>
+</ul>
+
+<p>These changes improve the organization and abstractions of Tokio to address
+several long-standing concerns and should provide a stable foundation for all
+future development. At the same time, the changes are not breaking since the
+old <code>io</code> module is still available in deprecated form. You can start using all
+these crates immediately via <code>cargo update</code> and using the most recent <code>0.1.*</code>
+versions of the crates!</p>
+
+<p>Let&rsquo;s dive a bit more into each change in detail to see what&rsquo;s available now.</p>
+
+<h2 id="adding-a-tokio-io-crate">Adding a <code>tokio-io</code> crate</h2>
+
+<p>The existing <a href="https://docs.rs/tokio-core/0.1.9/tokio_core/io/"><code>tokio_core::io</code></a> module gives a number of useful abstractions
+but they&rsquo;re not specific to <a href="https://crates.io/crates/tokio-core">tokio-core</a> itself, and the major purpose of the
+<a href="https://crates.io/crates/tokio-io">tokio-io</a> crate is to provide these core utilities without the implication of
+a runtime. With <a href="https://crates.io/crates/tokio-io">tokio-io</a> crates can depend on asynchronous I/O semantics
+without tying themselves to a particular runtime, for example <a href="https://crates.io/crates/tokio-core">tokio-core</a>.
+The <a href="https://crates.io/crates/tokio-io">tokio-io</a> crate is intended to be similar to the <a href="https://doc.rust-lang.org/std/io/"><code>std::io</code></a> standard
+library module in terms of serving a common abstraction for the asynchronous
+ecosystem. The concepts and traits set forth in <a href="https://crates.io/crates/tokio-io">tokio-io</a> are the foundation
+for all I/O done in the Tokio stack.</p>
+
+<p>The primary contents of <a href="https://crates.io/crates/tokio-io">tokio-io</a> are the <a href="https://docs.rs/tokio-io/0.1.6/tokio_io/trait.AsyncRead.html"><code>AsyncRead</code></a> and <a href="https://docs.rs/tokio-io/0.1.6/tokio_io/trait.AsyncWrite.html"><code>AsyncWrite</code></a>
+traits. These two traits are sort of a &ldquo;split <a href="https://docs.rs/tokio-core/0.1.9/tokio_core/io/trait.Io.html"><code>Io</code></a> trait&rdquo; and were chosen to
+demarcate types which implement Tokio-like read/write semantics (nonblocking
+and notifying to a future&rsquo;s task). These traits then integrate with the <a href="https://crates.io/crates/bytes">bytes</a>
+crate to provide some convenient functions and retain old functionality like
+<a href="https://docs.rs/tokio-io/0.1.6/tokio_io/trait.AsyncRead.html#method.split"><code>split</code></a>.</p>
+
+<p>With a clean slate we also took the chance to refresh the <a href="https://docs.rs/tokio-core/0.1.9/tokio_core/io/trait.Codec.html"><code>Codec</code></a> trait in the
+<a href="https://crates.io/crates/tokio-core">tokio-core</a> crate to <a href="https://docs.rs/tokio-io/0.1.6/tokio_io/codec/trait.Encoder.html"><code>Encoder</code></a> and <a href="https://docs.rs/tokio-io/0.1.6/tokio_io/codec/trait.Decoder.html"><code>Decoder</code></a> traits which operate over
+types in the <a href="https://crates.io/crates/bytes">bytes</a> crate (<a href="https://docs.rs/tokio-core/0.1.9/tokio_core/io/struct.EasyBuf.html"><code>EasyBuf</code></a> is not present in <a href="https://crates.io/crates/tokio-io">tokio-io</a> and it&rsquo;s
+now deprecated in <a href="https://crates.io/crates/tokio-core">tokio-core</a>). These types allows you to quickly move from a
+stream of bytes to a <a href="https://docs.rs/futures/0.1/futures/sink/trait.Sink.html"><code>Sink</code></a> and a <a href="https://docs.rs/futures/0.1/futures/stream/trait.Stream.html"><code>Stream</code></a> ready to accept framed messages.
+A great example of this is that with <a href="https://crates.io/crates/tokio-io">tokio-io</a> we can use the new
+<a href="https://docs.rs/tokio-io/0.1.6/tokio_io/codec/length_delimited/index.html"><code>length_delimited</code></a> module combined with <a href="https://github.com/carllerche/tokio-serde-json">tokio-serde-json</a> to get up and
+running with a JSON RPC server in no time as we&rsquo;ll see later in this post.</p>
+
+<p>Overall with <a href="https://crates.io/crates/tokio-io">tokio-io</a> we were also able to revisit several minor issues in
+the API designed. This in turns empowered us to <a href="https://github.com/tokio-rs/tokio-core/issues/61#issuecomment-277568977">close a slew of
+issues</a> against <a href="https://crates.io/crates/tokio-core">tokio-core</a>. We feel <a href="https://crates.io/crates/tokio-io">tokio-io</a> is a great addition
+to the Tokio stack moving forward. Crates can choose to be abstract over
+<a href="https://crates.io/crates/tokio-io">tokio-io</a> without pulling in runtimes such as <a href="https://crates.io/crates/tokio-core">tokio-core</a>, if they&rsquo;d like.</p>
+
+<h2 id="integration-with-bytes">Integration with <code>bytes</code></h2>
+
+<p>One longstanding wart with <a href="https://crates.io/crates/tokio-core">tokio-core</a> is its <a href="https://docs.rs/tokio-core/0.1.9/tokio_core/io/struct.EasyBuf.html"><code>EasyBuf</code></a> byte buffer type.
+This type is basically what it says on the tin (an &ldquo;easy&rdquo; buffer) but is
+unfortunately typically not what you want in high performance use cases. We&rsquo;ve
+long wanted to have a better abstraction (and a better concrete implementation)
+here.</p>
+
+<p>With <a href="https://crates.io/crates/tokio-io">tokio-io</a> you&rsquo;ll find that the <a href="https://crates.io/crates/bytes">bytes</a> crate on <a href="https://crates.io">crates.io</a> is much more
+tightly integrated and provides the abstractions necessary for high-performance
+and &ldquo;easy&rdquo; buffers simultaneously. The main contents of the <a href="https://crates.io/crates/bytes">bytes</a> crate are
+the <a href="http://carllerche.github.io/bytes/bytes/trait.Buf.html"><code>Buf</code></a> and <a href="http://carllerche.github.io/bytes/bytes/trait.BufMut.html"><code>BufMut</code></a> traits. These two traits serve as the ability to
+abstract over arbitrary byte buffers (both readable and writable) and are
+integrated with <a href="https://docs.rs/tokio-io/0.1.6/tokio_io/trait.AsyncRead.html#method.read_buf"><code>read_buf</code></a> and <a href="https://docs.rs/tokio-io/0.1.6/tokio_io/trait.AsyncWrite.html#method.write_buf"><code>write_buf</code></a> on all asynchronous I/O objects
+now.</p>
+
+<p>In addition to traits to abstract over many kinds of buffers the <a href="https://crates.io/crates/bytes">bytes</a> crate
+comes with two high-quality implementations of these traits, the <a href="http://carllerche.github.io/bytes/bytes/struct.Bytes.html"><code>Bytes</code></a> and
+<a href="http://carllerche.github.io/bytes/bytes/struct.BytesMut.html"><code>BytesMut</code></a> type (implementing the <a href="http://carllerche.github.io/bytes/bytes/trait.Buf.html"><code>Buf</code></a> and <a href="http://carllerche.github.io/bytes/bytes/trait.BufMut.html"><code>BufMut</code></a> traits respectively).
+In a nutshell these types represent reference-counted buffers which allow
+zero-copy extraction of slices of data in an efficient fashion. To boot they
+also support a wide array of common operations such as tiny buffers (inline
+storage), single owners (can use a <code>Vec</code> internally), shared owners with
+disjoint views (<code>BytesMut</code>), and shared owners with possibly overlapping views
+(<code>Bytes</code>).</p>
+
+<p>Overall the <a href="https://crates.io/crates/bytes">bytes</a> crate we hope is your one-stop-shop for byte buffer
+abstractions as well as high-quality implementations to get you running
+quickly. We&rsquo;re excited to see what&rsquo;s in store for the <a href="https://crates.io/crates/bytes">bytes</a> crate!</p>
+
+<h2 id="addition-of-sink-close">Addition of <code>Sink::close</code></h2>
+
+<p>The final major change that we&rsquo;ve landed recently is the addition of a new
+method on the <a href="https://docs.rs/futures/0.1/futures/sink/trait.Sink.html"><code>Sink</code></a> trait, <a href="https://docs.rs/futures/0.1/futures/sink/trait.Sink.html#method.close"><code>close</code></a>. Up to now there hasn&rsquo;t been a great
+story around implementing &ldquo;graceful shutdown&rdquo; in a generic fashion because there
+was no clean way to indicate to a sink that no more items will be pushed into
+it. The new <a href="https://docs.rs/futures/0.1/futures/sink/trait.Sink.html#method.close"><code>close</code></a> method is intended precisely for this purpose.</p>
+
+<p>The <a href="https://docs.rs/futures/0.1/futures/sink/trait.Sink.html#method.close"><code>close</code></a> method allows informing a sink that no more messages will be
+pushed into it. Sinks can then take this opportunity to flush messages and
+otherwise perform protocol-specific shutdown. For example a TLS connection at
+that point would initiate a shutdown operation or a proxied connection might
+issue a TCP-level shutdown. Typically this&rsquo;ll end up bottoming out to the new
+<a href="https://docs.rs/tokio-io/0.1.6/tokio_io/trait.AsyncWrite.html#tymethod.shutdown"><code>AsyncWrite::shutdown</code></a> method.</p>
+
+<h2 id="addition-of-codec-length-delimited">Addition of <code>codec::length_delimited</code></h2>
+
+<p>One large feature that is landing with <a href="https://crates.io/crates/tokio-io">tokio-io</a> is the addition of
+the <a href="https://docs.rs/tokio-io/0.1.6/tokio_io/codec/length_delimited/index.html"><code>length_delimited</code></a> module (inspired by Netty&rsquo;s
+<a href="https://netty.io/4.0/api/io/netty/handler/codec/LengthFieldBasedFrameDecoder.html"><code>LengthFieldBasedFrameDecoder</code></a>). Many protocols delimit frames by using a
+frame header that includes the length of the frame. As a simple example, take a
+protocol that uses a frame header of a <code>u32</code> to delimit the frame payload. Each
+frame on the wire looks like this:</p>
+
+<pre><code class="language-text">+----------+--------------------------------+
+| len: u32 |          frame payload         |
++----------+--------------------------------+
+</code></pre>
+
+<p>Parsing this protocol can easily be handled with</p>
+
+<pre><code class="language-rust,ignore">// Bind a server socket
+let socket = TcpStream::connect(
+    &amp;&quot;127.0.0.1:17653&quot;.parse().unwrap(),
+    &amp;handle);
+
+socket.and_then(|socket| {
+    // Delimit frames using a length header
+    let transport = length_delimited::FramedWrite::new(socket);
+})
+</code></pre>
+
+<p>In the above example, <code>transport</code> will be a <code>Sink + Stream</code> of buffer
+values, where each buffer contains the frame payload. This makes
+encoding and decoding the frame to a value fairly easy to do with
+something like <a href="https://serde.rs/">serde</a>. For example, using <a href="https://github.com/carllerche/tokio-serde-json">tokio-serde-json</a>, we can
+quickly implement a JSON based protocol where each frame is length
+delimited and the frame payload is encoded using JSON:</p>
+
+<pre><code class="language-rust,ignore">// Bind a server socket
+let socket = TcpStream::connect(
+    &amp;&quot;127.0.0.1:17653&quot;.parse().unwrap(),
+    &amp;handle);
+
+socket.and_then(|socket| {
+    // Delimit frames using a length header
+    let transport = length_delimited::FramedWrite::new(socket);
+
+    // Serialize frames with JSON
+    let serialized = WriteJson::new(transport);
+
+    // Send the value
+    serialized.send(json!({
+        &quot;name&quot;: &quot;John Doe&quot;,
+        &quot;age&quot;: 43,
+        &quot;phones&quot;: [
+            &quot;+44 1234567&quot;,
+            &quot;+44 2345678&quot;
+        ]
+    }))
+})
+</code></pre>
+
+<p>The full example is <a href="https://github.com/carllerche/tokio-serde-json/tree/master/examples">here</a>.</p>
+
+<p>The <a href="https://docs.rs/tokio-io/0.1.6/tokio_io/codec/length_delimited/index.html"><code>length_delimited</code></a> module contains enough configuration settings to
+handle parsing length delimited frames with more complex frame headers,
+like the HTTP/2.0 protocol.</p>
+
+<h2 id="what-s-next">What&rsquo;s next?</h2>
+
+<p>All of these changes put together closes quite a large number of issues in the
+<a href="https://crates.io/crates/futures">futures</a> and <a href="https://crates.io/crates/tokio-core">tokio-core</a> crates and we feel positions Tokio precisely where
+we&rsquo;d like it for common I/O and buffering abstractions. As always we&rsquo;d love to
+hear feedback on issue trackers and are more than willing to merge PRs if you
+find a problem! Otherwise we look forward to seeing all of these changes in
+practice!</p>
+
+<p>With the foundations of <a href="https://crates.io/crates/tokio-core">tokio-core</a>, <a href="https://crates.io/crates/tokio-io">tokio-io</a>, <a href="https://crates.io/crates/tokio-service">tokio-service</a>, and
+<a href="https://crates.io/crates/tokio-proto">tokio-proto</a> solidifying the Tokio team is looking forward to accommodating
+and implementing more ambitious protocols such as HTTP/2. We&rsquo;re working closely
+with <a href="https://github.com/seanmonstar">@seanmonstar</a> and <a href="https://github.com/hyperium/hyper">Hyper</a> to develop these foundational HTTP
+libraries as well. Finally we&rsquo;re looking to expand the middleware story in the
+near future with relation to both HTTP and generic <a href="https://crates.io/crates/tokio-service">tokio-service</a>
+implementations. More on this coming soon!</p>
+
+      
+
+      
+        <div class="tk-next">
+          <b>Next up</b>: <a href ="/blog/2017-09-tokio-reform/">An RFC for a Tokio revamp</a>
+        </div>
+      
+    </main>
+  </div>
+</div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://rav1e.rs/js/bootstrap.min.js"></script>
+    <script src="https://rav1e.rs/js/highlight.js"></script>
+    <script>
+      $(function () {
+        $("pre code").each(function(i, block) {
+          
+          if (block.className.indexOf('language-rust') >= 0) {
+            var new_content = '';
+            var lines = block.textContent.split('\n');
+            for (var i = 0; i < lines.length; i++) {
+              if (lines[i].indexOf('# ') == 0 || lines[i] == '#') {
+                continue
+              }
+              new_content += lines[i].trimRight() + '\n';
+            }
+            block.textContent = new_content.replace(/\n\n\n/g, "\n\n").trimRight();
+          }
+          hljs.highlightBlock(block);
+        });
+      });
+    </script>
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+    <script type="text/javascript"> docsearch({
+    apiKey: 'd7b5b785798fe748621bcaa8301a2201',
+    indexName: 'tokio',
+    inputSelector: '#search-input',
+    debug: false 
+    });
+    </script>
+    
+  </body>
+</html>
+

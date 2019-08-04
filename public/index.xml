@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rav1e</title>
+    <link>https://rav1e.rs/</link>
+    <description>Recent content on rav1e</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://rav1e.rs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is Tokio?</title>
+      <link>https://rav1e.rs/docs/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/overview/</guid>
+      <description>Tokio allows developers to write asynchronous programs in the Rust programming language. Instead of synchronously waiting for long-running operations (like reading a file or waiting for a timer to complete) before moving on to the next thing, Tokio allows developers to write programs where execution continues while the long-running operations are in progress.
+More specifically, Tokio is an event-driven, non-blocking I/O platform for writing asynchronous applications with Rust. At a high level, it provides a few major components:</description>
+    </item>
+    
+    <item>
+      <title>A great 2018, an even better 2019</title>
+      <link>https://rav1e.rs/blog/2018-12-recap-2018/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2018-12-recap-2018/</guid>
+      <description>A year ago, Tokio was a very different library. It includes the (now deprecated) tokio-core which provided a future executor, I/O selector, and basic TCP/UDP types in a single library. It also included tokio-proto, but we won&amp;rsquo;t talk about that. Over the past year, Tokio has grown to become Rust&amp;rsquo;s asynchronous I/O platform. It has been adopted by a number of large companies to build apps.
+A lot was achieved in 2018.</description>
+    </item>
+    
+    <item>
+      <title>Announcing the Tokio Doc Push (we need you!)</title>
+      <link>https://rav1e.rs/blog/2018-10-doc-blitz/</link>
+      <pubDate>Thu, 04 Oct 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2018-10-doc-blitz/</guid>
+      <description>In the past, there has been reoccurring feedback that Tokio is hard to understand. I believe a lack of good documentation plays a significant part. It&amp;rsquo;s time to fix this problem.
+And because Tokio is open source, it is on us (the community) to make this happen! 👏
+But don&amp;rsquo;t worry, this isn&amp;rsquo;t an aimless request to contribute documentation. It does, however, require participation. There are ways to get involved at any level of prior Tokio experience.</description>
+    </item>
+    
+    <item>
+      <title>Experimental async / await support for Tokio</title>
+      <link>https://rav1e.rs/blog/2018-08-async-await/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2018-08-async-await/</guid>
+      <description>Happy Monday!
+In case you haven&amp;rsquo;t heard, async / await is a big new feature that is being worked on for Rust. It aims to make asynchronous programming easy (well, at least a little bit easier than it is today). The work has been on going for a while and is already usable today on the Rust nightly channel.
+I&amp;rsquo;m happy to announce that Tokio now has experimental async / await support!</description>
+    </item>
+    
+    <item>
+      <title>Tokio 0.1.8 with many incremental improvements</title>
+      <link>https://rav1e.rs/blog/2018-08-incremental-improvements/</link>
+      <pubDate>Fri, 24 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2018-08-incremental-improvements/</guid>
+      <description>It took a bit longer than I had initially hoped (as it always does), but a new Tokio version has been released. This release includes, among other features, a new set of APIs that allow performing filesystem operations from an asynchronous context, concurrency improvements, timer improvements, and more (including bug fixes, so be sure to update!).
+It has been a little bit since the last post. There haven&amp;rsquo;t been any big feature releases, but that doesn&amp;rsquo;t mean that we have been idle.</description>
+    </item>
+    
+    <item>
+      <title>New Tokio release, now with filesystem support</title>
+      <link>https://rav1e.rs/blog/2018-05-tokio-fs/</link>
+      <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2018-05-tokio-fs/</guid>
+      <description>It took a bit longer than I had initially hoped (as it always does), but a new Tokio version has been released. This release includes, among other features, a new set of APIs that allow performing filesystem operations from an asynchronous context.
+Filesystem APIs Interacting with files (and other filesystem types) requires* blocking system calls and we all know that blocking and asynchronous do not mix. So, historically, when people ask &amp;ldquo;how do I read from and write to files?</description>
+    </item>
+    
+    <item>
+      <title>New Timer implementation</title>
+      <link>https://rav1e.rs/blog/2018-03-timers/</link>
+      <pubDate>Fri, 30 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2018-03-timers/</guid>
+      <description>Happy Friday all!
+To close out a great week, there is a new release of Tokio. This release includes a brand new timer implementation.
+Timers Sometimes (often), one wants to execute code in relation to time. Maybe a function needs to run at a specific instant. Maybe a read needs to be limited to a fixed duration. For working with time, one needs access to a timer!
+Some history The tokio-timer crate has been around for a while.</description>
+    </item>
+    
+    <item>
+      <title>Announcing the Tokio runtime</title>
+      <link>https://rav1e.rs/blog/2018-03-tokio-runtime/</link>
+      <pubDate>Thu, 08 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2018-03-tokio-runtime/</guid>
+      <description>I&amp;rsquo;m happy to announce a new release of Tokio. This release includes the first iteration of the Tokio Runtime.
+tl;dr This is how a multi-threaded Tokio based server is now written:
+extern crate tokio; use tokio::net::TcpListener; use tokio::prelude::*; fn process(s: TcpStream) -&amp;gt; impl Future&amp;lt;Item = (), Error = ()&amp;gt; + Send { ... } let addr = &amp;quot;127.0.0.1:8080&amp;quot;.parse().unwrap(); let listener = TcpListener::bind(&amp;amp;addr).unwrap(); let server = listener.incoming() .map_err(|e| println!(&amp;quot;error = {:?</description>
+    </item>
+    
+    <item>
+      <title>Tokio Reform is Shipped and the Road to 0.2</title>
+      <link>https://rav1e.rs/blog/2018-02-tokio-reform-shipped/</link>
+      <pubDate>Wed, 07 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2018-02-tokio-reform-shipped/</guid>
+      <description>Hi all!
+I&amp;rsquo;m happy to announce that today, the changes proposed in the reform RFC have been released to crates.io as tokio 0.1.
+The primary changes are:
+ Add a default global event loop, eliminating the need for setting up and managing your own event loop in the vast majority of cases.
+ Decouple all task execution functionality from Tokio.
+  The new global event loop Up until today, creating an event loop was a manual process.</description>
+    </item>
+    
+    <item>
+      <title>An RFC for a Tokio revamp</title>
+      <link>https://rav1e.rs/blog/2017-09-tokio-reform/</link>
+      <pubDate>Tue, 19 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2017-09-tokio-reform/</guid>
+      <description>Hi there, Tokio community!
+Carl, Alex, and myself have been hard at work developing ways to simplify, streamline, and focus the Tokio project. As part of this effort, we have written the first-ever Tokio RFC!
+Here&amp;rsquo;s a quick run-down of what&amp;rsquo;s being proposed.
+ Add a global event loop in tokio-core that is managed automatically by default. This change eliminates the need for setting up and managing your own event loop in the vast majority of cases.</description>
+    </item>
+    
+    <item>
+      <title>Announcing the tokio-io Crate</title>
+      <link>https://rav1e.rs/blog/2017-03-tokio-io/</link>
+      <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2017-03-tokio-io/</guid>
+      <description>Today we&amp;rsquo;re happy to announce a new crate and several new tools to work with in the Tokio stack. This represents the culmination of a number of parallel updates to various bits and pieces, they just happened to conveniently land all around the same time! In a nutshell the improvements are:
+ A new tokio-io crate extracted from tokio-core, deprecating the tokio_core::io module. Introduction of the bytes crate to tokio-io allowing abstraction over buffering and leveraging underlying functionality like vectored I/O.</description>
+    </item>
+    
+    <item>
+      <title>Announcing Tokio 0.1</title>
+      <link>https://rav1e.rs/blog/2017-01-tokio-0-1/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/blog/2017-01-tokio-0-1/</guid>
+      <description>Today we are publishing the preliminary version of the Tokio stack, 0.1!
+Tokio is a platform for writing fast networking code in Rust. It&amp;rsquo;s built on futures, a zero-cost abstraction for asynchronous programming in Rust. It provides a suite of basic tools, tokio-core, for asynchronous I/O with futures. It also provides a higher-level layer, tokio-proto, for easily building sophisticated servers and clients; all you have to do is handle message serialization.</description>
+    </item>
+    
+    <item>
+      <title>Hello World!</title>
+      <link>https://rav1e.rs/docs/getting-started/hello-world/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/getting-started/hello-world/</guid>
+      <description>To kick off our tour of Tokio, we will start with the obligatory &amp;ldquo;hello world&amp;rdquo; example. This program will create a TCP stream and write &amp;ldquo;hello, world!&amp;rdquo; to the stream. The difference between this and a Rust program that writes to a TCP stream without Tokio is that this program won&amp;rsquo;t block program execution when the stream is created or when our &amp;ldquo;hello, world!&amp;rdquo; message is written to the stream.</description>
+    </item>
+    
+    <item>
+      <title>Futures</title>
+      <link>https://rav1e.rs/docs/getting-started/futures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/getting-started/futures/</guid>
+      <description>Let&amp;rsquo;s take a closer look at futures. Tokio is built on top of the futures crate and uses its runtime model. This allows Tokio to interop with other libraries also using the futures crate.
+Note: This runtime model is very different than async libraries found in other languages. While, at a high level, APIs can look similar, the way code gets executed differs.
+We&amp;rsquo;ll be taking a closer look at the runtime in the upcoming sections, but a basic understanding of the runtime is necessary to understand futures.</description>
+    </item>
+    
+    <item>
+      <title>Runtime</title>
+      <link>https://rav1e.rs/docs/getting-started/runtime/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/getting-started/runtime/</guid>
+      <description>In the previous section we explored Futures and Streams which allow us to represent a value (in the case of a Future) or a series of values (in the case of Stream) that will be available &amp;ldquo;at some point in the future&amp;rdquo;. We talked about poll on Future and Stream which the runtime will call to figure out if the Future or the Stream are ready to yield a value.</description>
+    </item>
+    
+    <item>
+      <title>Example: An Echo Server</title>
+      <link>https://rav1e.rs/docs/getting-started/echo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/getting-started/echo/</guid>
+      <description>We&amp;rsquo;re going to use what has been covered so far to build an echo server. This is a Tokio application that encorporates everything we&amp;rsquo;ve learned so far. The server will simply receive messages from the connected client and send back the same message it received to the client.
+We&amp;rsquo;ll be able to test this echo server using the basic Tcp client we created in the hello world section.
+The full code can be found here.</description>
+    </item>
+    
+    <item>
+      <title>Overview</title>
+      <link>https://rav1e.rs/docs/futures/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/futures/overview/</guid>
+      <description>Futures, hinted at earlier in the guide, are the building block used to manage asynchronous logic. They are the underlying asynchronous abstraction used by Tokio.
+A future is a value that represents the completion of an asynchronous computation. Usually, the future completes due to an event that happens elsewhere in the system. While we’ve been looking at things from the perspective of basic I/O, you can use a future to represent a wide range of events, e.</description>
+    </item>
+    
+    <item>
+      <title>Implementing futures</title>
+      <link>https://rav1e.rs/docs/futures/basic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/futures/basic/</guid>
+      <description>Implementing futures is very common when using Tokio. Let&amp;rsquo;s start with a very basic future that performs no asynchronous logic and simply returns a message (the venerable &amp;ldquo;hello world&amp;rdquo;).
+The Future trait. The Future trait is as follows:
+trait Future { /// The type of the value returned when the future completes. type Item; /// The type representing errors that occurred while processing the computation. type Error; /// The function that will be repeatedly called to see if the future /// has completed or not.</description>
+    </item>
+    
+    <item>
+      <title>Getting asynchronous</title>
+      <link>https://rav1e.rs/docs/futures/getting_asynchronous/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/futures/getting_asynchronous/</guid>
+      <description>Futures are all about managing asynchronicity. Implementing a future that completes asynchonously requires correctly handling receiving Async::NotReady from the inner future.
+Let&amp;rsquo;s start by implementing a future that establishes a TCP socket with a remote peer and extracts the peer socket address, writing it to STDOUT.
+# #![deny(deprecated)] extern crate tokio; #[macro_use] extern crate futures; use tokio::net::{TcpStream, tcp::ConnectFuture}; use futures::{Future, Async, Poll}; struct GetPeerAddr { connect: ConnectFuture, } impl Future for GetPeerAddr { type Item = (); type Error = (); fn poll(&amp;amp;mut self) -&amp;gt; Poll&amp;lt;Self::Item, Self::Error&amp;gt; { match self.</description>
+    </item>
+    
+    <item>
+      <title>Combinators</title>
+      <link>https://rav1e.rs/docs/futures/combinators/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/futures/combinators/</guid>
+      <description>Often times, Future implementations follow similar patterns. To help reduce boilerplate, the futures crate provides a number of utilities, called &amp;ldquo;combinators&amp;rdquo;, that abstract these patterns. Many of these combinators exist as functions on the Future trait.
+Building blocks Let&amp;rsquo;s revisit the future implementations from the previous pages and see how they can be simplified by using combinators.
+map The map combinator takes a future and returns a new future that applies a function to the value yielded by the first future.</description>
+    </item>
+    
+    <item>
+      <title>Streams</title>
+      <link>https://rav1e.rs/docs/futures/streams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/futures/streams/</guid>
+      <description>Streams are similar to futures, but instead of yielding a single value, they asynchronously yield one or more values. They can be thought of as asynchronous iterators.
+Just like futures, streams are able to represent a wide range of things as long as those things produce discrete values at different points sometime in the future. For instance:
+ UI Events caused by the user interacting with a GUI in different ways.</description>
+    </item>
+    
+    <item>
+      <title>Spawning</title>
+      <link>https://rav1e.rs/docs/futures/spawning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/futures/spawning/</guid>
+      <description>Tokio based applications are organized in terms of Tasks. A task is a small unit of logic that executes independently from other tasks. It is similar to Go&amp;rsquo;s goroutine and Erlang&amp;rsquo;s process, but asynchronous. In other words, tasks are asynchronous green threads. Tasks are spawned for similar reasons that threads are spawned in synchronous code, but spawning a task with Tokio is extremely lightweight.
+Previous examples defined a future and passed that future to tokio::run.</description>
+    </item>
+    
+    <item>
+      <title>Leaf futures</title>
+      <link>https://rav1e.rs/docs/futures/leaf-futures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/futures/leaf-futures/</guid>
+      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
+    </item>
+    
+    <item>
+      <title>Runtime model</title>
+      <link>https://rav1e.rs/docs/futures/runtime-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/futures/runtime-model/</guid>
+      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
+    </item>
+    
+    <item>
+      <title>I/O Overview</title>
+      <link>https://rav1e.rs/docs/io/overview/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/io/overview/</guid>
+      <description>The Rust standard library provides support for networking and I/O, such as TCP connections, UDP sockets, reading from and writing to files, etc. However, those operations are all synchronous, or blocking, meaning that when you call them, the current thread may stop executing and go to sleep until it is unblocked. For example, the read method in std::io::Read will block until there is data to read. In the world of futures, that behavior is unfortunate, since we would like to continue executing other futures we may have while waiting for the I/O to complete.</description>
+    </item>
+    
+    <item>
+      <title>Reading and Writing Data</title>
+      <link>https://rav1e.rs/docs/io/reading_writing_data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/io/reading_writing_data/</guid>
+      <description>Non-blocking I/O In the overview we mentioned briefly that Tokio&amp;rsquo;s I/O types implement non-blocking variants of std::io::Read and std::io::Write called AsyncRead and AsyncWrite. These are an integral part of Tokio&amp;rsquo;s I/O story, and are important to understand when working with I/O code.
+ Note: in this section, we&amp;rsquo;ll primarily talk about AsyncRead, but AsyncWrite is pretty much exactly the same, just for writing data to an I/O resource (like a TCP socket) instead of reading from it.</description>
+    </item>
+    
+    <item>
+      <title>Using AsyncRead and AsyncWrite directly</title>
+      <link>https://rav1e.rs/docs/io/async_read_write/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/io/async_read_write/</guid>
+      <description>So far, we have primarily talked about AsyncRead and AsyncWrite in the context of I/O combinators provided by Tokio. While these are often enough, sometimes you need to implement your own combinators that want to perform asynchronous reads and writes directly.
+Reading data with AsyncRead The heart of AsyncRead is the poll_read method. It maps the WouldBlock error that indicates that an I/O read operation would have blocked into NotReady, which in turn lets us interoperate with the world of futures.</description>
+    </item>
+    
+    <item>
+      <title>Implementing Async Read/Write</title>
+      <link>https://rav1e.rs/docs/io/impl_async_read_write/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/io/impl_async_read_write/</guid>
+      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
+    </item>
+    
+    <item>
+      <title>Filesystem APIs</title>
+      <link>https://rav1e.rs/docs/io/filesystem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/io/filesystem/</guid>
+      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
+    </item>
+    
+    <item>
+      <title>Datagram APIs</title>
+      <link>https://rav1e.rs/docs/io/datagrams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/io/datagrams/</guid>
+      <description>This page has not been worked on yet. If you&amp;rsquo;d like to contribute visit the doc-push repo.</description>
+    </item>
+    
+    <item>
+      <title>Futures: In Depth</title>
+      <link>https://rav1e.rs/docs/going-deeper/futures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/futures/</guid>
+      <description>Futures, hinted at earlier in the guide, are the building block used to manage asynchronous logic. They are the underlying asynchronous abstraction used by Tokio.
+The future implementation is provided by the futures crate. However, for convenience, Tokio re-exports a number of the types.
+What Are Futures? A future is a value that represents the completion of an asynchronous computation. Usually, the future completes due to an event that happens elsewhere in the system.</description>
+    </item>
+    
+    <item>
+      <title>Tasks</title>
+      <link>https://rav1e.rs/docs/going-deeper/tasks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/tasks/</guid>
+      <description>Tasks are the application&amp;rsquo;s &amp;ldquo;unit of logic&amp;rdquo;. They are similar to Go&amp;rsquo;s goroutine and Erlang&amp;rsquo;s process, but asynchronous. In other words, tasks are asynchronous green threads.
+Given that a task runs an asynchronous bit of logic, they are represented by the Future trait. The task&amp;rsquo;s future implementation completes with a () value once the task is done processing.
+Tasks are passed to executors, which handle scheduling the task. An executor usually is scheduling many tasks across a single or small set of threads.</description>
+    </item>
+    
+    <item>
+      <title>Runtime Model</title>
+      <link>https://rav1e.rs/docs/going-deeper/runtime-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/runtime-model/</guid>
+      <description>Now we will go over the Tokio / futures runtime model. Tokio is built on top of the futures crate and uses its runtime model. This allows it to interop with other libraries also using the futures crate.
+Note: This runtime model is very different than async libraries found in other languages. While, at a high level, APIs can look similar, the way code gets executed differs.
+Synchronous Model First, let&amp;rsquo;s talk briefly about the synchronous (or blocking) model.</description>
+    </item>
+    
+    <item>
+      <title>I/O with Tokio</title>
+      <link>https://rav1e.rs/docs/going-deeper/io/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/io/</guid>
+      <description>The tokio crate comes with TCP and UDP networking types. Unlike the types in std, Tokio&amp;rsquo;s networking types are based on the poll model and will notify the task executors when their readiness states change (data is received and write buffers are flushed). In the tokio::net module you&amp;rsquo;ll find types like TcpListener, TcpStream, and UdpSocket.
+All of these types provide both a future API as well as a poll API.</description>
+    </item>
+    
+    <item>
+      <title>Example: A Chat Server</title>
+      <link>https://rav1e.rs/docs/going-deeper/chat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/chat/</guid>
+      <description>We&amp;rsquo;re going to use what has been covered so far to build a chat server. This is a non-trivial Tokio server application.
+The server is going to use a line-based protocol. Lines are terminated by \r\n. This is compatible with telnet, so we will just use telnet for the client. When a client connects, it must identify itself by sending a line containing its &amp;ldquo;nick&amp;rdquo; (i.e., some name used to identify the client amongst its peers).</description>
+    </item>
+    
+    <item>
+      <title>Timers</title>
+      <link>https://rav1e.rs/docs/going-deeper/timers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/timers/</guid>
+      <description>When writing a network based application, it is common to need to perform actions based on time.
+ Run some code after a set period of time. Cancel a running operation that takes too long. Repeatedly perform an action at an interval.  These use cases are handled by using the various timer APIs that are provided in the timer module.
+Running code after a period of time In this case, we want to perform a task after a set period of time.</description>
+    </item>
+    
+    <item>
+      <title>Essential combinators</title>
+      <link>https://rav1e.rs/docs/going-deeper/futures-mechanics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/futures-mechanics/</guid>
+      <description>We saw a few of the most important combinators in the futures and streams overviews. Here we&amp;rsquo;ll take a look at a few more. It&amp;rsquo;s also worth spending some time with the trait documentation to familiarize yourself with the full range of combinators available (cheatsheet).
+Some concrete futures and streams Any value can be turned into an immediately complete future. There are a few functions in the future module for creating such a future:</description>
+    </item>
+    
+    <item>
+      <title>Returning futures</title>
+      <link>https://rav1e.rs/docs/going-deeper/returning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/returning/</guid>
+      <description>When working with futures, one of the first things you&amp;rsquo;re likely to need to do is to return a Future. As with Iterators, however, doing so can be a little tricky. There are several options, listed from most to least ergonomic:
+ Trait objects impl Trait Named types Custom types  Trait objects First, you always have the option of returning a boxed trait object:
+# extern crate futures; # use std::io; # use futures::Future; # fn main() {} fn foo() -&amp;gt; Box&amp;lt;Future&amp;lt;Item = u32, Error = io::Error&amp;gt; + Send&amp;gt; { // .</description>
+    </item>
+    
+    <item>
+      <title>Working with framed streams</title>
+      <link>https://rav1e.rs/docs/going-deeper/frames/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/frames/</guid>
+      <description>Tokio has helpers to transform a stream of bytes into a stream of frames. Examples of byte streams include TCP connections, pipes, file objects and the standard input and output file descriptors. In Rust, streams are easily identified because they implement the Read and Write traits.
+One of the simplest forms of framed message is the line delimited message. Each message ends with a \n character. Let&amp;rsquo;s look at how one would implement a stream of line delimited messages with tokio.</description>
+    </item>
+    
+    <item>
+      <title>Building a runtime</title>
+      <link>https://rav1e.rs/docs/going-deeper/building-runtime/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/going-deeper/building-runtime/</guid>
+      <description>The runtime ‒ all the pieces needed to run an event driven application ‒ is already available. You don&amp;rsquo;t need to know this if you want to just use tokio. However, it may be useful to know what happens under the hood, both to gain some more understanding of the details in case something goes wrong, and to be able to customize it beyond what the runtime Builder supports.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://rav1e.rs/docs/internals/intro/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/internals/intro/</guid>
+      <description>The internals section provides an in-depth guide of Tokio&amp;rsquo;s internals. It expects the reader already has a good understanding of how to use Tokio. Those unfamiliar with Tokio should start with the getting started guide.
+ Runtime model - An overview of Tokio&amp;rsquo;s asynchronous runtime model. Non-blocking I/O - Implementation details of Tokio&amp;rsquo;s network related types (TCP, UDP, &amp;hellip;).  </description>
+    </item>
+    
+    <item>
+      <title>Runtime model</title>
+      <link>https://rav1e.rs/docs/internals/runtime-model/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/internals/runtime-model/</guid>
+      <description>Applications written using Tokio are organized across a large number of small, non-blocking tasks. A Tokio task is similar to a goroutine or an Erlang process, but is non-blocking. They are designed to be lightweight, can be spawned fast, and maintain low scheduling overhead. They are also non-blocking, as such operations that are not able to finish immediately must still return immediately. Instead of returning the result of the operation, they return a value indicating that the operation is in progress.</description>
+    </item>
+    
+    <item>
+      <title>Non-blocking I/O</title>
+      <link>https://rav1e.rs/docs/internals/net/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/docs/internals/net/</guid>
+      <description>This section describes the network resources and drivers provided by Tokio. This component provides one of Tokio&amp;rsquo;s primary functions: non-blocking, event-driven, networking provided by the appropriate operating system primitives (epoll, kqueue, IOCP, &amp;hellip;). It is modeled after the resource and driver pattern described in the previous section.
+The network driver is built using mio and network resources are backed by types that implement Evented.
+This guide will be focused on TCP types.</description>
+    </item>
+    
+    <item>
+      <title>Google Summer of Code</title>
+      <link>https://rav1e.rs/gsoc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/gsoc/</guid>
+      <description>This is the list of ideas for students wishing to apply to Google Summer of Code. For more information on what the program is and how to apply, see the student guide. If you&amp;rsquo;re interested in applying we would love to get to know you more on Gitter.
+The most successful projects are often those proposed by the students themselves. The following list represents some of our ideas and wishes for the project.</description>
+    </item>
+    
+    <item>
+      <title>The Tokio Community</title>
+      <link>https://rav1e.rs/community/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/community/</guid>
+      <description>Communication The Tokio community is most readily found on its gitter channel, where you&amp;rsquo;re welcome to ask questions, report problems, or pitch ideas.
+Issues Github is used for tracking issues. The primary location for these is the main Tokio repository.
+If you&amp;rsquo;re a Tokio user, you&amp;rsquo;re highly encouraged to keep an eye on these issues and jump in on the discussions, to help us understand how design tradeoffs might affect you.</description>
+    </item>
+    
+    <item>
+      <title>Third-party crates</title>
+      <link>https://rav1e.rs/community/third-party/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://rav1e.rs/community/third-party/</guid>
+      <description>Currently the futures, tokio-core, tokio-service, and tokio-proto crates provide the foundation for the Tokio ecosystem. There&amp;rsquo;s a growing set of crates outside of Tokio itself, however, filling in more functionality!
+ tokio-curl is an HTTP client library backed by the libcurl C library. tokio-timer is a timer library providing finer-grained control over timers and helpful timeout facilities over the types in tokio-core. tokio-tls is a library for TLS streams backed by native-tls.</description>
+    </item>
+    
+  </channel>
+</rss>
