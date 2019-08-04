@@ -116,48 +116,26 @@
       <div class="section-nav">
         <nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#av1-rav1e-crav1e-an-intro">AV1, Rav1e, Crav1e, an intro</a>
 <ul>
-<li>
-<ul>
-<li><a href="#rav1e-api">Rav1e API</a></li>
-</ul></li>
-<li><a href="#struct-frame-the-raw-pixel-data">struct Frame: The raw pixel data</a></li>
-<li><a href="#struct-packet-the-encoded-bitstream">struct Packet: The encoded bitstream</a></li>
-<li><a href="#struct-config-the-encoder-configuration">struct Config: The encoder configuration</a>
-<ul>
-<li>
+<li><a href="#rav1e-api">Rav1e API</a>
 <ul>
 <li><a href="#config">Config</a>
 <ul>
 <li><a href="#methods">Methods</a>
 <ul>
-<li><a href="#new-context">NEW_CONTEXT</a></li>
+<li><a href="#new-context">new_context</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#context">Context</a>
 <ul>
 <li><a href="#methods-1">Methods</a></li>
 </ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#new-frame-produces-a-frame-according-to-the-dimension-and-pixel-format-information-in-the-context">new_frame() produces a frame according to the dimension and pixel format information in the Context.</a></li>
-<li><a href="#send-frame-none">send_frame(None).</a>
-<ul>
-<li>
-<ul>
 <li><a href="#workflow">Workflow</a></li>
 </ul></li>
 <li><a href="#crav1e-api">Crav1e API</a>
 <ul>
 <li><a href="#raconfig">RaConfig</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#rav1e-config-default-allocates-a-default-configuration">rav1e_config_default allocates a default configuration.</a></li>
-<li><a href="#key-string">key string.</a>
-<ul>
-<li>
-<ul>
 <li><a href="#racontext">RaContext</a></li>
 <li><a href="#raframe">RaFrame</a></li>
 <li><a href="#raencoderstatus">RaEncoderStatus</a></li>
@@ -167,7 +145,6 @@
 <ul>
 <li><a href="#coming-next">Coming next</a></li>
 <li><a href="#thanks">Thanks</a></li>
-</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -181,337 +158,399 @@
       
       
 
+<h1 id="av1-rav1e-crav1e-an-intro">AV1, Rav1e, Crav1e, an intro</h1>
+
 <blockquote>
-<p><a href="https://aomedia.org/av1-features/">AV1</a> is a modern video codec brought to you by an alliance of <a href="https://aomedia.org/membership/members/">many</a> different bigger and smaller players in the multimedia field.<br />
-I’m part of the <a href="https://videolan.org/">VideoLan</a> organization and I spent quite a bit of time on this codec lately.</p>
+<p><a href="https://aomedia.org/av1-features/">AV1</a> is a modern video codec brought to you by an alliance of <a href="https://aomedia.org/membership/members/">many</a> different bigger and smaller players in the multimedia field.
+I&rsquo;m part of the <a href="https://videolan.org">VideoLAN</a> organization and I spent quite a bit of time on this codec lately.</p>
 </blockquote>
 
 <hr />
 
 <blockquote>
-<p><a href="https://github.com/xiph/rav1e/">rav1e</a>: The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers.<br />
-It is written in <a href="https://rustlang.org/">rust</a> and strives to provide good speed, quality and stay maintainable.</p>
+<p><a href="https://github.com/xiph/rav1e/">rav1e</a>: The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers.
+It is written in <a href="https://rustlang.org">rust</a> and strives to provide good speed, quality and stay maintainable.</p>
 </blockquote>
 
 <hr />
 
 <blockquote>
-<p><a href="https://github.com/lu-zero/crav1e">crav1e</a>: A companion <a href="https://doc.rust-lang.org/book/crates-and-modules.html">crate</a>, written by <a href="https://github.com/lu-zero">yours truly</a>, that provides a C-API, so the encoder can be used by C libraries and programs.</p>
+<p><a href="https://github.com/lu-zero/crav1e">crav1e</a>: A companion <a href="https://doc.rust-lang.org/book/crates-and-modules.html">crate</a>, written by <a href="https://github.com/lu-zero">yours truly</a>, that provides a C-API, so the encoder can be used by C libraries and programs.</p>
 </blockquote>
 
 <hr />
 
 <p>This article will just give a quick overview of the API available right now and it is mainly to help people start using it and hopefully report issues and problem.</p>
 
-<h3 id="rav1e-api">Rav1e API</h3>
+<h2 id="rav1e-api">Rav1e API</h2>
 
 <p>The current API is built around the following 4 structs and 1 enum:</p>
 
 <ul>
-<li></li>
+<li><code>struct Frame</code>: The raw pixel data</li>
+<li><code>struct Packet</code>: The encoded bitstream</li>
+<li><code>struct Config</code>: The encoder configuration</li>
+<li><code>struct Context</code>: The encoder state</li>
 </ul>
-
-<h2 id="struct-frame-the-raw-pixel-data">struct Frame: The raw pixel data</h2>
-
-<h2 id="struct-packet-the-encoded-bitstream">struct Packet: The encoded bitstream</h2>
-
-<h2 id="struct-config-the-encoder-configuration">struct Config: The encoder configuration</h2>
-
-<p>struct Context: The encoder state</p>
 
 <hr />
 
 <ul>
-<li></li>
+<li><code>enum EncoderStatus</code>: Fatal and non-fatal condition returned by the <code>Context</code>methods.</li>
 </ul>
 
-<p>enum EncoderStatus: Fatal and non-fatal condition returned by the </p>
+<h3 id="config">Config</h3>
 
-<p>Contextmethods.</p>
+<p>The <code>Config</code> struct currently is simply constructed.</p>
 
-<h4 id="config">Config</h4>
+<pre><code class="language-rust">    struct Config {
+        enc: EncoderConfig,
+        threads: usize,
+    }
+</code></pre>
 
-<p>The </p>
+<p>The <code>EncoderConfig</code> stores all the settings that have an impact to the actual bitstream while settings such as <code>threads</code> are kept outside.</p>
 
-<p>Config struct currently is simply constructed.</p>
-
-<p>structConfig{enc: EncoderConfig,threads: usize,}</p>
-
-<p>The </p>
-
-<p>EncoderConfig stores all the settings that have an impact to the actual bitstream while settings such as </p>
-
-<p>threads are kept outside.</p>
-
-<p>letmutenc=EncoderConfig::with_speed_preset(speed);enc.width=w;enc.height=h;enc.bit_depth=8;letcfg=Config{enc,threads: 0};</p>
+<pre><code class="language-rust">    let mut enc = EncoderConfig::with_speed_preset(speed);
+    enc.width = w;
+    enc.height = h;
+    enc.bit_depth = 8;
+    let cfg = Config { enc, threads: 0 };
+</code></pre>
 
 <blockquote>
-<p>NOTE: Some of the fields above may be shuffled around until the API is marked as stable.</p>
+<p><strong>NOTE</strong>: Some of the fields above may be shuffled around until the API is marked as stable.</p>
 </blockquote>
 
-<h5 id="methods">Methods</h5>
+<h4 id="methods">Methods</h4>
 
-<h6 id="new-context">NEW_CONTEXT</h6>
+<h5 id="new-context">new_context</h5>
 
-<p>letcfg=Config{enc,threads: 0};letctx: Context&lt;u8&gt;=cfg.new_context();</p>
+<pre><code class="language-rust">    let cfg = Config { enc, threads: 0 };
+    let ctx: Context&lt;u8&gt; = cfg.new_context();
+</code></pre>
 
-<p>It produces a new encoding context. Where </p>
+<p>It produces a new encoding context. Where <code>bit_depth</code> is <em>8</em>, it is possible to use an optimized <code>u8</code> codepath, otherwise <code>u16</code> must be used.</p>
 
-<p>bit_depth is <em>8</em>, it is possible to use an optimized </p>
+<h3 id="context">Context</h3>
 
-<p>u8 codepath, otherwise </p>
+<p>It is produced by <code>Config::new_context</code>, its implementation details are hidden.</p>
 
-<p>u16 must be used.</p>
+<h4 id="methods-1">Methods</h4>
 
-<h4 id="context">Context</h4>
+<p>The <code>Context</code> can be grouped into <strong>essential</strong>, <strong>optional</strong> and <strong>convenience</strong>.</p>
 
-<p>It is produced by </p>
+<pre><code class="language-rust">    // Essential API
+    pub fn send_frame&lt;F&gt;(&amp;mut self, frame: F) -&gt; Result&lt;(), EncoderStatus&gt;
+      where F: Into&lt;Option&lt;Arc&lt;Frame&lt;T&gt;&gt;&gt;&gt;, T: Pixel;
+    pub fn receive_packet(&amp;mut self) -&gt; Result&lt;Packet&lt;T&gt;, EncoderStatus&gt;;
+</code></pre>
 
-<p>Config::new_context, its implementation details are hidden.</p>
+<p>The encoder works by processing each <code>Frame</code> fed through <code>send_frame</code> and producing each <code>Packet</code> that can be retrieved by <code>receive_packet</code>.</p>
 
-<h5 id="methods-1">Methods</h5>
+<pre><code class="language-rust">    // Optional API
+    pub fn container_sequence_header(&amp;mut self) -&gt; Vec&lt;u8&gt;;
+    pub fn get_first_pass_data(&amp;self) -&gt; &amp;FirstPassData;
+</code></pre>
 
-<p>The </p>
+<p>Depending on the container format, the <code>AV1</code>  Sequence Header could be stored in the extradata. <code>container_sequence_header</code> produces the data pre-formatted to be simply stored in <code>mkv</code> or  <code>mp4</code>.</p>
 
-<p>Context can be grouped into essential, optional and convenience.</p>
+<p><code>rav1e</code> supports multi-pass encoding and the encoding data from the first pass can be retrieved by calling <code>get_first_pass_data</code>.</p>
 
-<p>// Essential APIpubfnsend_frame&lt;F&gt;(&amp;mutself,frame: F)-&gt; Result&lt;(),EncoderStatus&gt;whereF: Into&lt;Option&lt;Arc&lt;Frame&lt;T&gt;&gt;&gt;&gt;,T: Pixel;pubfnreceive_packet(&amp;mutself)-&gt; Result&lt;Packet&lt;T&gt;,EncoderStatus&gt;;</p>
-
-<p>The encoder works by processing each </p>
-
-<p>Frame fed through </p>
-
-<p>send_frame and producing each </p>
-
-<p>Packet that can be retrieved by </p>
-
-<p>receive_packet.</p>
-
-<p>// Optional APIpubfncontainer_sequence_header(&amp;mutself)-&gt; Vec&lt;u8&gt;;pubfnget_first_pass_data(&amp;self)-&gt; &FirstPassData;</p>
-
-<p>Depending on the container format, the </p>
-
-<p>AV1 Sequence Header could be stored in the extradata. </p>
-
-<p>container_sequence_header produces the data pre-formatted to be simply stored in </p>
-
-<p>mkv or  </p>
-
-<p>mp4.</p>
-
-<p>rav1e supports multi-pass encoding and the encoding data from the first pass can be retrieved by calling </p>
-
-<p>get_first_pass_data.</p>
-
-<p>// Convenience shortcutspubfnnew_frame(&amp;self)-&gt; Arc&lt;Frame&lt;T&gt;&gt;;pubfnset_limit(&amp;mutself,limit: u64);pubfnflush(&amp;mutself){</p>
+<pre><code class="language-rust">    // Convenience shortcuts
+    pub fn new_frame(&amp;self) -&gt; Arc&lt;Frame&lt;T&gt;&gt;;
+    pub fn set_limit(&amp;mut self, limit: u64);
+    pub fn flush(&amp;mut self) {
+</code></pre>
 
 <ul>
-<li></li>
+<li><code>new_frame()</code> produces a frame according to the dimension and pixel format information in the Context.</li>
+<li><code>flush()</code> is functionally equivalent to call <code>send_frame(None)</code>.</li>
+<li><code>set_limit()</code>is functionally equivalent to call <code>flush()</code>once <code>limit</code> frames are sent to the encoder.</li>
 </ul>
 
-<h2 id="new-frame-produces-a-frame-according-to-the-dimension-and-pixel-format-information-in-the-context">new_frame() produces a frame according to the dimension and pixel format information in the Context.</h2>
-
-<p>flush() is functionally equivalent to call </p>
-
-<h2 id="send-frame-none">send_frame(None).</h2>
-
-<p>set_limit()is functionally equivalent to call </p>
-
-<p>flush()once </p>
-
-<p>limitframes are sent to the encoder.</p>
-
-<h4 id="workflow">Workflow</h4>
+<h3 id="workflow">Workflow</h3>
 
 <p>The workflow is the following:</p>
 
 <ol>
-<li>Setup:
+<li><p>Setup:</p>
 
 <ul>
-<li>Prepare a </li>
+<li>Prepare a <code>Config</code></li>
+<li>Call <code>new_context</code> from the <code>Config</code> to produce a <code>Context</code></li>
+</ul></li>
+
+<li><p>Encode loop:</p>
+
+<ul>
+<li>Pull each <code>Packet</code> using <code>receive_packet</code>.</li>
+<li>If <code>receive_packet</code> returns <code>EncoderStatus::NeedMoreData</code>
+
+<ul>
+<li>Feed each <code>Frame</code> to the <code>Context</code> using <code>send_frame</code></li>
+</ul></li>
+</ul></li>
+
+<li><p>Complete the encoding</p>
+
+<ul>
+<li>Issue a <code>flush()</code> to encode each pending <code>Frame</code> in a final <code>Packet</code>.</li>
+<li>Call <code>receive_packet</code> until <code>EncoderStatus::LimitReached</code> is returned.</li>
 </ul></li>
 </ol>
 
-<p>Config
-    - Call </p>
+<h2 id="crav1e-api">Crav1e API</h2>
 
-<p>new_context from the </p>
-
-<p>Config to produce a </p>
-
-<p>Context</p>
-
-<ol>
-<li>Encode loop:
+<p>The <a href="https://github.com/lu-zero/crav1e">crav1e</a> API provides the same structures and features beside few key differences:</p>
 
 <ul>
-<li>Pull each </li>
-</ul></li>
-</ol>
+<li><p>The <code>Frame</code>, <code>Config</code>,  and <code>Context</code> structs are <em>opaque</em>.</p>
 
-<p>Packet using </p>
+<pre><code class="language-c">typedef struct RaConfig RaConfig;
+typedef struct RaContext RaContext;
+typedef struct RaFrame RaFrame;
+</code></pre></li>
 
-<p>receive_packet.
-    - If </p>
+<li><p>The <code>Packet</code> struct exposed is much simpler than the <code>rav1e</code> original.</p>
 
-<p>receive_packet returns </p>
+<pre><code class="language-c">typedef struct {
+const uint8_t *data;
+size_t len;
+uint64_t number;
+RaFrameType frame_type;
+} RaPacket;
+</code></pre></li>
 
-<p>EncoderStatus::NeedMoreData
-        - Feed each </p>
+<li><p>The EncoderStatus includes a <code>Success</code> condition.</p>
 
-<p>Frame to the </p>
-
-<p>Context using </p>
-
-<p>send_frame</p>
-
-<ol>
-<li>Complete the encoding
-
-<ul>
-<li>Issue a </li>
-</ul></li>
-</ol>
-
-<p>flush() to encode each pending </p>
-
-<p>Frame in a final </p>
-
-<p>Packet.
-    - Call </p>
-
-<p>receive_packet until </p>
-
-<p>EncoderStatus::LimitReached is returned.</p>
-
-<h3 id="crav1e-api">Crav1e API</h3>
-
-<p>The <a href="https://github.com/lu-zero/crav1e">crav1e</a> API provides the same structures and features beside few key differences:</p>
-
-<ul>
-<li>The </li>
+<pre><code class="language-c">typedef enum {
+RA_ENCODER_STATUS_SUCCESS = 0,
+RA_ENCODER_STATUS_NEED_MORE_DATA,
+RA_ENCODER_STATUS_ENOUGH_DATA,
+RA_ENCODER_STATUS_LIMIT_REACHED,
+RA_ENCODER_STATUS_FAILURE = -1,
+} RaEncoderStatus;
+</code></pre></li>
 </ul>
 
-<p>Frame, </p>
+<h3 id="raconfig">RaConfig</h3>
 
-<p>Config, and </p>
-
-<p>Context structs are <em>opaque</em>.</p>
-
-<p>typedefstructRaConfigRaConfig;typedefstructRaContextRaContext;typedefstructRaFrameRaFrame;</p>
+<p>Since the configuration is <code>opaque</code> there are a number of functions to assemble it:</p>
 
 <ul>
-<li>The </li>
+<li><code>rav1e_config_default</code> allocates a default configuration.</li>
+<li><code>rav1e_config_parse</code> and <code>rav1e_config_parse_int</code> set a specific <code>value</code> for a specific field selected by a <code>key</code> string.</li>
+<li><code>rav1e_config_set_${field}</code> are specialized setters for complex information such as the color description.</li>
 </ul>
 
-<p>Packet struct exposed is much simpler than the </p>
+<pre><code class="language-c">RaConfig *rav1e_config_default(void);
 
-<p>rav1e original.</p>
+/**
+ * Set a configuration parameter using its key and value as string.
+ * Available keys and values
+ * - &quot;quantizer&quot;: 0-255, default 100
+ * - &quot;speed&quot;: 0-10, default 3
+ * - &quot;tune&quot;: &quot;psnr&quot;-&quot;psychovisual&quot;, default &quot;psnr&quot;
+ * Return a negative value on error or 0.
+ */
+int rav1e_config_parse(RaConfig *cfg, const char *key, const char *value);
 
-<p>typedefstruct{constuint8_t*data;size_tlen;uint64_tnumber;RaFrameTypeframe_type;}RaPacket;</p>
+/**
+ * Set a configuration parameter using its key and value as integer.
+ * Available keys and values are the same as rav1e_config_parse()
+ * Return a negative value on error or 0.
+ */
+int rav1e_config_parse_int(RaConfig *cfg, const char *key, int value);
 
-<ul>
-<li>The EncoderStatus includes a </li>
-</ul>
+/**
+ * Set color properties of the stream.
+ * Supported values are defined by the enum types
+ * RaMatrixCoefficients, RaColorPrimaries, and RaTransferCharacteristics
+ * respectively.
+ * Return a negative value on error or 0.
+ */
+int rav1e_config_set_color_description(RaConfig *cfg,
+                                       RaMatrixCoefficients matrix,
+                                       RaColorPrimaries primaries,
+                                       RaTransferCharacteristics transfer);
 
-<p>Success condition.</p>
+/**
+ * Set the content light level information for HDR10 streams.
+ * Return a negative value on error or 0.
+ */
+int rav1e_config_set_content_light(RaConfig *cfg,
+                                   uint16_t max_content_light_level,
+                                   uint16_t max_frame_average_light_level);
 
-<p>typedefenum{RA_ENCODER_STATUS_SUCCESS=0,RA_ENCODER_STATUS_NEED_MORE_DATA,RA_ENCODER_STATUS_ENOUGH_DATA,RA_ENCODER_STATUS_LIMIT_REACHED,RA_ENCODER_STATUS_FAILURE=-1,}RaEncoderStatus;</p>
+/**
+ * Set the mastering display information for HDR10 streams.
+ * primaries and white_point arguments are RaPoint, containing 0.16 fixed point values.
+ * max_luminance is a 24.8 fixed point value.
+ * min_luminance is a 18.14 fixed point value.
+ * Returns a negative value on error or 0.
+ */
+int rav1e_config_set_mastering_display(RaConfig *cfg,
+                                       RaPoint primaries[3],
+                                       RaPoint white_point,
+                                       uint32_t max_luminance,
+                                       uint32_t min_luminance);
 
-<h4 id="raconfig">RaConfig</h4>
-
-<p>Since the configuration is </p>
-
-<p>opaque there are a number of functions to assemble it:</p>
-
-<ul>
-<li></li>
-</ul>
-
-<h2 id="rav1e-config-default-allocates-a-default-configuration">rav1e_config_default allocates a default configuration.</h2>
-
-<p>rav1e_config_parse and </p>
-
-<p>rav1e_config_parse_int set a specific </p>
-
-<p>valuefor a specific field selected by a </p>
-
-<h2 id="key-string">key string.</h2>
-
-<p>rav1e_config<em>set</em>${field} are specialized setters for complex information such as the color description.</p>
-
-<p>RaConfig*rav1e_config_default(void);/** * Set a configuration parameter using its key and value as string. * Available keys and values * - &ldquo;quantizer&rdquo;: 0-255, default 100 * - &ldquo;speed&rdquo;: 0-10, default 3 * - &ldquo;tune&rdquo;: &ldquo;psnr&rdquo;-&ldquo;psychovisual&rdquo;, default &ldquo;psnr&rdquo; * Return a negative value on error or 0. */intrav1e_config_parse(RaConfig*cfg,constchar*key,constchar*value);/** * Set a configuration parameter using its key and value as integer. * Available keys and values are the same as rav1e_config_parse() * Return a negative value on error or 0. */intrav1e_config_parse_int(RaConfig*cfg,constchar*key,intvalue);/** * Set color properties of the stream. * Supported values are defined by the enum types * RaMatrixCoefficients, RaColorPrimaries, and RaTransferCharacteristics * respectively. * Return a negative value on error or 0. */intrav1e_config_set_color_description(RaConfig*cfg,RaMatrixCoefficientsmatrix,RaColorPrimariesprimaries,RaTransferCharacteristicstransfer);/** * Set the content light level information for HDR10 streams. * Return a negative value on error or 0. */intrav1e_config_set_content_light(RaConfig*cfg,uint16_tmax_content_light_level,uint16_tmax_frame_average_light_level);/** * Set the mastering display information for HDR10 streams. * primaries and white_point arguments are RaPoint, containing 0.16 fixed point values. * max_luminance is a 24.8 fixed point value. * min_luminance is a 18.14 fixed point value. * Returns a negative value on error or 0. */intrav1e_config_set_mastering_display(RaConfig*cfg,RaPointprimaries[3],RaPointwhite_point,uint32_tmax_luminance,uint32_tmin_luminance);voidrav1e_config_unref(RaConfig*cfg);</p>
+void rav1e_config_unref(RaConfig *cfg);
+</code></pre>
 
 <p>The bare minimum setup code is the following:</p>
 
-<p>intret=-1;RaConfig*rac=rav1e_config_default();if(!rac){printf(&ldquo;Unable to initialize\n&rdquo;);gotoclean;}ret=rav1e_config_parse_int(rac,&ldquo;width&rdquo;,64);if(ret&lt;0){printf(&ldquo;Unable to configure width\n&rdquo;);gotoclean;}ret=rav1e_config_parse_int(rac,&ldquo;height&rdquo;,96);if(ret&lt;0){printf(&ldquo;Unable to configure height\n&rdquo;);gotoclean;}ret=rav1e_config_parse_int(rac,&ldquo;speed&rdquo;,9);if(ret&lt;0){printf(&ldquo;Unable to configure speed\n&rdquo;);gotoclean;}</p>
+<pre><code class="language-c">    int ret = -1;
+    RaConfig *rac = rav1e_config_default();
+    if (!rac) {
+        printf(&quot;Unable to initialize\n&quot;);
+        goto clean;
+    }
 
-<h4 id="racontext">RaContext</h4>
+    ret = rav1e_config_parse_int(rac, &quot;width&quot;, 64);
+    if (ret &lt; 0) {
+        printf(&quot;Unable to configure width\n&quot;);
+        goto clean;
+    }
 
-<p>As per the </p>
+    ret = rav1e_config_parse_int(rac, &quot;height&quot;, 96);
+    if (ret &lt; 0) {
+        printf(&quot;Unable to configure height\n&quot;);
+        goto clean;
+    }
 
-<p>rav1e API, the context structure is produced from a configuration and the same _send-receive_ model is used.<br />
-The convenience methods aren’t exposed and the frame allocation function is actually essential.</p>
+    ret = rav1e_config_parse_int(rac, &quot;speed&quot;, 9);
+    if (ret &lt; 0) {
+        printf(&quot;Unable to configure speed\n&quot;);
+        goto clean;
+    }
+</code></pre>
 
-<p>// Essential APIRaContext*rav1e_context_new(constRaConfig*cfg);voidrav1e_context_unref(RaContext*ctx);RaEncoderStatusrav1e_send_frame(RaContext*ctx,constRaFrame*frame);RaEncoderStatusrav1e_receive_packet(RaContext*ctx,RaPacket**pkt);</p>
+<h3 id="racontext">RaContext</h3>
 
-<p>// Optional APIuint8_t*rav1e_container_sequence_header(RaContext*ctx,size_t*buf_size);voidrav1e_container_sequence_header_unref(uint8_t*sequence);</p>
+<p>As per the <code>rav1e</code> API, the context structure is produced from a configuration and the same <em>send-receive</em> model is used.
+The convenience methods aren&rsquo;t exposed and the frame allocation function is actually essential.</p>
 
-<h4 id="raframe">RaFrame</h4>
+<pre><code class="language-c">// Essential API
+RaContext *rav1e_context_new(const RaConfig *cfg);
+void rav1e_context_unref(RaContext *ctx);
+
+RaEncoderStatus rav1e_send_frame(RaContext *ctx, const RaFrame *frame);
+RaEncoderStatus rav1e_receive_packet(RaContext *ctx, RaPacket **pkt);
+</code></pre>
+
+<pre><code class="language-c">// Optional API
+uint8_t *rav1e_container_sequence_header(RaContext *ctx, size_t *buf_size);
+void rav1e_container_sequence_header_unref(uint8_t *sequence);
+</code></pre>
+
+<h3 id="raframe">RaFrame</h3>
 
 <p>Since the frame structure is opaque in C, we have the following functions to create, fill and dispose of the frames.</p>
 
-<p>RaFrame*rav1e_frame_new(constRaContext*ctx);voidrav1e_frame_unref(RaFrame*frame);/** * Fill a frame plane * Currently the frame contains 3 planes, the first is luminance followed by * chrominance. * The data is copied and this function has to be called for each plane. * frame: A frame provided by rav1e_frame_new() * plane: The index of the plane starting from 0 * data: The data to be copied * data_len: Lenght of the buffer * stride: Plane line in bytes, including padding * bytewidth: Number of bytes per component, either 1 or 2 */voidrav1e_frame_fill_plane(RaFrame*frame,intplane,constuint8_t*data,size_tdata_len,ptrdiff_tstride,intbytewidth);</p>
+<pre><code class="language-c">RaFrame *rav1e_frame_new(const RaContext *ctx);
+void rav1e_frame_unref(RaFrame *frame);
 
-<h4 id="raencoderstatus">RaEncoderStatus</h4>
+/**
+ * Fill a frame plane
+ * Currently the frame contains 3 planes, the first is luminance followed by
+ * chrominance.
+ * The data is copied and this function has to be called for each plane.
+ * frame: A frame provided by rav1e_frame_new()
+ * plane: The index of the plane starting from 0
+ * data: The data to be copied
+ * data_len: Lenght of the buffer
+ * stride: Plane line in bytes, including padding
+ * bytewidth: Number of bytes per component, either 1 or 2
+ */
+void rav1e_frame_fill_plane(RaFrame *frame,
+                            int plane,
+                            const uint8_t *data,
+                            size_t data_len,
+                            ptrdiff_t stride,
+                            int bytewidth);
+</code></pre>
 
-<p>The encoder status enum is returned by the </p>
+<h3 id="raencoderstatus">RaEncoderStatus</h3>
 
-<p>rav1e_send_frame and </p>
+<p>The encoder status enum is returned by the <code>rav1e_send_frame</code> and <code>rav1e_receive_packet</code> and it is possible already to arbitrarily query the context for its status.</p>
 
-<p>rav1e_receive_packet and it is possible already to arbitrarily query the context for its status.</p>
+<pre><code class="language-c">RaEncoderStatus rav1e_last_status(const RaContext *ctx);
+</code></pre>
 
-<p>RaEncoderStatusrav1e_last_status(constRaContext*ctx);</p>
+<p>To simulate the rust <a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html">Debug</a> functionality a <code>to_str</code> function is provided.</p>
 
-<p>To simulate the rust <a href="https://doc.rust-lang.org/std/fmt/trait.Debug.html">Debug</a> functionality a </p>
+<pre><code class="language-c">char *rav1e_status_to_str(RaEncoderStatus status);
+</code></pre>
 
-<p>to_str function is provided.</p>
+<h3 id="workflow-1">Workflow</h3>
 
-<p>char*rav1e_status_to_str(RaEncoderStatusstatus);</p>
+<p>The <em>C</em> API workflow is similar to the <em>Rust</em> one, albeit a little more verbose due to the error checking.</p>
 
-<h4 id="workflow-1">Workflow</h4>
+<pre><code class="language-c">    RaContext *rax = rav1e_context_new(rac);
+    if (!rax) {
+        printf(&quot;Unable to allocate a new context\n&quot;);
+        goto clean;
+    }
+</code></pre>
 
-<p>The _C_ API workflow is similar to the _Rust_ one, albeit a little more verbose due to the error checking.</p>
+<pre><code class="language-c">    RaFrame *f = rav1e_frame_new(rax);
+    if (!f) {
+        printf(&quot;Unable to allocate a new frame\n&quot;);
+        goto clean;
+    }
+</code></pre>
 
-<p>RaContext*rax=rav1e_context_new(rac);if(!rax){printf(&ldquo;Unable to allocate a new context\n&rdquo;);gotoclean;}</p>
+<pre><code class="language-c">while (keep_going(i)){
+     RaPacket *p;
+     ret = rav1e_receive_packet(rax, &amp;p);
+     if (ret &lt; 0) {
+         printf(&quot;Unable to receive packet %d\n&quot;, i);
+         goto clean;
+     } else if (ret == RA_ENCODER_STATUS_SUCCESS) {
+         printf(&quot;Packet %&quot;PRIu64&quot;\n&quot;, p-&gt;number);
+         do_something_with(p);
+         rav1e_packet_unref(p);
+         i++;
+     } else if (ret == RA_ENCODER_STATUS_NEED_MORE_DATA) {
+         RaFrame *f = get_frame_by_some_mean(rax);
+         ret = rav1e_send_frame(rax, f);
+         if (ret &lt; 0) {
+            printf(&quot;Unable to send frame %d\n&quot;, i);
+            goto clean;
+        } else if (ret &gt; 0) {
+        // Cannot happen in normal conditions
+            printf(&quot;Unable to append frame %d to the internal queue\n&quot;, i);
+            abort();
+        }
+     } else if (ret == RA_ENCODER_STATUS_LIMIT_REACHED) {
+         printf(&quot;Limit reached\n&quot;);
+         break;
+     }
+}
+</code></pre>
 
-<p>RaFrame*f=rav1e_frame_new(rax);if(!f){printf(&ldquo;Unable to allocate a new frame\n&rdquo;);gotoclean;}</p>
+<h2 id="in-closing">In closing</h2>
 
-<p>while(keep_going(i)){RaPacket*p;ret=rav1e_receive_packet(rax,&amp;p);if(ret&lt;0){printf(&ldquo;Unable to receive packet %d\n&rdquo;,i);gotoclean;}elseif(ret==RA_ENCODER_STATUS_SUCCESS){printf(&ldquo;Packet %&ldquo;PRIu64&rdquo;\n&rdquo;,p-&gt;number);do_something_with(p);rav1e_packet_unref(p);i++;}elseif(ret==RA_ENCODER_STATUS_NEED_MORE_DATA){RaFrame*f=get_frame_by_some_mean(rax);ret=rav1e_send_frame(rax,f);if(ret&lt;0){printf(&ldquo;Unable to send frame %d\n&rdquo;,i);gotoclean;}elseif(ret&gt;0){// Cannot happen in normal conditionsprintf(&ldquo;Unable to append frame %d to the internal queue\n&rdquo;,i);abort();}}elseif(ret==RA_ENCODER_STATUS_LIMIT_REACHED){printf(&ldquo;Limit reached\n&rdquo;);break;}}</p>
+<p>This article was mainly a good excuse to try <a href="https://dev.to">dev.to</a> and see write down some notes and clarify my ideas on what had been done API-wise so far and what I should change and improve.</p>
 
-<h3 id="in-closing">In closing</h3>
+<p>If you managed to read till here, your feedback is really welcome, please feel free to comment, try the software and open issues for <a href="https://github.com/lu-zero/crav1e/issues/new">crav1e</a> and <a href="https://github.com/xiph/rav1e/issues/new">rav1e</a>.</p>
 
-<p>This article was mainly a good excuse to try <a href="https://dev.to/">dev.to</a> and see write down some notes and clarify my ideas on what had been done API-wise so far and what I should change and improve.</p>
-
-<p>If you managed to read till here, your feedback is really welcome, please feel free to comment, try the software and open issues for <a href="https://github.com/lu-zero/crav1e/issues/new">crav1e</a> and <a href="https://github.com/xiph/rav1e/issues/new">rav1e</a>.</p>
-
-<h4 id="coming-next">Coming next</h4>
+<h3 id="coming-next">Coming next</h3>
 
 <ul>
-<li>Working crav1e got me to see what’s good and what is lacking in the <a href="https://blogs.gentoo.org/lu_zero/2018/12/30/making-and-using-c-compatible-libraries-in-rust-present-and-future/">c-interoperability story</a> of <em>rust</em>, now that <a href="https://github.com/rust-lang/cargo/pull/6298">this</a> landed I can start crafting and publishing better tools for it and maybe I’ll talk more about it here.</li>
-<li>Soon rav1e will get more threading-oriented features, some benchmarking experiments will happen soon.</li>
+<li>Working <strong>crav1e</strong> got me to see what&rsquo;s good and what is lacking in the <a href="https://blogs.gentoo.org/lu_zero/2018/12/30/making-and-using-c-compatible-libraries-in-rust-present-and-future/">c-interoperability story</a> of <em>rust</em>, now that <a href="https://github.com/rust-lang/cargo/pull/6298">this</a> landed I can start crafting and publishing better tools for it and maybe I&rsquo;ll talk more about it here.</li>
+<li>Soon <strong>rav1e</strong> will get more threading-oriented features, some benchmarking experiments will happen soon.</li>
 </ul>
 
-<h4 id="thanks">Thanks</h4>
+<h3 id="thanks">Thanks</h3>
 
 <ul>
-<li>Special thanks to <a href="https://github.com/dwbuiten">Derek</a> and <a href="https://github.com/kodabb/">Vittorio</a> spent lots of time integrating </li>
+<li>Special thanks to <a href="https://github.com/dwbuiten">Derek</a> and <a href="https://github.com/kodabb/">Vittorio</a> spent lots of time integrating <code>crav1e</code> in larger software and gave precious feedback in what was missing and broken in the initial iterations.</li>
+<li>Thanks to <a href="http://github.com/barrbrain/">David</a> for the review and editorial work.</li>
+<li>Also thanks to <a href="https://dev.to/naufraghi">Matteo</a> for introducing me to <a href="https://dev.to">dev.to</a>.</li>
 </ul>
-
-<p>crav1e in larger software and gave precious feedback in what was missing and broken in the initial iterations.
-- Thanks to <a href="http://github.com/barrbrain/">David</a> for the review and editorial work.
-- Also thanks to <a href="https://dev.to/naufraghi">Matteo</a> for introducing me to <a href="https://dev.to/">dev.to</a>.</p>
 
       
 

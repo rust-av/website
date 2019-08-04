@@ -39,10 +39,8 @@ Tile encoding Tile encoding consists in splitting video frames into tiles that c
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/</guid>
-      <description>AV1 is a modern video codec brought to you by an alliance of many different bigger and smaller players in the multimedia field.
-I’m part of the VideoLan organization and I spent quite a bit of time on this codec lately.
-  rav1e: The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers.
-It is written in rust and strives to provide good speed, quality and stay maintainable.</description>
+      <description>AV1, Rav1e, Crav1e, an intro  AV1 is a modern video codec brought to you by an alliance of many different bigger and smaller players in the multimedia field. I&amp;rsquo;m part of the VideoLAN organization and I spent quite a bit of time on this codec lately.
+  rav1e: The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers. It is written in rust and strives to provide good speed, quality and stay maintainable.</description>
     </item>
     
     <item>
