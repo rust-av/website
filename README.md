@@ -1,8 +1,7 @@
-# Tokio's Website
+# rav1e's Website
 
-The website for the Tokio project. Lives at [https://tokio.rs](https://tokio.rs).
+This is the website for rav1e project. Live at [https://mindfreeze.videolan.me/rav1e][https://mindfreeze.videolan.me/rav1e]
 
-[![Build Status](https://travis-ci.org/tokio-rs/website.svg?branch=master)](https://travis-ci.org/tokio-rs/website)
 
 ## Getting Started
 
@@ -32,3 +31,7 @@ This project is licensed under the [MIT license](LICENSE).
 Unless you explicitly state otherwise, any contribution intentionally submitted
 for inclusion in Tokio by you, shall be licensed as MIT, without any additional
 terms or conditions.
+
+### Development
+
+The Website is build upon [Tokio Website](https://tokio.rs/).
