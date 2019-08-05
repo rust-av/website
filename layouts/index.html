@@ -33,7 +33,7 @@
   </div>
   <div class="col-12 col-sm-3 py-4">
     <div class="stats-card card text-center">
-      <h6>1650+</h6>
+      <h6 id="commits"></h6>
       <div>Commits</div>
     </div>
   </div>
@@ -64,7 +64,9 @@
 
 <script>
     const Contributors = localStorage.getItem('contributors');
-    document.getElementById("contributor").innerHTML = Contributors + '+';
+    document.getElementById("contributor").innerHTML = Contributors;
+    const Commits = localStorage.getItem('commits');
+    document.getElementById("commits").innerHTML = Commits;
 </script>
 
 {{ partial "footer" . }}
