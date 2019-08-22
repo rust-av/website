@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on rav1e</title>
-    <link>https://mindfreeze.videolan.me/rav1e/blog/</link>
-    <description>Recent content in Blogs on rav1e</description>
+    <title>Blogs on Rust AV</title>
+    <link>https://mindfreeze.videolan.me/rust-av/blog/</link>
+    <description>Recent content in Blogs on Rust AV</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Apr 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://mindfreeze.videolan.me/rav1e/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mindfreeze.videolan.me/rust-av/blog/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Implementing Tile Encoding in rav1e</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</link>
+      <link>https://mindfreeze.videolan.me/rust-av/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</link>
       <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</guid>
+      <guid>https://mindfreeze.videolan.me/rust-av/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</guid>
       <description>During the last few months at Videolabs, I added support for tile encoding in rav1e.
 What is this? AV1 is an open and royalty-free video coding format, concurrent with HEVC.
 Rav1e is an encoder written in Rust, developped by Mozilla/Xiph. As such, it takes an input video and encodes it to produce a valid AV1 bitstream.
@@ -25,20 +25,20 @@ Tile encoding Tile encoding consists in splitting video frames into tiles that c
     
     <item>
       <title>Using rav1e - from your own code</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/</link>
+      <link>https://mindfreeze.videolan.me/rust-av/blog/2019-04-09-using-rav1e-from-your-code/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/</guid>
+      <guid>https://mindfreeze.videolan.me/rust-av/blog/2019-04-09-using-rav1e-from-your-code/</guid>
       <description>AV1, Rav1e, Crav1e, an intro  AV1 is a modern video codec brought to you by an alliance of many different bigger and smaller players in the multimedia field. I&amp;rsquo;m part of the VideoLAN organization and I spent quite a bit of time on this codec lately.
   rav1e: The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers. It is written in rust and strives to provide good speed, quality and stay maintainable.</description>
     </item>
     
     <item>
       <title>Why you should care about AOM Analyzer</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</link>
+      <link>https://mindfreeze.videolan.me/rust-av/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</guid>
+      <guid>https://mindfreeze.videolan.me/rust-av/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</guid>
       <description>Hi Folks,
 It&amp;rsquo;s been a while I have written a blog, this is the right time I guess. So lately I am trying to do a kind of research with video encoding in power constrained devices as part of my undergrad thesis project. So I was going into more details about encoders in general. After that, I have also gone through the details about HEVC, AV1 and all.
 We all know about very positive development advances in AV1 when we see with HEVC.</description>

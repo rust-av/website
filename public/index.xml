@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rav1e</title>
-    <link>https://mindfreeze.videolan.me/rav1e/</link>
-    <description>Recent content on rav1e</description>
+    <title>Rust AV</title>
+    <link>https://mindfreeze.videolan.me/rust-av/</link>
+    <description>Recent content on Rust AV</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 25 Apr 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://mindfreeze.videolan.me/rav1e/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://mindfreeze.videolan.me/rust-av/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>What is rav1e?</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/overview/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/overview/</guid>
-      <description>rav1e is an experimental AV1 video encoder. It is designed to eventually cover all use cases, though in its current form it is most suitable for cases where libaom (the reference encoder) is too slow.
-Features  Intra and inter frames 64x64 superblocks 4x4 to 64x64 RDO-selected square and 2:1&amp;frasl;1:2 rectangular blocks DC, H, V, Paeth, smooth, and a subset of directional prediction modes DCT, ADST and identity transforms (up to 64x64, 16x16 and 32x32 respectively) 8-, 10- and 12-bit depth color 4:2:0 (full support), 4:2:2 and 4:4:4 (limited) chroma sampling Variable speed settings Near real-time encoding at high speed levels  Releases For the foreseeable future, a weekly pre-release of rav1e will be published every Tuesday.</description>
-    </item>
     
     <item>
       <title>Implementing Tile Encoding in rav1e</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</link>
+      <link>https://mindfreeze.videolan.me/rust-av/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</link>
       <pubDate>Thu, 25 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</guid>
+      <guid>https://mindfreeze.videolan.me/rust-av/blog/2019-04-25-implementing-tile-encoding-in-rav1e./</guid>
       <description>During the last few months at Videolabs, I added support for tile encoding in rav1e.
 What is this? AV1 is an open and royalty-free video coding format, concurrent with HEVC.
 Rav1e is an encoder written in Rust, developped by Mozilla/Xiph. As such, it takes an input video and encodes it to produce a valid AV1 bitstream.
@@ -35,77 +25,42 @@ Tile encoding Tile encoding consists in splitting video frames into tiles that c
     
     <item>
       <title>Using rav1e - from your own code</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/</link>
+      <link>https://mindfreeze.videolan.me/rust-av/blog/2019-04-09-using-rav1e-from-your-code/</link>
       <pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-04-09-using-rav1e-from-your-code/</guid>
+      <guid>https://mindfreeze.videolan.me/rust-av/blog/2019-04-09-using-rav1e-from-your-code/</guid>
       <description>AV1, Rav1e, Crav1e, an intro  AV1 is a modern video codec brought to you by an alliance of many different bigger and smaller players in the multimedia field. I&amp;rsquo;m part of the VideoLAN organization and I spent quite a bit of time on this codec lately.
   rav1e: The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers. It is written in rust and strives to provide good speed, quality and stay maintainable.</description>
     </item>
     
     <item>
       <title>Why you should care about AOM Analyzer</title>
-      <link>https://mindfreeze.videolan.me/rav1e/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</link>
+      <link>https://mindfreeze.videolan.me/rust-av/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</link>
       <pubDate>Mon, 18 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</guid>
+      <guid>https://mindfreeze.videolan.me/rust-av/blog/2019-02-18-why-you-should-care-about-aom-analyzer-tool-e2808b/</guid>
       <description>Hi Folks,
 It&amp;rsquo;s been a while I have written a blog, this is the right time I guess. So lately I am trying to do a kind of research with video encoding in power constrained devices as part of my undergrad thesis project. So I was going into more details about encoders in general. After that, I have also gone through the details about HEVC, AV1 and all.
 We all know about very positive development advances in AV1 when we see with HEVC.</description>
     </item>
     
     <item>
-      <title>Coding Style</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/coding-style/</link>
+      <title>Code Of Conduct</title>
+      <link>https://mindfreeze.videolan.me/rust-av/codeofconduct/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/coding-style/</guid>
-      <description>The coding style for rav1e code follows the Rust Style Guide, with the following exceptions:
- Each indentation level is 2 spaces.  Assertions Assertions should never be reachable by any sequence of API calls.
-Assertions should never be reachable by any sequence of crav1e API calls which do not depend on C undefined behavior, or contain pointers that cause invalid behavior when accessed.
-Prefer assert()! to debug_assert()! in the following situations: - Unsafe code.</description>
-    </item>
-    
-    <item>
-      <title>Profiling rav1e</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/profiling/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/profiling/</guid>
-      <description>Cargo integrations There are multiple integrations with cargo that simplify your life a lot .
-Flamegraph flamegraph works in any platform that has dtrace or perf support.
-$ cargo install flamegraph $ cargo flamegraph -o flame.svg -b rav1e -- ~/sample.y4m -o /dev/null $ $browser flame.svg   NOTE Make sure the browser lets you use the built-in interactivity in the svg.
- Instruments cargo-instruments is macOS-only and integrates neatly with the XCode UI.</description>
-    </item>
-    
-    <item>
-      <title>Versioning</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/versioning/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/versioning/</guid>
-      <description>rav1e follows Cargo&amp;rsquo;s versioning scheme: https://doc.rust-lang.org/cargo/reference/manifest.html#the-version-field
-Because rav1e is not yet at version 1.0.0, all changes that break the API require a minor-version bump.
-The API is defined as: - public functions in src/api.rs - command line parameters to the rav1e binary</description>
-    </item>
-    
-    <item>
-      <title>Glossary</title>
-      <link>https://mindfreeze.videolan.me/rav1e/docs/getting-started/glossary/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://mindfreeze.videolan.me/rav1e/docs/getting-started/glossary/</guid>
-      <description>Temporal Unit The same as an AV1 temporal unit. In rav1e, a Temporal Unit always starts with a temporal delimiter, followed by zero or one sequence headers, one or more frame headers and zero or more tile groups.
-Tile Group Same as an AV1 tile group. Zero or more of these, plus a Frame Header, make up a Frame.
-Frame Header Same as an AV1 frame header. These are followed by a tile group, except when the show-existing-frame feature is used, in which case there are zero tile groups.</description>
+      <guid>https://mindfreeze.videolan.me/rust-av/codeofconduct/</guid>
+      <description>Scope Joining and participation agreement This document describes Rust-AV&amp;rsquo;s Code of Conduct for public communication mediums, who shall enforce said Code of Conduct, the action taken should the Code of Conduct be broken, as well as the method for appeals. Questions about this document and its contents can be directed to the org issue tracker.
+This document is based on the Gentoo Code of Conduct
+ Important: By joining and/or participating in the Rust-AV community, you are stating that you accept and agree to adhere to the rules listed below, even if you do not explicitly state so.</description>
     </item>
     
     <item>
       <title>The rav1e Community</title>
-      <link>https://mindfreeze.videolan.me/rav1e/community/</link>
+      <link>https://mindfreeze.videolan.me/rust-av/community/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mindfreeze.videolan.me/rav1e/community/</guid>
+      <guid>https://mindfreeze.videolan.me/rust-av/community/</guid>
       <description>About AV1 is an open and royalty-free video coding format designed by the Alliance for Open Media, concurrent with HEVC (H.265). AV1 enables to stream video content at a reduced bitrate without loss of visual quality.
 rav1e is an encoder written in Rust, developped by Mozilla/Xiph. As such, it takes an input video and encodes it to produce a valid AV1 bitstream.
 Communication You can join us at #daala on Freenode Network in IRC.</description>
