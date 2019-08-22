@@ -7,13 +7,12 @@
         <img class="img-fluid mb-3 mb-md-0 tk-logo" src="/img/logo.png" alt="">
       </div>
       <div class="col-md-7 order-md-1 text-center text-md-left pr-md-5">
-        <h1 class="mb-3 tk-text-big">rav1e</h1>
+        <h1 class="mb-3 tk-text-big">Rust AV</h1>
         <p class="lead">
-          rav1e is an experimental AV1 video encoder. It is designed to eventually cover all use cases, though in its
-          current form it is most suitable for cases where libaom (the reference encoder) is too slow.
+            Rust is a quite promising language that aims to offer high execution speed while granting a number of warranties on the code behavior that you cannot have in C, C++, Java and so on.
         </p>
         <div class="d-flex flex-column flex-md-row lead mb-3">
-          <a href="{{ ref . "/docs/overview.md" }}" class="btn btn-lg btn-tk-primary mb-3 mb-md-0 mr-md-3">Get
+          <a href="https://github.com/rust-av" class="btn btn-lg btn-tk-primary mb-3 mb-md-0 mr-md-3">Get
             started</a>
         </div>
       </div>
@@ -27,26 +26,26 @@
 <div class="masthead-followup row m-0 border border-white">
   <div class="col-12 col-sm-3 py-4">
     <div class="stats-card card text-center">
-      <h6>0.1</h6>
-      <div>Release</div>
+      <h6 id="repos"></h6>
+      <div>Repositories</div>
     </div>
   </div>
   <div class="col-12 col-sm-3 py-4">
     <div class="stats-card card text-center">
-      <h6 id="commits"></h6>
-      <div>Commits</div>
+      <h6 id="stars"></h6>
+      <div>Stars</div>
     </div>
   </div>
   <div class="col-12 col-sm-3 py-4">
     <div class="stats-card card text-center contributors">
-      <h6 id="contributor"></h6>
-      <div>Contributors</div>
+      <h6 id="forks"></h6>
+      <div>Forks</div>
     </div>
   </div>
   <div class="col-12 col-sm-3 py-4">
     <div class="stats-card card text-center">
-      <h6>82%</h6>
-      <div>Coverage</div>
+      <h6 id="openissues"></h6>
+      <div>Open Issues</div>
     </div>
   </div>
 </div>
@@ -54,19 +53,11 @@
 <footer class="tk-footer text-muted">
   <div class="container-fluid p-3 p-md-5">
     <ul class="tk-footer-links">
-      <li><a href="https://github.com/xiph/rav1e">GitHub</a></li>
-      <li><a href="https://github.com/xiph/rav1e/tree/master/examples">Examples</a></li>
-      <li><a href="/docs/overview/">About</a></li>
+      <li><a href="https://github.com/rust-av">GitHub</a></li>
+      <li><a href="{{ ref . "/CodeOfConduct.md" }}">Code Of Conduct</a></li>
     </ul>
-    <p><a href="https://code.videolan.org/mindfreeze/rav1e">Built </a> on top of <a href="https://github.com/tokio-rs/website">Tokio Website</a> by Team rav1e with 💚.</p>
+    <p><a href="https://code.videolan.org/mindfreeze/rust-av">Built </a> on top of <a href="https://github.com/tokio-rs/website">Tokio Website</a> by Team rust-av with <span>💚</span>.</p>
   </div>
 </footer>
-
-<script>
-    const Contributors = localStorage.getItem('contributors');
-    document.getElementById("contributor").innerHTML = Contributors;
-    const Commits = localStorage.getItem('commits');
-    document.getElementById("commits").innerHTML = Commits;
-</script>
 
 {{ partial "footer" . }}

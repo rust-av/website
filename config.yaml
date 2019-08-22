@@ -1,6 +1,6 @@
 ---
-baseurl: "https://mindfreeze.videolan.me/rav1e/"
-title: "rav1e"
+baseurl: "https://mindfreeze.videolan.me/rust-av/"
+title: "Rust AV"
 languageCode: "en-us"
 canonifyURLs: "true"
 

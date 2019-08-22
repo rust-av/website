@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<meta name="generator" content="Hugo 0.55.2" />
+	<meta name="generator" content="Hugo 0.40.1" />
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -109,20 +109,20 @@
   </div>
   <div class="col-12 col-sm-3 py-4">
     <div class="stats-card card text-center">
-      <h6>1650+</h6>
+      <h6 id="commits">100</h6>
       <div>Commits</div>
     </div>
   </div>
   <div class="col-12 col-sm-3 py-4">
-    <div class="stats-card card text-center">
-      <h6>50+</h6>
+    <div class="stats-card card text-center contributors">
+      <h6 id="contributor"></h6>
       <div>Contributors</div>
     </div>
   </div>
   <div class="col-12 col-sm-3 py-4">
     <div class="stats-card card text-center">
-      <h6>82%</h6>
-      <div>Coverage</div>
+      <h6 id="stars"></h6>
+      <div>Stars</div>
     </div>
   </div>
 </div>
@@ -134,7 +134,7 @@
       <li><a href="https://github.com/xiph/rav1e/tree/master/examples">Examples</a></li>
       <li><a href="https://mindfreeze.videolan.me/rav1e/docs/overview/">About</a></li>
     </ul>
-    <p><a href="https://code.videolan.org/mindfreeze/rav1e">Built </a> on top of <a href="https://github.com/tokio-rs/website">Tokio Website</a> by Team rav1e with 💚.</p>
+    <p><a href="https://code.videolan.org/mindfreeze/rav1e">Built </a> on top of <a href="https://github.com/tokio-rs/website">Tokio Website</a> by Team rav1e with <span>💚</span>.</p>
   </div>
 </footer>
 
@@ -162,14 +162,15 @@
         });
       });
     </script>
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-    <script type="text/javascript"> docsearch({
-    apiKey: 'd7b5b785798fe748621bcaa8301a2201',
-    indexName: 'tokio',
-    inputSelector: '#search-input',
-    debug: false 
-    });
+    <script>
+      $(document).ready(function() {
+        let data;    
+          fetch('https://api.github.com/orgs/rust-av/repos?type=all').then(
+          function(res){ return res.json();}).then(function(json){
+              data = json;
+              console.log(data);
+          })
+      });
     </script>
     
   </body>
