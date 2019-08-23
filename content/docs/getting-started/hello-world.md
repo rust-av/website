@@ -91,21 +91,16 @@ let hello_world = TcpStream::connect(&addr).and_then(|stream| {
 # }
 ```
 
-The call to `TcpStream::connect` returns a [`Future`] of the created TCP stream.
-We'll learn more about [`Futures`] later in the guide, but for now you can think of
-a [`Future`] as a value that represents something that will eventually happen in the
-future (in this case the stream will be created). This means that `TcpStream::connect` does
-not wait for the stream to be created before it returns. Rather it returns immediately
-with a value representing the work of creating a TCP stream. We'll see down below when this work
-_actually_ gets executed.
-
-The `and_then` method yields the stream once it has been created. `and_then` is an
-example of a combinator function that defines how asynchronous work will be processed.
+The call to `listener.incoming()` returns a [`Stream`] of accepted connections.
+We'll learn more about [`Stream`] later in the guide, but for now you can think of
+a [`Stream`] as an asynchronous iterator. The `for_each` method yields new sockets
+each time a socket is accepted. `for_each` is an example of a combinator function that
+defines how asynchronous work will be processed.
 
 Each combinator function takes ownership of necessary state as well as the
-callback to perform and returns a new `Future` that has the additional "step"
-sequenced. A `Future` is a value representing some computation that will complete at
-some point in the future
+callback to perform and returns a new `Stream` or a `Future` that has the
+additional "step" sequenced. A `Future` is a value representing some computation
+that will complete at some point in the future.
 
 It's worth reiterating that returned futures are lazy, i.e., no work is performed when
 calling the combinator. Instead, once all the asynchronous steps are sequenced, the
