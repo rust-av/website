@@ -11,12 +11,12 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: build
-      uses: rust-av/rust-av.github.io
+      uses: rust-av/rust-av.github.io@7d1c365
       if: github.event.deleted == false
       with:
         args: --gc --minify --cleanDestinationDir
     - name: deploy
-      uses: rust-av/rust-av.github.io
+      uses: rust-av/rust-av.github.io@7d1c365
       if: success()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
