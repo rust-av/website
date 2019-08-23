@@ -30,4 +30,4 @@ git checkout "${remote_branch}" || git checkout --orphan "${remote_branch}"
 git add --all
 timestamp=$(date -u)
 git commit -m "Automated deployment: ${timestamp} ${GITHUB_SHA}"
-git push origin "${remote_branch}" 
+git push origin "${remote_branch}" --force 
