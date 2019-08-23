@@ -5,9 +5,9 @@ LABEL "com.github.actions.description"="A GitHub Action to deploy your static si
 LABEL "com.github.actions.icon"="upload-cloud"
 LABEL "com.github.actions.color"="blue"
 
-LABEL "repository"="https://github.com/peaceiris/actions-gh-pages"
-LABEL "homepage"="https://github.com/peaceiris/actions-gh-pages"
-LABEL "maintainer"="peaceiris"
+LABEL "repository"="https://github.com/rust-av/website"
+LABEL "homepage"="https://github.com/rust-av/website"
+LABEL "maintainer"="vibhoothiiaanand"
 
 RUN apk add --no-cache \
     git \
