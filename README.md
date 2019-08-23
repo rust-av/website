@@ -15,7 +15,7 @@ brew update && brew install hugo
 Then, get the website running locally:
 
 ```sh
-git clone http://code.videolan.org/mindfreeze/rav1e
+git clone https://github.com/rust-av/website
 cd website
 hugo server
 ```
