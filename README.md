@@ -1,6 +1,6 @@
-# rav1e's Website
+# rust-av Website
 
-This is the website for rav1e project. Live at [https://mindfreeze.videolan.me/rav1e][https://mindfreeze.videolan.me/rav1e]
+This is the website for **rust-av** project. Live at [rustav.org](https://rustav.org)
 
 
 ## Getting Started
