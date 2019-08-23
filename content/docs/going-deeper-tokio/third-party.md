@@ -1,8 +1,8 @@
 +++
 title = "Third-party crates"
 description = ""
-menu = "going_deeper"
-weight = 110
+menu = "going_deeper_tokio"
+weight = 310
 +++
 
 Currently the [`futures`], [`tokio-core`], [`tokio-service`], and [`tokio-proto`] crates provide
@@ -51,3 +51,4 @@ list, please feel free to send a PR!
 [`tokio-postgres`]: https://crates.io/crates/tokio-postgres
 [`thrussh`]: https://crates.io/crates/thrussh
 [`tokio-retry`]: https://github.com/srijs/rust-tokio-retry
+[`couchbase`]: https://crates.io/crates/couchbase
