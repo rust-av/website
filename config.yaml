@@ -1,5 +1,5 @@
 ---
-baseurl: "https://mindfreeze.videolan.me/rust-av/"
+baseurl: "https://rustav.org"
 title: "Rust AV"
 languageCode: "en-us"
 canonifyURLs: "true"
