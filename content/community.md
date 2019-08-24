@@ -25,8 +25,8 @@ That leads to API that are either easy but quite inflexible (and opinionated) or
 
 * matroska
 * rust-av
-* ffm2-rs
-* rav1e 
+* ffms2-rs
+* rav1e
 * speexdsp-rs
 * opus-rs
 * av-vorbis
@@ -40,7 +40,7 @@ and [much more](https://github.com/rust-av).
 # Get Involved
 
 Are you interested in getting involved with the code and participating in
-our development? 
+our development?
 Contact the team member [lu_zero](luca.barbato@luminem.it)
 
 # Contributors
