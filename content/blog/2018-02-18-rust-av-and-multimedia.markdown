@@ -138,9 +138,7 @@ So far my experience with rust had been quite positive, but there are a number o
 - The natural fallback, going down to assembly, is available since rust supports the C ABI, [inline assembly](https://github.com/rust-lang/rust/issues/29722) support on the other hand seems that is still pending some discussion before it reaches stable.
 - [Arbitrarily aligned allocation](https://github.com/rust-lang/rust/issues/32838) is a MUST in order to support hardware acceleration and SIMD works usually better with aligned buffers.
 - I’d love to have [const generics](https://github.com/rust-lang/rfcs/pull/2000) now, luckily [associated constants with traits](https://blog.rust-lang.org/2017/08/31/Rust-1.20.html) allow some workarounds that let you [specialize by constants](https://github.com/tdaede/rav1e/commit/5d0757fedb4e632898f11348bf44c8f4e1e2cd9d) (and result in neat speedups).
-- I think that focusing a little more on array/slice support would lead to the best gains, since right now there isn’t an equivalent to 
-
-collect() to fill arrays in an idiomatic way and in multimedia large lookup tables are pretty much a staple.
+- I think that focusing a little more on array/slice support would lead to the best gains, since right now there isn’t an equivalent to collect() to fill arrays in an idiomatic way and in multimedia large lookup tables are pretty much a staple.
 
 ### In closing
 
