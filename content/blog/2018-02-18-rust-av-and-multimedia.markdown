@@ -3,7 +3,7 @@ date = "2018-02-18"
 title = "Rust-av: Rust and Multimedia"
 description = "Luca Barbato"
 menu = "blog"
-weight = 997
+weight = 999
 +++
 
 ## Rust-av: Rust and Multimedia

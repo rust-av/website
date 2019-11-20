@@ -1,0 +1,80 @@
++++
+date = "2019-04-09"
+title = "rav1e 0.1.0 - Made in Tokyo"
+description = "Luca Barbato"
+menu = "blog"
+weight = 997
++++
+
+## Intro
+
+> [AV1](https://aomedia.org/av1-features/) is a modern video codec brought to you by an alliance of [many](https://aomedia.org/membership/members/) different bigger and smaller players in the multimedia field.
+> I'm part of the [VideoLan](https://videolan.org) organization and I spent quite a bit of time on this codec lately.
+
+---
+> [rav1e](https://github.com/xiph/rav1e/): The safest and fastest AV1 encoder, built by many volunteers and Mozilla/Xiph developers.
+> It is written in [rust](https://rustlang.org) and strives to provide good speed, quality and stay maintainable.
+
+---
+
+## Made in Tokyo
+
+The first [official release](https://github.com/xiph/rav1e/releases/tag/0.1.0) of [rav1e](https://github.com/xiph/rav1e/) happened during the [Video Dev Days 2019](https://www.videolan.org/videolan/events/vdd19/) in Tokyo.
+Since it was originally presented during [Video Dev Days 2017](https://www.videolan.org/videolan/events/vdd17/) it felt the right thing to do.
+
+## What is inside
+
+Since [last time](https://rustav.org/blog/2019-04-09-using-rav1e-from-your-code/) I blogged about it, there are few changes:
+
+### crav1e is no more
+The `C-API`  now is part of rav1e itself and everything is built by [cargo-c](https://crates.io/crates/cargo-c).
+``` sh
+cargo install cargo-c
+cargo cinstall --destdir=/tmp/staging
+sudo cp /tmp/staging/* /
+```
+Thats's all you need to use `rav1e` from C.
+
+### New API features
+#### Keyframe placement
+The rust API now let you override the keyframe placement
+``` rust
+  let cfg = Config::default();
+  let mut ctx: Context<u8> = cfg.new_context().unwrap();
+  let f1 = ctx.new_frame();
+  let f2 = f1.clone();
+  let info = FrameParameters {
+    frame_type_override: FrameTypeOverride::Key
+};
+
+  // Send the plain frame data
+  ctx.send_frame(f1)?;
+  // Send the data and the per-frame parameters
+  // In this case the frame is forced to be a keyframe.
+  ctx.send_frame((f2, info))?;
+  // Flush the encoder, it is equivalent to a call to `flush()`
+  ctx.send_frame(None)?;
+```
+
+#### Multipass rate control
+
+It is possible to use `Context::twopass_out()` to feed back the rate control information that `Context::twopass_in()` can produce.
+
+The API is intentionally opaque to the point you deal with pre-serialized data and not structured information.
+
+#### Config validation
+We added `Config::validate()` to make sure the settings are correct and return a detailed error (`InvalidConfig`) if that's not the case.
+
+### Speed
+We overall made it a lot faster:
+```
+15:23 < koda> hey guys, did an encode with the new 0.1.0, 20 hours for 8 minutes, down from 32 hours using a two month old build
+15:23 < koda> congrats (and thanks) for making these speed improvements
+```
+And we are still working to speed it up a lot. The current weekly snapshot is an additional 20-25% faster compared to 0.1.0.
+
+**NOTE**: `rav1e` is still resources conscious, so it will not use all the threads and memory available. This makes it good if you want to encode multiple videos in parallel, but we will work on adding additional parallelism so even the single-video scenario is covered better.
+
+## What's next
+
+Ideally a `0.2.0` will appear the early December, it will contain many speed improvements, lots of bugfixes (in particular docs.rs will serve the documentation) and possibly a large boost in single-pass quality if what Tim and Guillaume are working on will land in time.
