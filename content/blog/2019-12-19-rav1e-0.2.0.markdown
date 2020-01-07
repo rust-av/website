@@ -1,0 +1,57 @@
++++
+date = "2019-12-19"
+title = "rav1e 0.2.0 - Winter Solstice"
+description = "Luca Barbato"
+menu = "blog"
+weight = 995
++++
+
+Yesterday we made the second release of [rav1e](https://github.com/xiph/rav1e).
+
+## ~~Winter Solstice~~ ~~Saturnalia~~ Yuletide
+
+The second [official release](https://github.com/xiph/rav1e/releases/tag/v0.2.0) of [rav1e](https://github.com/xiph/rav1e/) was focused mainly on speed. Later I'll write down what we used and what, in my opinion, are the best practices when you have to optimize a codebase like this one.
+
+## What's new
+
+Since we focused mainly on speed, there aren't many user-facing changes.
+
+### New in the command line
+
+- `--benchmark`: Since I started to use [gnu time](https://www.gnu.org/software/time/) to get some coarse information, I decided to add a [getrusage()](https://docs.rs/libc/0.2.66/libc/fn.getrusage.html) report directly in the cli. Currently it is unix-like only, if you like Windows a pull request to add the same feature is really welcome!
+- `advanced --save-config` / `advanced --load-config`: The options depend on building with `--features=serialize`, they let you dump and restore the full encoder configuration, it is quite useful if you want to tweak settings.
+
+### Building features
+
+- `tracing`: Enables [hawktracer](https://github.com/AlexEne/rust_hawktracer) probes.
+- `serialize`: Enables serde support, it is optional mainly because it would nearly double the build time. Suggestions on something smaller are welcome.
+
+### More performance
+
+![Alt Text](https://thepracticaldev.s3.amazonaws.com/i/3oh7fq03k0qtl6kxix2w.png)
+
+Speed was the focus on this release and we tried our best not to increase the resident set, nor the overall memory usage.
+
+ ![Alt Text](https://thepracticaldev.s3.amazonaws.com/i/1j7udx7w2eo9a5q83y0x.png)
+
+The memory fragmentation that was quite significant in 0.1.0
+
+![Alt Text](https://thepracticaldev.s3.amazonaws.com/i/3n4nd728u1vedfujbnsi.png)
+
+Had been addressed fairly well in 0.2.0 and probably we'll return to it in 0.4.0:
+
+![Alt Text](https://thepracticaldev.s3.amazonaws.com/i/u28k35aeok7p2qzg335t.png)
+
+We are still not using as much cpu and memory as possible and there are still large inefficiencies to address in the future, some of it will be solved by the [rayon](https://github.com/rayon-rs/rayon/) developers, some are on us:
+
+![Alt Text](https://thepracticaldev.s3.amazonaws.com/i/rjk8yfsk5vjhdb6tg1s4.png)
+
+In the future the lookahead computation we have in `send_frame` will happen in a separate thread and it will not stall the rest of the encoding process this much.
+
+## Future plans
+
+The focus for `0.2.0` was speed and we got between 40% and 70% faster in about 40 days.
+
+The focus for `0.3.0` will be quality, striving to keep the encoding speed as fast as it is if not faster, we'll see how it will go next year.
+
+Thanks for reading!
