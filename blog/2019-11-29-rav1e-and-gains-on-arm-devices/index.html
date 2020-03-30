@@ -1,0 +1,215 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta http-equiv=x-ua-compatible content="ie=edge"><link rel=icon href=https://rustav.org/img/logo.svg><link rel=manifest href=https://rustav.org/manifest.json><meta name=theme-color content=#ffffff><link rel=stylesheet href=https://rustav.org/css/bootstrap-reboot.css><link rel=stylesheet href=https://rustav.org/css/bootstrap.css><link rel=stylesheet href=https://rustav.org/css/font-awesome.min.css><link rel=stylesheet href=https://rustav.org/css/rust-av.css><title>rav1e and gains on ARM Devices - Rust AV</title></head><body><header class="navbar navbar-expand navbar-dark flex-column flex-md-row tk-navbar"><a class=navbar-brand href=https://rustav.org/><img src=https://rustav.org/img/logo.svg class=align-middle alt></a><div class="collapse navbar-collapse"><ul class=navbar-nav><li class=nav-item><a class=nav-link href=https://rustav.org/>Home</a></li><li class=nav-item><a class="nav-link  active" href=https://rustav.org/blog/2020-03-30-rav1e-and-av-metrics/>Blog</a></li><li class=nav-item><a class=nav-link href=https://rustav.org/community/>Community</a></li></ul></div><ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex"><li class=nav-item><a class="nav-link p-2" href=https://github.com/rust-av target=_blank rel=noopener aria-label=GitHub><svg class="navbar-nav-svg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 499.36" focusable="false"><title>GitHub</title><path d="M256 0C114.64.0.0 114.61.0 256c0 113.09 73.34 209 175.08 242.9 12.8 2.35 17.47-5.56 17.47-12.34.0-6.08-.22-22.18-.35-43.54-71.2 15.49-86.2-34.34-86.2-34.34-11.64-29.57-28.42-37.45-28.42-37.45-23.27-15.84 1.73-15.55 1.73-15.55 25.69 1.81 39.21 26.38 39.21 26.38 22.84 39.12 59.92 27.82 74.5 21.27 2.33-16.54 8.94-27.82 16.25-34.22-56.84-6.43-116.6-28.43-116.6-126.49.0-27.95 10-50.8 26.35-68.69-2.63-6.48-11.42-32.5 2.51-67.75.0.0 21.49-6.88 70.4 26.24a242.65 242.65.0 0 1 128.18.0c48.87-33.13 70.33-26.24 70.33-26.24 14 35.25 5.18 61.27 2.55 67.75 16.41 17.9 26.31 40.75 26.31 68.69.0 98.35-59.85 120-116.88 126.32 9.19 7.9 17.38 23.53 17.38 47.41.0 34.22-.31 61.83-.31 70.23.0 6.85 4.61 14.81 17.6 12.31C438.72 464.97 512 369.08 512 256.02 512 114.62 397.37.0 256 0z" fill="currentcolor" fill-rule="evenodd" /></svg></a></li></ul></header><div class="container-fluid tk-blog"><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2 tk-sidebar"><div class="tk-docs-toggle d-md-none p-0 d-flex ml-3 collapsed align-item-center"><h1 class=tk-title>rav1e and gains on ARM Devices</h1><button class="btn btn-link" type=button data-toggle=collapse data-target=#tk-docs-nav aria-controls=tk-docs-nav aria-expanded=false aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false"><title>Menu</title><path stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/></svg></button></div><nav class="tk-links collapse" id=tk-docs-nav><div class="tk-toc-item active"><p class=tk-toc-link>Blog Posts</p><ul class="nav tk-sidenav"><li><a href=https://rustav.org/blog/2020-03-30-rav1e-and-av-metrics/>Integration of AV-Metrics into rav1e, the AV1 Encoder</a></li><li><a href=https://rustav.org/blog/2019-12-19-rav1e-0.2.0/>rav1e 0.2.0 - Winter Solstice</a></li><li><a href=https://rustav.org/blog/2019-11-29-rav1e-and-gains-on-arm-devices/ class=active>rav1e and gains on ARM Devices</a></li><li><a href=https://rustav.org/blog/2019-11-20-rav1e-0.1.0/>rav1e 0.1.0 - Made in Tokyo</a></li><li><a href=https://rustav.org/blog/2019-04-09-using-rav1e-from-your-code/>Using rav1e - from your own code</a></li><li><a href=https://rustav.org/blog/2018-02-18-rust-av-and-multimedia/>Rust-av: Rust and Multimedia</a></li></ul></div></nav></div><div class="d-none d-xl-block col-xl-4 tk-toc"><div class=section-nav><nav id=TableOfContents><ul><li><ul><li><a href=#how-did-we-do-it>How did we do it?</a></li><li><a href=#what-are-the-gains-benchmarks>What are the gains?? Benchmarks !!</a><ul><li><a href=#encoding-time-gains>Encoding Time Gains</a></li><li><a href=#fps-gains>FPS Gains</a></li><li><a href=#future-plans>Future plans</a></li></ul></li></ul></li></ul></nav></div></div><main class="col-12 col-md-9 col-xl-7 py-md-3 pl-md-3 tk-content tk-docs"><h1 class=tk-title>rav1e and gains on ARM Devices</h1><p class=tk-date>Vibhoothi</p><p>Hi,</p><p>It&rsquo;s been a while I have written a blog about the work I am doing lately. So yeah, I have been working on <a href=https://github.com/xiph/rav1e>rav1e</a>, the AV1 Encoder written in rust as part of <a href=https://mindfreeze.videolan.me/iris>Project Iris</a>. Currently, if we see, there are other Open-Source Encoders available like <a href=https://aomedia.googlesource.com/aom/>libaom</a> from Google, <a href=https://github.com/OpenVisualCloud/SVT-AV1>SVT-AV1</a> from Intel and Netflix. Rav1e’s memory footprint makes it a good starting point for new-cases like Software Encoding in ARM devices, Real-time streaming, while libaom and SVT-AV1 are either too slow or resource-intensive. So it would be much easier to make rav1e fast and power-efficient due to the low-complexity functions.</p><p>In the end, we are getting around ~12-20% Improvement in Encoding Time and FPS which is the first step making adoption of AV1 to Mobile devices. It is also very important to note that we’ve been using what SIMD code we have rather than proceeding in the order of lowest-hanging fruit. The relative gains would be more impressive if the outstanding functions were optimized first. Our priority was proving the infrastructure for merging, testing and benching on ARM Devices feasible and now it&rsquo;s more realistic.</p><p>I would like to express my sincere thanks to barrbrain, lu_zero, krish&amp;#95iyer and unlord for their support from the community which made me directly or indirectly motivate to do these.</p><h2 id=how-did-we-do-it>How did we do it?</h2><p>So as an initial step, we have to <a href=https://github.com/vibhoothiiaanand/as_playground/commit/1d885629c3930119bda1e7a8b8982948cade5965>compile assembly functions</a> with rust itself.
+For having the Assemby in rav1e we did some things like this:</p><ul><li><p>In the <a href=https://github.com/xiph/rav1e/blob/master/build.rs>build.rs</a> script, we did like this:</p><pre><code class=language-rust>// @@ +66 @@
+#[cfg(feature = &quot;asm&quot;)]
+fn build_asm_files() {
+ use std::fs::File;
+ use std::io::Write;
+let out_dir = env::var(&quot;OUT_DIR&quot;).unwrap();
+{
+  let dest_path = Path::new(&amp;out_dir).join(&quot;config.h&quot;);
+  let mut config_file = File::create(dest_path).unwrap();
+  config_file.write(b&quot; #define PRIVATE_PREFIX rav1e_\n&quot;).unwrap();
+  config_file.write(b&quot; #define ARCH_AARCH64 1\n&quot;).unwrap();
+  config_file.write(b&quot; #define ARCH_ARM 0\n&quot;).unwrap();
+  config_file.write(b&quot; #define CONFIG_LOG 1 \n&quot;).unwrap();
+  config_file.write(b&quot; #define HAVE_ASM 1\n&quot;).unwrap();
+}
+cc::Build::new()
+  .files(&amp;[
+    &quot;src/arm/64/mc.S&quot;,
+        
+    &quot;src/arm/tables.S&quot;,
+  ])
+  .include(&quot;.&quot;)
+  .include(&amp;out_dir)
+  .compile(&quot;rav1e-aarch64&quot;);
+rerun_dir(&quot;src/arm&quot;);
+}
+
+// @@ +123 @@
+ #[cfg(feature = &quot;asm&quot;)]
+{
+ @@ ++ @@
+if arch == &quot;aarch64&quot; {
+  println!(&quot;cargo:rustc-cfg={}&quot;, &quot;asm_neon&quot;);
+  build_asm_files()
+ }
+}
+</code></pre></li><li><p>In the <a href=https://github.com/xiph/rav1e/tree/master/src/cpu_features>cpu_features</a>, we have to add AARch64 target. For that there are some things to be taken care of:</p><ul><li>How we build the stuff with the cargo build system for modules, it is a bit alien at first since.</li><li>Making sure the flags are invoked currently when specific architecture is detected.</li></ul></li></ul><p>We have elided <code>is_aarch64_feature_detected!()</code> because AArch64 Mandates NEON. We maintain <code>CpuFeatureLevel</code> primarily to focus on native Rust kernels at the runtime, in a way consistent with other architecture.<br>For AArch64 we have two CPU level, either <code>NATIVE</code> or <code>NEON</code>, if a user wants to change that, then he could use the environment variable <code>RAV1E_CPU_TARGET=NATIVE</code>.</p><p>We have made <a href=https://github.com/xiph/rav1e/blob/master/src/cpu_features/aarch64.rs>aarch64.rs</a> file where AARch64 CPU Detection happens.</p><pre><code class=language-rust>   impl Default for CpuFeatureLevel {
+   fn default() -&gt; CpuFeatureLevel {
+    let detected = CpuFeatureLevel::NEON;
+    let manual: CpuFeatureLevel = match env::var(&quot;RAV1E_CPU_TARGET&quot;) {
+      Ok(feature) =&gt; CpuFeatureLevel::from_str(&amp;feature).unwrap_or(detected),
+      Err(_e) =&gt; detected,
+    };
+    if manual &gt; detected {
+      detected
+    } else {
+      manual
+    }
+  }
+</code></pre><p>Here environment variable overrides the default value if needed.</p><ul><li><p>In the <a href=https://github.com/xiph/rav1e/blob/master/src/cpu_features/mod.rs>mod.rs</a>, we would require to add to use aarch64.
+So, it would be like</p><pre><code class=language-rust>cfg_if::cfg_if! {
+// @@ ++4 @@
+} else if #[cfg(asm_neon)] {
+mod aarch64;
+pub use aarch64::*;
+} else {
+mod native;
+pub use native::*;
+}
+}
+</code></pre></li><li><p><a href=https://github.com/xiph/rav1e/blob/master/Cargo.toml>Cargo.toml</a>, we have added <code>cc-rs</code> as a build-dependency.</p><pre><code class=language-toml>[features]
+# @@ +20 @@
+asm = [&quot;nasm-rs&quot;, &quot;cc&quot;] 
+# @@ +73 @@
+[build-dependencies]
+cc = { version = &quot;1.0&quot;, optional = true, features = [&quot;parallel&quot;] }
+</code></pre><p>Here we added the <code>cc</code> build dependency addition to nasm to a feature <code>asm</code> which would help us to have both <code>x86</code> and <code>AArch64</code> seamlessly with help of <code>#[cfg]</code> flag where we would be checking if <code>AAarch64</code> / <code>x86</code>, where in the future parts we would be adding an initial check with help of <code>#[cfg(feature = &quot;asm&quot;)]</code>.<br>For the assembly files from <a href=https://code.videolan.org/videolan/dav1d/tree/master/src/arm>dav1d</a>, there are the config files which defines how the assembly, should be interpreted, is it <code>AArch64</code> only or is it having <code>HAVE_ASM</code> and assigning default values for those. Here we are using <code>PRIVATE_PREFIX</code> as <code>rav1e_</code> in favour of matching how we did with all other functions for <code>x86</code> and styling. Using standard input/output of rust (<code>std::io::Write</code>, <code>std::fs::File</code>) for creating and writing the config file. To make minimal chances to assembly, we did not touch any of <code>.S</code> files in this process, so we did make config files and write with this method. For compiling, we are using cc&rsquo;s <code>Build</code> where we would be inputting file as a single element or as an array, we are inputting as array since we would be having multiple files to have and we like to have a single object compiled for those files. We would also explicitly mention the compiler to compile the inside files so we are mentioning that too, include the config file, and most importantly, rerunning the files in that directory because <code>cc-rs</code> does not emit, <code>rerun-if-</code> lines for sources or ENV variables. So we would require to rebuild if the assembly is modified. There is an open issue (<a href=https://github.com/alexcrichton/cc-rs/issues/230>#230</a>) too regarding this in <code>cc-rs</code> do keep an eye on that.</p></li></ul><p>After having these three, the next main thing we would require to do is, having rust wrappers for the Assembly functions.<br>For the assembly functions which we have compiled, we would require to get the symbols. For that, we can use Unix command <code>objdump</code> to dump objects and filter out <code>rav1e</code> and further sort if needed.
+The command which can be used would be like</p><p><code>objdump -t target/debug/build/rav1e-02ad44fbebde75fb/out/librav1e-aarch64.a | rg &quot;rav1e&quot;</code></p><pre><code class=language-assembly>.....
+In archive target/debug/build/rav1e-02ad44fbebde75fb/out/librav1e-aarch64.a:
+0000000000000000 g     F .text	0000000000000000 rav1e_avg_8bpc_neon
+0000000000000414 g     F .text	0000000000000000 rav1e_w_avg_8bpc_neon
+0000000000000a14 g     F .text	0000000000000000 rav1e_mask_8bpc_neon
+000000000000121c g     F .text	0000000000000000 rav1e_w_mask_444_8bpc_neon
+0000000000001438 g     F .text	0000000000000000 rav1e_w_mask_422_8bpc_neon
+000000000000165c g     F .text	0000000000000000 rav1e_w_mask_420_8bpc_neon
+000000000000187c g     F .text	0000000000000000 rav1e_blend_8bpc_neon
+0000000000001a0c g     F .text	0000000000000000 rav1e_blend_h_8bpc_neon
+0000000000000000         *UND*	0000000000000000 rav1e_obmc_masks
+0000000000001c14 g     F .text	0000000000000000 rav1e_blend_v_8bpc_neon
+00000000000020fc g     F .text	0000000000000000 rav1e_put_8tap_regular_8bpc_neon
+....
+</code></pre><p>with the objdump we could know the symbols are generated and based upon that, we can write/generate rust specific functions.
+When we are creating rust specific wrappers for the assembly to work seamlessly, there should be some guidelines to be followed.<br>So for the rust wrapper, I would take Motion Compensation (<code>mc.S</code>) as example reference.<br>The rust function is written in <code>src/mc.rs</code> while thee wrapper is written in <code>src/asm</code> folder. We are having AArch64 wrappers in aarch64 folder inside src, so <code>src/asm/aarch64</code>.</p><p>The file structure should be something like this</p><pre><code>.
+src/
+├── arm
+│   ├── 64
+│   │   ├── mc.S
+│   │   └── util.S
+│   ├── asm.S
+│   └── tables.S
+├── asm
+│   ├── aarch64
+│   │   ├── mc.rs
+│   │   ├── mod.rs
+│   ├── mod.rs
+`-- mc.rs
+</code></pre><p>In the <code>mod.rs</code> found in asm, we would be having a flag to check if it is having <code>asm_neon</code> flag and if that is present use <code>aarch64</code> module.
+we would be doing like this</p><pre><code class=language-rust>#[cfg(asm_neon)]
+pub mod aarch64;
+</code></pre><p>For the mc.rs, we would be writing accordance to main mc.rs and also for wrapper which we wrote for <code>x86</code>. We would be also writing the tests for the respective files.<br>If we see in dav1d&rsquo;s C&rsquo;s implementation (<a href=https://code.videolan.org/videolan/dav1d/blob/master/src/arm/mc_init_tmpl.c#L33>mc_init_tmpl.c</a>), and assembly implementaiton (<a href=https://code.videolan.org/videolan/dav1d/blob/master/src/arm/64/mc.S#1345>mc.s</a>) happens like this, while for us, we have a bit more cleaner way to do it, thanks to rust.</p><pre><code class=language-c>decl_mc_fn(dav1d_put_8tap_regular_8bpc_neon);
+decl_mc_fn(dav1d_put_8tap_regular_smooth_8bpc_neon);
+decl_mc_fn(dav1d_put_8tap_regular_sharp_8bpc_neon);
+decl_mc_fn(dav1d_put_8tap_smooth_8bpc_neon);
+decl_mc_fn(dav1d_put_8tap_smooth_regular_8bpc_neon);
+decl_mc_fn(dav1d_put_8tap_smooth_sharp_8bpc_neon);
+decl_mc_fn(dav1d_put_8tap_sharp_8bpc_neon);
+decl_mc_fn(dav1d_put_8tap_sharp_regular_8bpc_neon);
+decl_mc_fn(dav1d_put_8tap_sharp_smooth_8bpc_neon);
+decl_mc_fn(dav1d_put_bilin_8bpc_neon);
+</code></pre><p><center>file: dav1d/src/mc_tmpl.c</center></p><pre><code class=language-rust>decl_mc_fns!(
+  (REGULAR, REGULAR, rav1e_put_8tap_regular_8bpc_neon),
+  (REGULAR, SMOOTH, rav1e_put_8tap_regular_smooth_8bpc_neon),
+  (REGULAR, SHARP, rav1e_put_8tap_regular_sharp_8bpc_neon),
+  (SMOOTH, REGULAR, rav1e_put_8tap_smooth_regular_8bpc_neon),
+  (SMOOTH, SMOOTH, rav1e_put_8tap_smooth_8bpc_neon),
+  (SMOOTH, SHARP, rav1e_put_8tap_smooth_sharp_8bpc_neon),
+  (SHARP, REGULAR, rav1e_put_8tap_sharp_regular_8bpc_neon),
+  (SHARP, SMOOTH, rav1e_put_8tap_sharp_smooth_8bpc_neon),
+  (SHARP, SHARP, rav1e_put_8tap_sharp_8bpc_neon),
+  (BILINEAR, BILINEAR, rav1e_put_bilin_8bpc_neon)
+ );
+</code></pre><p><center>file: rav1e/src/asm/aarch64/mc.rs</center></p><p>The assembly which we did import from dav1d(<code>src/arm/64</code>) is not modified and untouched. Based on the symbol which we have found from <code>objdump</code> from those, we have made relevant symbols which also matches our native rust implementation.<br>In the main <code>mc.rs</code> file, we would require one more line to add to make sure that the mc.rs wrapper which we wrote for assembly is taken instead of normal native ones, for that we will further require to add a condition to check</p><pre><code class=language-rust> cfg_if::cfg_if! {
+    if #[cfg(nasm_x86_64)] {
+      pub use crate::asm::x86::mc::*;
+    } else if #[cfg(asm_neon)] {
+      pub use crate::asm::aarch64::mc::*;
+    } else {
+      pub use self::native::*;
+    }
+  }
+</code></pre><p>When we are doing this, we <em>should</em> be really careful with the path to the module since if it is wrong, then the whole program would not work. So the easiest way to find the exact way to call the module would be with the help of UNIX command <code>pwd</code>
+for <code>mc.rs</code> it is
+<code>/home/vibhoothiiaanand/rav1e/src/asm/aarch64/mc.rs</code>
+so it would be<br><code>asm-&gt; aarch64 -&gt; mc-&gt; all the functions</code> is<br><code>asm::aarch64::mc::*;</code><br>also, make sure when you do, it should be having <code>::</code> and not <code>:</code> as it is syntactically wrong.</p><p>List of commits which are integrated into rav1e, this list would give you a better idea on how much we did take and how much we did not take.
+<details></p><pre><code class=language-diff>- arm64: looprestoration: Minimal scheduling improvements
+- arm64: looprestoration: Fix a typo  …
+- arm64: looprestoration: Fix register references in comments
+- arm64: looprestoration: Use ld2r instead of ld1+dup+dup
++ arm64: ipred: Make sure all symbols are aligned 
++ arm: util: Split movrel into movrel and movrel_local
+- arm64: ipred: NEON implementation of the cfl_ac functions  
++ arm64: ipred: NEON implementation of the cfl_pred functions  
+- arm64: ipred: NEON implementation of the filter function  
+- arm64: ipred: NEON implementation of palette prediction  
++ arm64: ipred: NEON implementation of smooth prediction  
++ arm64: ipred: NEON implementation of paeth prediction  
++ arm64: mc: Use addp instead of addv+trn1 in warp  
+- arm64: cdef: Improve find_dir  
+- arm64: cdef: Calculate two initial parameters in the same vector  
+- arm64: cdef: Use loads with postincrement in more places in the padding function
+- arm64: cdef: Rewrite an expression slightly  
++ arm64: mc: Schedule instructions better in the warp8x8 functions  
++ arm64: mc: Use sbfx instead of ubfx+sxth in the warp function
++ arm64: ipred: NEON implementation of dc/h/v prediction modes  
++ arm64: itx: Fix overflows in idct  
++ arm64: itx: Consistently use the factor 2896 in adst  
++ arm64: itx: Use smull+smlal instead of addl+mul  
++ arm64: itx: Do the final calculation of adst4/adst8/adst16 in 32 bit to avoid too narrow clipping  
+- arm64: mc: NEON implementation of w_mask_444/422/420 function  
+- arm64: mc: NEON implementation of blend, blend_h and blend_v function  
+- Add msac optimizations  
++ arm64: itx: Add NEON optimized inverse transforms  
++ arm64: Consistently name macro arguments tX for temporaries in transposes
+- arm64: msac: Add handwritten versions of msac_decode_bool functions  
+- arm64: msac: Fix a typo in a comment
+- Add __attribute__((cold)) to rarely used functions
+- arm64: remove invalid macro argument delimiter
+- arm64: msac: Implement NEON msac_decode_symbol_adapt  
+- arm64: loopfilter: Implement NEON loop filters  
+- arm64: looprestoration: Add a NEON implementation of SGR  
+- arm64: cdef: Clarify a slightly confusing comment  
+- arm64: cdef: Use a smarter padding constant  
+- arm64: cdef: Do saturating subtractions to avoid max operations with 0  
++ fix dav1d spelling
+- arm64/ios: use prefixed dav1d_mc_warp_filter symbol
+- arm64: mc: NEON implementation of warp8x8{,t}  
+- arm64: cdef: NEON implementation of the dir function  
+- arm64: cdef: NEON optimized cdef filter function  
+- arm64: looprestoration: Optimize loop termination checks in copy_narrow_neon
+- arm64: looprestoration: Simplify the horizontal filtering of one pixel at a time
+- arm64: looprestoration: Simplify the setup of wiener_filter_v_neon
+- arm64: looprestoration: Fix the loop condition in copy_narrow_neon  
+- arm64: looprestoration: Fix comment typos
+- arm64: looprestoration: Avoid unnecessary alignment of the mid buffer  
++ arm64: mc: Optimize mc_8tap_regular_w4_hv_8bpc for A53  
++ arm64: mc: Simplify the 8tap_2w_hv code slightly  
++ arm64: mc: Optimize the mul_mla_8_* macros for Cortex A53  
++ arm64: mc: Improve a comment
++ arm64: mc: Remove unused/unnecessary macro args
++ arm64: mc: Use ubfx instead of ubfm, for consistency with arm  
+- arm64: looprestoration: NEON optimized wiener filter  
+- arm64: mc: Implement 8tap and bilin functions
++ build: add support for arm/aarch64 asm and integrate checkasm
+- arm64/mc: add 8-bit neon asm for avg, w_avg and mask
++ aarch64: Always use the PIC version of movrel for iOS
++ arm64: Don't use uxth for extending a register
++ arm64: mc: Make the jump tables local symbols
++ rename arch specific bitdepth template files
+- arm64: mc: Implement 8tap and bilin functions
+- arm64: looprestoration: NEON optimized wiener filter
+</code></pre><p></details></p><h2 id=what-are-the-gains-benchmarks>What are the gains?? Benchmarks !!</h2><p>So we have encoded 100 frames of a 720p Clip (4:2:0) <a href=https://media.xiph.org/video/derf/y4m/ducks_take_off_420_720p50.y4m>ducks_takes_off</a> with rav1e <a href=https://github.com/xiph/rav1e/releases/tag/0.1.0>0.1 release</a>, then the subsequent <a href=https://github.com/xiph/rav1e/releases/tag/20191120>weekly release</a> and also <a href=https://github.com/xiph/rav1e/tree/a6c217b5cd276161d1c48b7b353d58f0ca29b7c3>master_a6c217b5</a> on Raspberry Pi 3 B+ which is running Ubuntu 18.04 64 Bit(AArch64) for testing and found some intresting results.</p><h3 id=encoding-time-gains>Encoding Time Gains</h3><table><thead><tr><th>Release Name</th><th>Encoding Time</th><th>Percent Gain from Previous Release</th><th>Percent gain from 0.1 Release</th></tr></thead><tbody><tr><td>rav1e<em>0.1.0</em> 97538d1</td><td>01:22:47</td><td>NA</td><td>NA</td></tr><tr><td>rav1e<em>weekly</em> 7344dae</td><td>01:19:05</td><td>4.469498691</td><td>4.469498691</td></tr><tr><td>rav1e_master_a6c217b5</td><td>01:00:59</td><td>22.88724974</td><td>35.74747199</td></tr></tbody></table><p><br><img src=https://i.imgur.com/3WsGowz.png alt=image500c><br>From the encoding, we got around 35% improvement, which is really a great first step towards faster AV1 encoding.</p><h3 id=fps-gains>FPS Gains</h3><table><thead><tr><th>Release Name</th><th>fps</th><th>Percent Gain from Previous Release</th><th>Percent gain from 0.1.0 Release</th></tr></thead><tbody><tr><td>rav1e<em>0.1.0</em> 97538d1</td><td>0.2</td><td>NA</td><td>NA</td></tr><tr><td>rav1e<em>weekly</em> 7344dae</td><td>0.21</td><td>5</td><td>5</td></tr><tr><td>rav1e_master_a6c217b5</td><td>0.27</td><td>28.57142857</td><td>35</td></tr></tbody></table><p><br><br><img src=https://i.imgur.com/gBTfwAy.png alt=image500c><br>We got 35% improvement for FPS in the ARM devices, which is again good.<br>Detailed can be found from this <a href="https://docs.google.com/spreadsheets/d/1gdhlgVfiscyXoaEFjSisoYE-ta15VY1gVd3QcXuNNFw/edit#gid=370028033">Google Sheets</a>.<br>Pastebin for the this: <a href=https://pastebin.com/pUSteP2R>Logs</a>.<br>Also, to mention, Thanks to <a href=https://www.reddit.com/user/toggleton/>u/Toggleton</a> for his extensive, report. With that, we could get more understanding of how much gain we have achieved.</p><table><thead><tr><th>File 20Sec 600Frames</th><th>Rav1e arm 0.4.0 PR</th><th>Rav1e arm 0.5 PR</th></tr></thead><tbody><tr><td>Time</td><td>255m39,731s</td><td>255m13,358s</td></tr><tr><td>FPS</td><td>0.039 fps</td><td>0.039 fps</td></tr><tr><td>Speed 6</td><td></td><td></td></tr><tr><td>Time</td><td>183m30,313s</td><td>183m23,849s</td></tr><tr><td>FPS</td><td>0.054 fps</td><td>0.055 fps</td></tr><tr><td>Speed 9</td><td></td><td></td></tr><tr><td>Time</td><td>168m18,575s</td><td>168m6,684s</td></tr><tr><td>FPS</td><td>0.059 fps</td><td>0.059 fps</td></tr></tbody></table><p>Input file: <a href=https://storage.cloud.google.com/ugc-dataset/original_videos/Gaming/1080P/Gaming_1080P-6dc6.mkv>https://storage.cloud.google.com/ugc-dataset/original_videos/Gaming/1080P/Gaming_1080P-6dc6.mkv</a><br>Preview: <a href=https://storage.cloud.google.com/ugc-dataset/original_videos/Gaming/1080P/Gaming_1080P-6dc6.mkv>https://storage.googleapis.com/ugc-dataset/previews/Gaming_1080P-6dc6.mp4</a><br>Logs: <a href=https://pastebin.com/0Uz1bkK4>https://pastebin.com/0Uz1bkK4</a><br>Log for speed-2(0.4 PR): <a href=https://pastebin.com/xdvmw6Sb>https://pastebin.com/xdvmw6Sb</a></p><table><thead><tr><th align=left>File 20Sec 600Frames</th><th align=left>0.1(last benchmark)</th><th align=left>Changes 0.1 - master(without 0.4)</th><th align=left>Rav1e Master</th><th align=left>Rav1e arm 0.4.0 PR</th><th align=left>Change for this PR</th></tr></thead><tbody><tr><td align=left><strong>Speed 2</strong></td><td align=left></td><td align=left></td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left>Time</td><td align=left>307m0,406s</td><td align=left>5,43%</td><td align=left>290m34,193s</td><td align=left>255m39,731s</td><td align=left>12,04%</td></tr><tr><td align=left>FPS</td><td align=left>0.033 fps</td><td align=left></td><td align=left>0.034 fps</td><td align=left>0.039 fps</td><td align=left></td></tr><tr><td align=left><strong>Default Speed 6</strong></td><td align=left></td><td align=left></td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left>Time</td><td align=left>217m63s</td><td align=left>11,91%</td><td align=left>194m46,607s</td><td align=left>183m30,313s</td><td align=left>5,74%</td></tr><tr><td align=left>FPS</td><td align=left>0.046 fps</td><td align=left></td><td align=left>0.051 fps</td><td align=left>0.054 fps</td><td align=left></td></tr><tr><td align=left><strong>Speed 9</strong></td><td align=left></td><td align=left></td><td align=left></td><td align=left></td><td align=left></td></tr><tr><td align=left>Time</td><td align=left>189m21,137s</td><td align=left>7,33%</td><td align=left>175m34,756s</td><td align=left>168m18,575s</td><td align=left>4,08%</td></tr><tr><td align=left>FPS</td><td align=left>0.053 fps</td><td align=left></td><td align=left>0.057 fps</td><td align=left>0.059 fps</td><td align=left></td></tr></tbody></table><p>Also to add upon this gains, this ~35% gain, is not solely due to this, we also had general speedups by refactoring codebase and much more during the Workweek in Tokyo during VideoLAN Developer Days 2019. So we could say, we got at least more than 20% due to the inclusion of Assembly.</p><h3 id=future-plans>Future plans</h3><p>Currently, we have only imported all functions and integrated a few of them and we got this much gains. So next plans which we have are also promising like this
+- Implement SAD and SATD functions, which makes x86 and AArch64 assembly equal.
+- Fix the CDEF bug which we are facing. The bug which we are facing is, the offset is having a one-bit difference. We have tried to incorporate CDEF changes but it is not so doable easily, we have to rework on memory buffers to incorporate changeable stride for input buffer which would take time and would be a blocker. So what we are going to do now is, have all x86 integrated changes for AArch64 also and have it pass all tests and do a benchmark.
+- Integrate Looprestoration from dav1d.
+- Integrate Loopfiltering from dav1d.
+- Write better tests for transformations
+- Start writing RDO Assembly functions, RDO is an expensive one in our rav1e.
+- Have better user-friendly documentation which would help people to understand AV1 better.</p><p>Freely,<br>~ mindfreeze</p><div class=tk-next><b>Next up</b>: <a href=https://rustav.org/blog/2019-12-19-rav1e-0.2.0/>rav1e 0.2.0 - Winter Solstice</a></div></main></div></div><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js integrity=sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7 crossorigin=anonymous></script><script src=https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js integrity=sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8 crossorigin=anonymous></script><script src=https://rustav.org/js/bootstrap.min.js></script><script src=https://rustav.org/js/highlight.js></script><script>$(function(){$("pre code").each(function(i,block){if(block.className.indexOf('language-rust')>=0){var new_content='';var lines=block.textContent.split('\n');for(var i=0;i<lines.length;i++){if(lines[i].indexOf('# ')==0||lines[i]=='#'){continue}
+new_content+=lines[i].trimRight()+'\n';}
+block.textContent=new_content.replace(/\n\n\n/g,"\n\n").trimRight();}
+hljs.highlightBlock(block);});});</script><script>$(document).ready(function(){let data;fetch('https://api.github.com/orgs/rust-av/repos?type=all').then(function(res){return res.json();}).then(function(json){data=json;document.getElementById("repos").innerHTML=data.length;})});</script><script>$(document).ready(function(){let data;let stargazersCount=0;fetch('https://api.github.com/orgs/rust-av/repos?type=all').then(function(res){return res.json();}).then(function(json){data=json;data.map((data)=>{stargazersCount=stargazersCount+data.stargazers_count
+document.getElementById("stars").innerHTML=stargazersCount})})})</script><script>$(document).ready(function(){let data;let forksCount=0;fetch('https://api.github.com/orgs/rust-av/repos?type=all').then(function(res){return res.json();}).then(function(json){data=json;data.map((data)=>{forksCount=forksCount+data.forks_count
+document.getElementById("forks").innerHTML=forksCount})})})</script><script>$(document).ready(function(){let data;let openIssuesCount=0;fetch('https://api.github.com/orgs/rust-av/repos?type=all').then(function(res){return res.json();}).then(function(json){data=json;data.map((data)=>{openIssuesCount=openIssuesCount+data.open_issues_count
+document.getElementById("openissues").innerHTML=openIssuesCount})})})</script><script type=text/javascript src=https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js></script><script type=text/javascript>docsearch({apiKey:'d7b5b785798fe748621bcaa8301a2201',indexName:'tokio',inputSelector:'#search-input',debug:false});</script></body></html>
