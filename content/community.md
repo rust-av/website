@@ -41,8 +41,8 @@ and [much more](https://github.com/rust-av).
 
 Are you interested in getting involved with the code and participating in
 our development?
-Contact the team member [lu_zero](luca.barbato@luminem.it)
+Contact us on [IRC](https://web.libera.chat/#rust-av) or on the [Github Discussion](https://github.com/rust-av/rust-av/discussions).
 
 # Contributors
 
-We would like to thank to numerous volunteers around the globe for helping rust-av grow :). 
+We would like to thank to numerous volunteers around the globe for helping rust-av grow :).
